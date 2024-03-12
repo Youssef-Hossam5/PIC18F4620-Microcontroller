@@ -4826,7 +4826,7 @@ dc_motor_t dc_motor_2 = {
 void application_intialize (void) {
     Std_ReturnType ret = (Std_ReturnType)0x00;
      ret= dc_motor_initialize(&dc_motor_1);
-    ret= dc_motor_initialize(&dc_motor_2);
+    ret= gpio_port_direction_initialize(PORTC_INDEX,0x80);
     return ;
 }
 
@@ -4835,11 +4835,9 @@ int main() {
      Std_ReturnType ret = (Std_ReturnType)0x00;
      application_intialize();
     while (1) {
-        ret=dc_motor_move_right(&dc_motor_1);
-        ret=dc_motor_move_right(&dc_motor_2);
-        _delay((unsigned long)((5000)*(8000000/4000.0)));
-        ret=dc_motor_move_left(&dc_motor_1);
-        ret=dc_motor_move_left(&dc_motor_2);
+        ret=gpio_port_write_logic(PORTC_INDEX,0xc0);
+
+
     }
      return (0);
 }

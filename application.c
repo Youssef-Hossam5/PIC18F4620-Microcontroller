@@ -33,7 +33,7 @@ dc_motor_t dc_motor_2 = {
 void application_intialize (void) {
     Std_ReturnType ret = E_NOT_OK;
      ret= dc_motor_initialize(&dc_motor_1);
-    ret= dc_motor_initialize(&dc_motor_2);
+    ret= gpio_port_direction_initialize(PORTC_INDEX,0x80); // initialize port to be output
     return ;
 }
 
@@ -42,11 +42,9 @@ int main() {
      Std_ReturnType ret = E_NOT_OK;
      application_intialize();
     while (1) {
-        ret=dc_motor_move_right(&dc_motor_1);
-        ret=dc_motor_move_right(&dc_motor_2);
-        __delay_ms(5000);
-        ret=dc_motor_move_left(&dc_motor_1);
-        ret=dc_motor_move_left(&dc_motor_2);
+        ret=gpio_port_write_logic(PORTC_INDEX,0xc0);
+        
+
     }
      return (EXIT_SUCCESS);
 }
