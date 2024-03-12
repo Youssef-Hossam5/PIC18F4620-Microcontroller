@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/LED/ecu_led.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/DC_Motor/ecu_dc_motor.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/GPIO/hal_gpio.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/application.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/button/ecu_button.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/7_Segment/ecu_seven_segment.c</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/application.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/Relay/ecu_relay.c</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/DC_Motor/ecu_dc_motor.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/LED/ecu_led.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/Relay/ecu_relay.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/ecu_relay_cfg.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/GPIO/hal_gpio.c</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/7_Segment/ecu_seven_segment.h</file>
         </group>
     </open-files>
 </project-private>

@@ -14,4 +14,6 @@ ECU_layer/button/ecu_button_cfg.h  \
 ECU_layer/Relay/ecu_relay.h  \
 ECU_layer/Relay/ecu_relay_cfg.h  \
 ECU_layer/DC_Motor/ecu_dc_motor.h  \
-ECU_layer/DC_Motor/ecu_dc_motor_cfg.h 
+ECU_layer/DC_Motor/ecu_dc_motor_cfg.h  \
+ECU_layer/7_Segment/ecu_seven_segment.h  \
+ECU_layer/7_Segment/ecu_seven_segment_cfg.h 

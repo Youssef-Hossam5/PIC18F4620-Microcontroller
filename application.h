@@ -14,7 +14,7 @@
 #include "ECU_layer/button/ecu_button.h"    
 #include "ECU_layer/Relay/ecu_relay.h"
 #include "ECU_layer/DC_Motor/ecu_dc_motor.h"
-
+#include "ECU_layer/7_Segment/ecu_seven_segment.h"
 
 /* Section : Macro Declarations*/
 #define _XTAL_FREQ  8000000  // 4MHz crystal frquency
