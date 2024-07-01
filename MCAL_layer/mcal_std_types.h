@@ -38,7 +38,9 @@ typedef  uint8              Std_ReturnType ;
 #define STD_ACTIVE           0x01
 #define STD_IDLE             0x00   
 #define E_OK                (Std_ReturnType)0x01   
-#define E_NOT_OK            (Std_ReturnType)0x00            
+#define E_NOT_OK            (Std_ReturnType)0x00      
+
+#define ZERO_INIT            0
 
 /* Section :Function Declarations */
 

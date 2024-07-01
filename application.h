@@ -10,17 +10,14 @@
 
 /****************** Section : Includes ***************/
 
-#include "ECU_layer/LED/ecu_led.h"
-#include "ECU_layer/button/ecu_button.h"    
-#include "ECU_layer/Relay/ecu_relay.h"
-#include "ECU_layer/DC_Motor/ecu_dc_motor.h"
-#include "ECU_layer/7_Segment/ecu_seven_segment.h"
+#include "ECU_layer/ecu_layer_init.h"
+
 
 /* Section : Macro Declarations*/
-#define _XTAL_FREQ  8000000  // 4MHz crystal frquency
+#define _XTAL_FREQ  4000000  // 4MHz crystal frquency
 
 /* Section : Data Type Declarations */
-
+extern keypad_t keypad1 ;
 /* Section : Function Declarations */
 
 #endif	/* APPLICATION_H */
