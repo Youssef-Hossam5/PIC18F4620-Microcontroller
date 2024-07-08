@@ -4,14 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/chr_lcd/chr_lcd.c</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/DC_Motor/ecu_dc_motor.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/GPIO/hal_gpio.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/application.c</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/chr_lcd/chr_lcd_cfg.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/application.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/ecu_layer_init.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/mcal_std_types.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/GPIO/hal_gpio.c</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/chr_lcd/chr_lcd.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/ecu_layer_init.c</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/std_libraries.h</file>
         </group>
     </open-files>
 </project-private>
