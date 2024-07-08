@@ -13,6 +13,9 @@
           <itemPath>ECU_layer/button/ecu_button.h</itemPath>
           <itemPath>ECU_layer/button/ecu_button_cfg.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="chr_lcd" displayName="chr_lcd" projectFiles="true">
+          <itemPath>ECU_layer/chr_lcd/chr_lcd_cfg.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="DC_Motor" displayName="DC_Motor" projectFiles="true">
           <itemPath>ECU_layer/DC_Motor/ecu_dc_motor.h</itemPath>
           <itemPath>ECU_layer/DC_Motor/ecu_dc_motor_cfg.h</itemPath>
@@ -30,6 +33,7 @@
           <itemPath>ECU_layer/Relay/ecu_relay_cfg.h</itemPath>
         </logicalFolder>
         <itemPath>ECU_layer/ecu_layer_init.h</itemPath>
+        <itemPath>ECU_layer/chr_lcd/chr_lcd.h</itemPath>
       </logicalFolder>
       <logicalFolder name="MCAL_layer" displayName="MCAL_layer" projectFiles="true">
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
@@ -56,6 +60,9 @@
         </logicalFolder>
         <logicalFolder name="button" displayName="button" projectFiles="true">
           <itemPath>ECU_layer/button/ecu_button.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="chr_lcd" displayName="chr_lcd" projectFiles="true">
+          <itemPath>ECU_layer/chr_lcd/chr_lcd.c</itemPath>
         </logicalFolder>
         <logicalFolder name="DC_Motor" displayName="DC_Motor" projectFiles="true">
           <itemPath>ECU_layer/DC_Motor/ecu_dc_motor.c</itemPath>

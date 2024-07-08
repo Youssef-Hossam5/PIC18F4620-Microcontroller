@@ -10,7 +10,7 @@
 
 /* ----------------- Includes -----------------*/
 #include "ecu_dc_motor_cfg.h"
-#include "../../MCAL_Layer/GPIO/hal_gpio.h"
+#include "../../MCAL_layer/GPIO/hal_gpio.h"
 
 /* ----------------- Macro Declarations -----------------*/
 #define DC_MOTOR_ON_STATUS  0x01U

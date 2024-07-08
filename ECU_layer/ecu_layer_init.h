@@ -17,7 +17,7 @@
 #include "DC_Motor/ecu_dc_motor.h"
 #include "7_Segment/ecu_seven_segment.h"
 #include "KeyPad/ecu_keypad.h"
-
+#include "chr_lcd/chr_lcd.h"
 
  void ecu_layer_intialize(void);
 

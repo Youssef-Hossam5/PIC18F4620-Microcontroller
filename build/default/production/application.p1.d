@@ -19,4 +19,7 @@ ECU_layer/DC_Motor/ecu_dc_motor_cfg.h  \
 ECU_layer/7_Segment/ecu_seven_segment.h  \
 ECU_layer/7_Segment/ecu_seven_segment_cfg.h  \
 ECU_layer/KeyPad/ecu_keypad.h  \
-ECU_layer/KeyPad/ecu_keypad_cfg.h 
+ECU_layer/KeyPad/ecu_keypad_cfg.h  \
+ECU_layer/chr_lcd/chr_lcd.h  \
+ECU_layer/chr_lcd/chr_lcd_cfg.h  \
+ECU_layer/chr_lcd/../../../MPLABXProjects/application.h 
