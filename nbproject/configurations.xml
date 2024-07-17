@@ -40,6 +40,53 @@
           <itemPath>MCAL_layer/GPIO/hal_gpio.h</itemPath>
           <itemPath>MCAL_layer/GPIO/hal_gpio_cfg.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="Interrupt" displayName="Interrupt" projectFiles="true">
+          <itemPath>MCAL_layer/Interrupt/mcal_interrupt_config.h</itemPath>
+          <itemPath>MCAL_layer/Interrupt/mcal_internal_interrupt.h</itemPath>
+          <itemPath>MCAL_layer/Interrupt/mcal_interrupt_manager.h</itemPath>
+          <itemPath>MCAL_layer/Interrupt/mcal_external_interrupt.h</itemPath>
+          <itemPath>MCAL_layer/Interrupt/mcal_interrupt_gen_cfg.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="MPLABXProjects"
+                       displayName="MPLABXProjects"
+                       projectFiles="true">
+          <logicalFolder name="debug" displayName="debug" projectFiles="true">
+            <logicalFolder name="default" displayName="default" projectFiles="true">
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="dist" displayName="dist" projectFiles="true">
+            <logicalFolder name="default" displayName="default" projectFiles="true">
+              <logicalFolder name="production" displayName="production" projectFiles="true">
+              </logicalFolder>
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="ECU_layer" displayName="ECU_layer" projectFiles="true">
+            <logicalFolder name="7_Segment" displayName="7_Segment" projectFiles="true">
+            </logicalFolder>
+            <logicalFolder name="button" displayName="button" projectFiles="true">
+            </logicalFolder>
+            <logicalFolder name="chr_lcd" displayName="chr_lcd" projectFiles="true">
+            </logicalFolder>
+            <logicalFolder name="DC_Motor" displayName="DC_Motor" projectFiles="true">
+            </logicalFolder>
+            <logicalFolder name="KeyPad" displayName="KeyPad" projectFiles="true">
+            </logicalFolder>
+            <logicalFolder name="LED" displayName="LED" projectFiles="true">
+            </logicalFolder>
+            <logicalFolder name="Relay" displayName="Relay" projectFiles="true">
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="MCAL_layer" displayName="MCAL_layer" projectFiles="true">
+            <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
+            </logicalFolder>
+            <logicalFolder name="Interrupt" displayName="Interrupt" projectFiles="true">
+            </logicalFolder>
+          </logicalFolder>
+          <logicalFolder name="Proteus designs"
+                         displayName="Proteus designs"
+                         projectFiles="true">
+          </logicalFolder>
+        </logicalFolder>
         <itemPath>MCAL_layer/compiler.h</itemPath>
         <itemPath>MCAL_layer/mcal_std_types.h</itemPath>
         <itemPath>MCAL_layer/std_libraries.h</itemPath>
@@ -82,6 +129,11 @@
         <logicalFolder name="GPIO" displayName="GPIO" projectFiles="true">
           <itemPath>MCAL_layer/GPIO/hal_gpio.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="Interrupt" displayName="Interrupt" projectFiles="true">
+          <itemPath>MCAL_layer/Interrupt/mcal_internal_interrupt.c</itemPath>
+          <itemPath>MCAL_layer/Interrupt/mcal_external_interrupt.c</itemPath>
+          <itemPath>MCAL_layer/Interrupt/mcal_interrupt_manager.c</itemPath>
+        </logicalFolder>
         <itemPath>MCAL_layer/device_config.c</itemPath>
       </logicalFolder>
       <itemPath>application.c</itemPath>
@@ -93,8 +145,7 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>MCAL_layer</Elem>
-    <Elem>ECU_layer</Elem>
+    <Elem></Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
