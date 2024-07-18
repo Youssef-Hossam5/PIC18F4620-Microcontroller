@@ -55,16 +55,17 @@ Std_ReturnType Interrupt_INTx_Init(const interrupt_INTx_t *int_obj){
         /* Disable the External interrupt */
         ret = Interrupt_INTx_Disable(int_obj);
         /* Clear Interrupt Flag : External interrupt did not occur */
-        ret |= Interrupt_INTx_Clear_Flag(int_obj);
+        ret &= Interrupt_INTx_Clear_Flag(int_obj);
         /* Configure External interrupt edge */
-        ret |= Interrupt_INTx_Edge_Init(int_obj);
+        ret &= Interrupt_INTx_Edge_Init(int_obj);
         /* Configure External interrupt I/O pin */
-        ret |= Interrupt_INTx_Pin_Init(int_obj);
+        ret &= Interrupt_INTx_Pin_Init(int_obj);
         /* Configure Default Interrupt CallBack */
-        ret |= Interrupt_INTx_SetInterruptHandler(int_obj);
+        ret &= Interrupt_INTx_SetInterruptHandler(int_obj);
         /* Enable the External interrupt */
-        ret |= Interrupt_INTx_Enable(int_obj);
+        ret &= Interrupt_INTx_Enable(int_obj);
     }
+    /* compound and to ensure all interrupt functions finished successfuly */
     return ret;
 }
 
