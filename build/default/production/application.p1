@@ -1,13 +1,12 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"68 ./ECU_layer/chr_lcd/../../MCAL_layer/GPIO/hal_gpio.h
+"68 ./MCAL_Layer/ADC/../Interrupt/../../MCAL_Layer/GPIO/hal_gpio.h
 [s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S273 . port pin direction logic ]
-"51 ./ECU_layer/chr_lcd/chr_lcd.h
-[; ;./ECU_layer/chr_lcd/chr_lcd.h: 51: typedef struct{
-[s S281 `S273 1 `S273 1 `S273 -> 8 `i ]
-[n S281 . lcd_rs lcd_en lcd_data ]
-"8 application.c
-[; ;application.c: 8: chr_lcd_8bit_t lcd_2 = {
+"45 ./ECU_layer/chr_lcd/chr_lcd.h
+[s S280 `S273 1 `S273 1 `S273 -> 4 `i ]
+[n S280 . lcd_rs lcd_en lcd_data ]
+"14 application.c
+[; ;application.c: 14: chr_lcd_4bit_t lcd_1 = {
 [c E2983 0 1 2 3 4 .. ]
 [n E2983 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
 [c E2973 0 1 2 3 4 5 6 7 .. ]
@@ -16,16 +15,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n E2969 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
 [c E2965 0 1 .. ]
 [n E2965 . GPIO_LOW GPIO_HIGH  ]
-"22 ./ECU_layer/ecu_layer_init.h
-[; ;./ECU_layer/ecu_layer_init.h: 22:  void ecu_layer_intialize(void);
-[v _ecu_layer_intialize `(v ~T0 @X0 0 ef ]
+[v F3219 `(v ~T0 @X0 0 tf ]
+"41
+[; ;application.c: 41: adc_conf_t adc_1 = {
+[c E3179 0 1 .. ]
+[n E3179 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
+[c E3198 0 1 2 3 4 5 6 7 .. ]
+[n E3198 . ADC_0_TAD ADC_2_TAD ADC_4_TAD ADC_6_TAD ADC_8_TAD ADC_12_TAD ADC_16_TAD ADC_20_TAD  ]
+[c E3208 0 1 2 3 4 5 6 .. ]
+[n E3208 . ADC_CONVERSION_CLOCK_FOSC_DIV_2 ADC_CONVERSION_CLOCK_FOSC_DIV_8 ADC_CONVERSION_CLOCK_FOSC_DIV_32 ADC_CONVERSION_CLOCK_FOSC_DIV_FRC ADC_CONVERSION_CLOCK_FOSC_DIV_4 ADC_CONVERSION_CLOCK_FOSC_DIV_16 ADC_CONVERSION_CLOCK_FOSC_DIV_64  ]
+[c E3183 0 1 2 3 4 5 6 7 8 9 10 11 12 .. ]
+[n E3183 . ADC_CHANNEL_AN0 ADC_CHANNEL_AN1 ADC_CHANNEL_AN2 ADC_CHANNEL_AN3 ADC_CHANNEL_AN4 ADC_CHANNEL_AN5 ADC_CHANNEL_AN6 ADC_CHANNEL_AN7 ADC_CHANNEL_AN8 ADC_CHANNEL_AN9 ADC_CHANNEL_AN10 ADC_CHANNEL_AN11 ADC_CHANNEL_AN12  ]
+"153 ./MCAL_Layer/ADC/hal_adc.h
+[; ;./MCAL_Layer/ADC/hal_adc.h: 153: typedef struct{
+[s S282 `*F3219 1 `E3179 1 `E3198 1 `E3208 1 `E3183 1 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
+[n S282 . ADC_InterruptHandler priority acquisition_time conversion_clock adc_channel voltage_reference result_format ADC_Reserved ]
+"12 application.c
+[; ;application.c: 12: void ADC_DefaultInterruptHandler(void);
+[v _ADC_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
 [p mainexit ]
-"67 ./ECU_layer/chr_lcd/chr_lcd.h
-[; ;./ECU_layer/chr_lcd/chr_lcd.h: 67: Std_ReturnType lcd_8bit_intialize(const chr_lcd_8bit_t *lcd);
-[v _lcd_8bit_intialize `(uc ~T0 @X0 0 ef1`*CS281 ]
-"71
-[; ;./ECU_layer/chr_lcd/chr_lcd.h: 71: Std_ReturnType lcd_8bit_send_string(const chr_lcd_8bit_t *lcd, uint8 *str);
-[v _lcd_8bit_send_string `(uc ~T0 @X0 0 ef2`*CS281`*uc ]
+"23 ./ECU_Layer/chr_lcd/../../../MPLABXProjects/application.h
+[; ;./ECU_Layer/chr_lcd/../../../MPLABXProjects/application.h: 23: void application_intialize(void);
+[v _application_intialize `(v ~T0 @X0 0 ef ]
+"172 ./MCAL_Layer/ADC/hal_adc.h
+[; ;./MCAL_Layer/ADC/hal_adc.h: 172: Std_ReturnType ADC_Init(const adc_conf_t *_adc);
+[v _ADC_Init `(uc ~T0 @X0 0 ef1`*CS282 ]
+"58 ./ECU_layer/chr_lcd/chr_lcd.h
+[v _lcd_4bit_intialize `(uc ~T0 @X0 0 ef1`*CS280 ]
+"63
+[v _lcd_4bit_send_string_pos `(uc ~T0 @X0 0 ef4`*CS280`uc`uc`*uc ]
+[v F2935 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
+[v __delay `JF2935 ~T0 @X0 0 e ]
+[p i __delay ]
+"59 ./ECU_layer/chr_lcd/chr_lcd.h
+[v _lcd_4bit_send_command `(uc ~T0 @X0 0 ef2`*CS280`uc ]
+"180 ./MCAL_Layer/ADC/hal_adc.h
+[; ;./MCAL_Layer/ADC/hal_adc.h: 180: Std_ReturnType ADC_StartConversion_Interrupt(const adc_conf_t *_adc, adc_channel_select_t channel);
+[v _ADC_StartConversion_Interrupt `(uc ~T0 @X0 0 ef2`*CS282`E3183 ]
+"77 ./ECU_layer/chr_lcd/chr_lcd.h
+[v _convert_uint16_to_string `(uc ~T0 @X0 0 ef2`us`*uc ]
+"22 ./ECU_Layer/ecu_layer_init.h
+[; ;./ECU_Layer/ecu_layer_init.h: 22:  void ecu_layer_intialize(void);
+[v _ecu_layer_intialize `(v ~T0 @X0 0 ef ]
+"177 ./MCAL_Layer/ADC/hal_adc.h
+[; ;./MCAL_Layer/ADC/hal_adc.h: 177: Std_ReturnType ADC_GetConversionResult(const adc_conf_t *_adc, adc_result_t *conversion_result);
+[v _ADC_GetConversionResult `(uc ~T0 @X0 0 ef2`*CS282`*us ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -437,140 +472,343 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6716
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 6716: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"8 application.c
-[; ;application.c: 8: chr_lcd_8bit_t lcd_2 = {
-[v _lcd_2 `S281 ~T0 @X0 1 e ]
-[i _lcd_2
+"14 application.c
+[; ;application.c: 14: chr_lcd_4bit_t lcd_1 = {
+[v _lcd_1 `S280 ~T0 @X0 1 e ]
+[i _lcd_1
 :U ..
 :U ..
 :U ..
 :U ..
 -> . `E2983 2 `uc
--> . `E2973 6 `uc
--> . `E2969 0 `uc
--> . `E2965 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2983 2 `uc
--> . `E2973 7 `uc
--> . `E2969 0 `uc
--> . `E2965 0 `uc
-..
-..
-:U ..
-:U ..
--> . `E2983 3 `uc
 -> . `E2973 0 `uc
 -> . `E2969 0 `uc
 -> . `E2965 0 `uc
 ..
+..
 :U ..
--> . `E2983 3 `uc
+:U ..
+-> . `E2983 2 `uc
 -> . `E2973 1 `uc
 -> . `E2969 0 `uc
 -> . `E2965 0 `uc
 ..
+..
 :U ..
--> . `E2983 3 `uc
+:U ..
+-> . `E2983 2 `uc
 -> . `E2973 2 `uc
 -> . `E2969 0 `uc
 -> . `E2965 0 `uc
 ..
 :U ..
--> . `E2983 3 `uc
+-> . `E2983 2 `uc
 -> . `E2973 3 `uc
 -> . `E2969 0 `uc
 -> . `E2965 0 `uc
 ..
 :U ..
--> . `E2983 3 `uc
+-> . `E2983 2 `uc
 -> . `E2973 4 `uc
 -> . `E2969 0 `uc
 -> . `E2965 0 `uc
 ..
 :U ..
--> . `E2983 3 `uc
+-> . `E2983 2 `uc
 -> . `E2973 5 `uc
 -> . `E2969 0 `uc
 -> . `E2965 0 `uc
 ..
-:U ..
--> . `E2983 3 `uc
--> . `E2973 6 `uc
--> . `E2969 0 `uc
--> . `E2965 0 `uc
-..
-:U ..
--> . `E2983 3 `uc
--> . `E2973 7 `uc
--> . `E2969 0 `uc
--> . `E2965 0 `uc
-..
 ..
 ..
 ..
 ]
-"63
-[; ;application.c: 63: void application_intialize (void) {
-[v _application_intialize `(v ~T0 @X0 1 ef ]
-{
-[e :U _application_intialize ]
-[f ]
-"64
-[; ;application.c: 64:     Std_ReturnType ret = (Std_ReturnType)0x00;
-[v _ret `uc ~T0 @X0 1 a ]
-[e = _ret -> -> 0 `i `uc ]
-"65
-[; ;application.c: 65:     ecu_layer_intialize();
-[e ( _ecu_layer_intialize ..  ]
-"66
-[; ;application.c: 66:     return ;
-[e $UE 282  ]
-"67
-[; ;application.c: 67: }
-[e :UE 282 ]
-}
-"68
-[; ;application.c: 68: uint8 number=45;
-[v _number `uc ~T0 @X0 1 e ]
-[i _number
--> -> 45 `i `uc
+"41
+[; ;application.c: 41: adc_conf_t adc_1 = {
+[v _adc_1 `S282 ~T0 @X0 1 e ]
+[i _adc_1
+:U ..
+:U ..
+&U _ADC_DefaultInterruptHandler
+-> -> 0 `i `E3179
+. `E3198 5
+. `E3208 5
+. `E3183 0
+-> -> 0 `ui `uc
+-> -> 1 `ui `uc
+..
+..
+]
+"50
+[; ;application.c: 50: uint16 adc_res_1 = 0, adc_res_2 = 0, adc_res_3 = 0, adc_res_4 = 0;
+[v _adc_res_1 `us ~T0 @X0 1 e ]
+[i _adc_res_1
+-> -> 0 `i `us
+]
+[v _adc_res_2 `us ~T0 @X0 1 e ]
+[i _adc_res_2
+-> -> 0 `i `us
+]
+[v _adc_res_3 `us ~T0 @X0 1 e ]
+[i _adc_res_3
+-> -> 0 `i `us
+]
+[v _adc_res_4 `us ~T0 @X0 1 e ]
+[i _adc_res_4
+-> -> 0 `i `us
+]
+"51
+[; ;application.c: 51: uint8 adc_res_1_txt[6], adc_res_2_txt[6], adc_res_3_txt[6], adc_res_4_txt[6];
+[v _adc_res_1_txt `uc ~T0 @X0 -> 6 `i e ]
+[v _adc_res_2_txt `uc ~T0 @X0 -> 6 `i e ]
+[v _adc_res_3_txt `uc ~T0 @X0 -> 6 `i e ]
+[v _adc_res_4_txt `uc ~T0 @X0 -> 6 `i e ]
+"52
+[; ;application.c: 52: uint8 ADC_Req = 0;
+[v _ADC_Req `uc ~T0 @X0 1 e ]
+[i _ADC_Req
+-> -> 0 `i `uc
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"69
-[; ;application.c: 69: int main() {
+"54
+[; ;application.c: 54: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"70
-[; ;application.c: 70:      Std_ReturnType ret = (Std_ReturnType)0x00;
+"55
+[; ;application.c: 55:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
+"57
+[; ;application.c: 57:     application_intialize();
+[e ( _application_intialize ..  ]
+"59
+[; ;application.c: 59:     ret = ADC_Init(&adc_1);
+[e = _ret ( _ADC_Init (1 -> &U _adc_1 `*CS282 ]
+"60
+[; ;application.c: 60:     ret = lcd_4bit_intialize(&lcd_1);
+[e = _ret ( _lcd_4bit_intialize (1 -> &U _lcd_1 `*CS280 ]
+"62
+[; ;application.c: 62:     ret = lcd_4bit_send_string_pos(&lcd_1, 1, 7, "ADC Test");
+[e = _ret ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc -> -> 7 `i `uc :s 1C ]
+"63
+[; ;application.c: 63:     _delay((unsigned long)((2000)*(4000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+"64
+[; ;application.c: 64:     ret = lcd_4bit_send_command(&lcd_1, 0X01);
+[e = _ret ( _lcd_4bit_send_command (2 , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc ]
+"66
+[; ;application.c: 66:     ret = lcd_4bit_send_string_pos(&lcd_1, 1, 1, "Pot0: ");
+[e = _ret ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 2C ]
+"67
+[; ;application.c: 67:     ret = lcd_4bit_send_string_pos(&lcd_1, 2, 1, "Pot1: ");
+[e = _ret ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 2 `i `uc -> -> 1 `i `uc :s 3C ]
+"68
+[; ;application.c: 68:     ret = lcd_4bit_send_string_pos(&lcd_1, 3, 1, "Pot2: ");
+[e = _ret ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 3 `i `uc -> -> 1 `i `uc :s 4C ]
+"69
+[; ;application.c: 69:     ret = lcd_4bit_send_string_pos(&lcd_1, 4, 1, "Pot3: ");
+[e = _ret ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 4 `i `uc -> -> 1 `i `uc :s 5C ]
 "71
-[; ;application.c: 71:      ret=lcd_8bit_intialize(&lcd_2);
-[e = _ret ( _lcd_8bit_intialize (1 -> &U _lcd_2 `*CS281 ]
-"72
-[; ;application.c: 72:      ret=lcd_8bit_send_string(&lcd_2,"Hello World!");
-[e = _ret ( _lcd_8bit_send_string (2 , -> &U _lcd_2 `*CS281 :s 1C ]
-"73
-[; ;application.c: 73:      while(1){
+[; ;application.c: 71:     while(1){
 [e :U 285 ]
 {
+"72
+[; ;application.c: 72:         if(0 == ADC_Req){
+[e $ ! == -> 0 `i -> _ADC_Req `i 287  ]
+{
+"73
+[; ;application.c: 73:             ret = ADC_StartConversion_Interrupt(&adc_1, ADC_CHANNEL_AN0);
+[e = _ret ( _ADC_StartConversion_Interrupt (2 , -> &U _adc_1 `*CS282 . `E3183 0 ]
 "74
-[; ;application.c: 74:      };
+[; ;application.c: 74:         }
+}
+[e $U 288  ]
+"75
+[; ;application.c: 75:         else if(1 == ADC_Req){
+[e :U 287 ]
+[e $ ! == -> 1 `i -> _ADC_Req `i 289  ]
+{
+"76
+[; ;application.c: 76:             ret = ADC_StartConversion_Interrupt(&adc_1, ADC_CHANNEL_AN1);
+[e = _ret ( _ADC_StartConversion_Interrupt (2 , -> &U _adc_1 `*CS282 . `E3183 1 ]
+"77
+[; ;application.c: 77:         }
+}
+[e $U 290  ]
+"78
+[; ;application.c: 78:         else if(2 == ADC_Req){
+[e :U 289 ]
+[e $ ! == -> 2 `i -> _ADC_Req `i 291  ]
+{
+"79
+[; ;application.c: 79:             ret = ADC_StartConversion_Interrupt(&adc_1, ADC_CHANNEL_AN2);
+[e = _ret ( _ADC_StartConversion_Interrupt (2 , -> &U _adc_1 `*CS282 . `E3183 2 ]
+"80
+[; ;application.c: 80:         }
+}
+[e $U 292  ]
+"81
+[; ;application.c: 81:         else if(3 == ADC_Req){
+[e :U 291 ]
+[e $ ! == -> 3 `i -> _ADC_Req `i 293  ]
+{
+"82
+[; ;application.c: 82:             ret = ADC_StartConversion_Interrupt(&adc_1, ADC_CHANNEL_AN3);
+[e = _ret ( _ADC_StartConversion_Interrupt (2 , -> &U _adc_1 `*CS282 . `E3183 3 ]
+"83
+[; ;application.c: 83:         }
+}
+[e $U 294  ]
+"84
+[; ;application.c: 84:         else { }
+[e :U 293 ]
+{
+}
+[e :U 294 ]
+[e :U 292 ]
+[e :U 290 ]
+[e :U 288 ]
+"86
+[; ;application.c: 86:         ret = convert_uint16_to_string(adc_res_1, adc_res_1_txt);
+[e = _ret ( _convert_uint16_to_string (2 , _adc_res_1 &U _adc_res_1_txt ]
+"87
+[; ;application.c: 87:         ret = convert_uint16_to_string(adc_res_2, adc_res_2_txt);
+[e = _ret ( _convert_uint16_to_string (2 , _adc_res_2 &U _adc_res_2_txt ]
+"88
+[; ;application.c: 88:         ret = convert_uint16_to_string(adc_res_3, adc_res_3_txt);
+[e = _ret ( _convert_uint16_to_string (2 , _adc_res_3 &U _adc_res_3_txt ]
+"89
+[; ;application.c: 89:         ret = convert_uint16_to_string(adc_res_4, adc_res_4_txt);
+[e = _ret ( _convert_uint16_to_string (2 , _adc_res_4 &U _adc_res_4_txt ]
+"91
+[; ;application.c: 91:         ret = lcd_4bit_send_string_pos(&lcd_1, 1, 7, adc_res_1_txt);
+[e = _ret ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc -> -> 7 `i `uc &U _adc_res_1_txt ]
+"92
+[; ;application.c: 92:         ret = lcd_4bit_send_string_pos(&lcd_1, 2, 7, adc_res_2_txt);
+[e = _ret ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 2 `i `uc -> -> 7 `i `uc &U _adc_res_2_txt ]
+"93
+[; ;application.c: 93:         ret = lcd_4bit_send_string_pos(&lcd_1, 3, 7, adc_res_3_txt);
+[e = _ret ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 3 `i `uc -> -> 7 `i `uc &U _adc_res_3_txt ]
+"94
+[; ;application.c: 94:         ret = lcd_4bit_send_string_pos(&lcd_1, 4, 7, adc_res_4_txt);
+[e = _ret ( _lcd_4bit_send_string_pos (4 , , , -> &U _lcd_1 `*CS280 -> -> 4 `i `uc -> -> 7 `i `uc &U _adc_res_4_txt ]
+"95
+[; ;application.c: 95:     }
 }
 [e :U 284 ]
 [e $U 285  ]
 [e :U 286 ]
-"75
-[; ;application.c: 75:      return (0);
+"96
+[; ;application.c: 96:     return (0);
 [e ) -> 0 `i ]
 [e $UE 283  ]
-"76
-[; ;application.c: 76: }
+"97
+[; ;application.c: 97: }
 [e :UE 283 ]
 }
-[a 1C 72 101 108 108 111 32 87 111 114 108 100 33 0 ]
+"99
+[; ;application.c: 99: void application_intialize(void){
+[v _application_intialize `(v ~T0 @X0 1 ef ]
+{
+[e :U _application_intialize ]
+[f ]
+"100
+[; ;application.c: 100:     Std_ReturnType ret = (Std_ReturnType)0x00;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 0 `i `uc ]
+"101
+[; ;application.c: 101:     ecu_layer_intialize();
+[e ( _ecu_layer_intialize ..  ]
+"102
+[; ;application.c: 102: }
+[e :UE 295 ]
+}
+"104
+[; ;application.c: 104: void ADC_DefaultInterruptHandler(void){
+[v _ADC_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
+{
+[e :U _ADC_DefaultInterruptHandler ]
+[f ]
+"105
+[; ;application.c: 105:     Std_ReturnType ret = (Std_ReturnType)0x00;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 0 `i `uc ]
+"106
+[; ;application.c: 106:     if(0 == ADC_Req){
+[e $ ! == -> 0 `i -> _ADC_Req `i 297  ]
+{
+"107
+[; ;application.c: 107:         ret = ADC_GetConversionResult(&adc_1, &adc_res_1);
+[e = _ret ( _ADC_GetConversionResult (2 , -> &U _adc_1 `*CS282 &U _adc_res_1 ]
+"108
+[; ;application.c: 108:         ADC_Req = 1;
+[e = _ADC_Req -> -> 1 `i `uc ]
+"109
+[; ;application.c: 109:     }
+}
+[e $U 298  ]
+"110
+[; ;application.c: 110:     else if(1 == ADC_Req){
+[e :U 297 ]
+[e $ ! == -> 1 `i -> _ADC_Req `i 299  ]
+{
+"111
+[; ;application.c: 111:         ret = ADC_GetConversionResult(&adc_1, &adc_res_2);
+[e = _ret ( _ADC_GetConversionResult (2 , -> &U _adc_1 `*CS282 &U _adc_res_2 ]
+"112
+[; ;application.c: 112:         ADC_Req = 2;
+[e = _ADC_Req -> -> 2 `i `uc ]
+"113
+[; ;application.c: 113:     }
+}
+[e $U 300  ]
+"114
+[; ;application.c: 114:     else if(2 == ADC_Req){
+[e :U 299 ]
+[e $ ! == -> 2 `i -> _ADC_Req `i 301  ]
+{
+"115
+[; ;application.c: 115:         ret = ADC_GetConversionResult(&adc_1, &adc_res_3);
+[e = _ret ( _ADC_GetConversionResult (2 , -> &U _adc_1 `*CS282 &U _adc_res_3 ]
+"116
+[; ;application.c: 116:         ADC_Req = 3;
+[e = _ADC_Req -> -> 3 `i `uc ]
+"117
+[; ;application.c: 117:     }
+}
+[e $U 302  ]
+"118
+[; ;application.c: 118:     else if(3 == ADC_Req){
+[e :U 301 ]
+[e $ ! == -> 3 `i -> _ADC_Req `i 303  ]
+{
+"119
+[; ;application.c: 119:         ret = ADC_GetConversionResult(&adc_1, &adc_res_4);
+[e = _ret ( _ADC_GetConversionResult (2 , -> &U _adc_1 `*CS282 &U _adc_res_4 ]
+"120
+[; ;application.c: 120:         ADC_Req = 0;
+[e = _ADC_Req -> -> 0 `i `uc ]
+"121
+[; ;application.c: 121:     }
+}
+[e $U 304  ]
+"122
+[; ;application.c: 122:     else { }
+[e :U 303 ]
+{
+}
+[e :U 304 ]
+[e :U 302 ]
+[e :U 300 ]
+[e :U 298 ]
+"123
+[; ;application.c: 123: }
+[e :UE 296 ]
+}
+[a 1C 65 68 67 32 84 101 115 116 0 ]
+[a 5C 80 111 116 51 58 32 0 ]
+[a 4C 80 111 116 50 58 32 0 ]
+[a 3C 80 111 116 49 58 32 0 ]
+[a 2C 80 111 116 48 58 32 0 ]

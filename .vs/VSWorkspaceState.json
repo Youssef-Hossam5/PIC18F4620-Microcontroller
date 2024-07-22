@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MCAL_layer",
+    "\\MCAL_layer\\ADC",
+    "\\MCAL_layer\\GPIO",
+    "\\MCAL_layer\\Interrupt"
+  ],
+  "SelectedNode": "\\MCAL_layer\\Interrupt\\mcal_external_interrupt.h",
+  "PreviewInSolutionExplorer": false
+}

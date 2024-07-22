@@ -3,27 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/LED/ecu_led.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_external_interrupt.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_manager.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/ecu_layer_init.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/application.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/mcal_std_types.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/7_Segment/ecu_seven_segment_cfg.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_config.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/GPIO/hal_gpio.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/std_libraries.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_manager.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/DC_Motor/ecu_dc_motor_cfg.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/7_Segment/ecu_seven_segment.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_external_interrupt.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_internal_interrupt.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/GPIO/hal_gpio.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/ADC/hal_adc.c</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/application.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/DC_Motor/ecu_dc_motor.c</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_manager.c</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/application.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/ADC/hal_adc.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_config.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_internal_interrupt.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/ADC/hal_adc_cfg.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_manager.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_gen_cfg.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/KeyPad/ecu_keypad.h</file>
         </group>
     </open-files>
 </project-private>

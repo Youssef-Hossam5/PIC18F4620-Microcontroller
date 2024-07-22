@@ -8,16 +8,20 @@
 #ifndef APPLICATION_H
 #define	APPLICATION_H
 
-/****************** Section : Includes ***************/
 
-#include "ECU_layer/ecu_layer_init.h"
+/* Section : Includes */
+#include "ECU_Layer/ecu_layer_init.h"
 
-/*section : Macro Declarations*/
+/* Section: Macro Declarations */
 #define _XTAL_FREQ  4000000  // 4MHz crystal frquency
 
-/* Section : Data Type Declarations */
-extern keypad_t keypad1 ;
-/* Section : Function Declarations */
+/* Section: Macro Functions Declarations */
+
+/* Section: Data Type Declarations */
+
+/* Section: Function Declarations */
+void application_intialize(void);
 
 #endif	/* APPLICATION_H */
+
 

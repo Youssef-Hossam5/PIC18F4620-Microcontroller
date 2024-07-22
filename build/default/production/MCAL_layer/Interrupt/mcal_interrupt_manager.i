@@ -4236,7 +4236,7 @@ extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
 # 1 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/mcal_std_types.h" 1
 # 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/mcal_std_types.h"
 # 1 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 1
-# 11 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h"
+# 12 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -4400,7 +4400,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
+# 12 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 3
@@ -4465,7 +4465,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
+# 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 3
@@ -4522,7 +4522,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
+# 14 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
 # 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/mcal_std_types.h" 2
 
 # 1 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/compiler.h" 1
@@ -4780,26 +4780,83 @@ void RB4_ISR(uint8 RB4_Source);
 void RB5_ISR(uint8 RB5_Source);
 void RB6_ISR(uint8 RB6_Source);
 void RB7_ISR(uint8 RB7_Source);
+void ADC_ISR(void);
 # 9 "MCAL_layer/Interrupt/mcal_interrupt_manager.c" 2
 
 
 static volatile uint8 RB4_Flag = 1, RB5_Flag = 1, RB6_Flag = 1, RB7_Flag = 1;
+# 33 "MCAL_layer/Interrupt/mcal_interrupt_manager.c"
+void __attribute__((picinterrupt(("")))) InterruptManager(void){
 
-
-void __attribute__((picinterrupt(("")))) InterruptManagerHigh(void){
-    if((1 == INTCON3bits.INT2IE) && (1 == INTCON3bits.INT2IF)){
-        INT2_ISR();
-    }
-    else{ }
     if((1 == INTCONbits.INT0IE) && (1 == INTCONbits.INT0IF)){
         INT0_ISR();
     }
     else{ }
-}
-
-void __attribute__((picinterrupt(("low_priority")))) InterruptManagerLow(void){
     if((1 == INTCON3bits.INT1E) && (1 == INTCON3bits.INT1F)){
         INT1_ISR();
     }
     else{ }
+    if((1 == INTCON3bits.INT2IE) && (1 == INTCON3bits.INT2IF)){
+        INT2_ISR();
+    }
+    else{ }
+
+
+
+    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+       (PORTBbits.RB4 == GPIO_HIGH) && (RB4_Flag == 1)){
+        RB4_Flag = 0;
+        RB4_ISR(0);
+    }
+    else{ }
+    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+       (PORTBbits.RB4 == GPIO_LOW) && (RB4_Flag == 0)){
+        RB4_Flag = 1;
+        RB4_ISR(1);
+    }
+    else{ }
+    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+       (PORTBbits.RB5 == GPIO_HIGH) && (RB5_Flag == 1)){
+        RB5_Flag = 0;
+        RB5_ISR(0);
+    }
+    else{ }
+    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+       (PORTBbits.RB5 == GPIO_LOW) && (RB5_Flag == 0)){
+        RB5_Flag = 1;
+        RB5_ISR(1);
+    }
+    else{ }
+    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+       (PORTBbits.RB6 == GPIO_HIGH) && (RB6_Flag == 1)){
+        RB6_Flag = 0;
+        RB6_ISR(0);
+    }
+    else{ }
+    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+       (PORTBbits.RB6 == GPIO_LOW) && (RB6_Flag == 0)){
+        RB6_Flag = 1;
+        RB6_ISR(1);
+    }
+    else{ }
+    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+       (PORTBbits.RB7 == GPIO_HIGH) && (RB7_Flag == 1)){
+        RB7_Flag = 0;
+        RB7_ISR(0);
+    }
+    else{ }
+    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
+       (PORTBbits.RB7 == GPIO_LOW) && (RB7_Flag == 0)){
+        RB7_Flag = 1;
+        RB7_ISR(1);
+    }
+    else{ }
+
+
+    if((1 == PIE1bits.ADIE) && (1 == PIR1bits.ADIF)){
+        ADC_ISR();
+    }
+    else{ }
+
+
 }

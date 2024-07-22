@@ -4235,7 +4235,7 @@ extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
 # 1 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/mcal_std_types.h" 1
 # 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/mcal_std_types.h"
 # 1 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 1
-# 11 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h"
+# 12 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -4399,7 +4399,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 11 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
+# 12 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 3
@@ -4464,7 +4464,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 12 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
+# 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 3
@@ -4521,7 +4521,7 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
+# 14 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
 # 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/mcal_std_types.h" 2
 
 # 1 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/compiler.h" 1
@@ -5016,24 +5016,9 @@ Std_ReturnType Interrupt_RBx_Init(const interrupt_RBx_t *int_obj){
         (INTCONbits.RBIE = 0);
 
         (INTCONbits.RBIF = 0);
-
-        (RCONbits.IPEN = 1);
-        if(INTERRUPT_LOW_PRIORITY == int_obj->priority){
-
-            (INTCONbits.GIEL = 1);
-
-            (INTCON2bits.RBIP = 0);
-        }
-        else if(INTERRUPT_HIGH_PRIORITY == int_obj->priority){
-
-            (INTCONbits.GIEH = 1);
-
-            (INTCON2bits.RBIP = 1);
-        }
-        else{ }
-
-
-
+# 232 "MCAL_layer/Interrupt/mcal_external_interrupt.c"
+        (INTCONbits.GIE = 1);
+        (INTCONbits.PEIE = 1);
 
 
         ret = gpio_pin_direction_initialize(&(int_obj->mcu_pin));
@@ -5088,44 +5073,26 @@ static Std_ReturnType Interrupt_INTx_Enable(const interrupt_INTx_t *int_obj){
         switch(int_obj->source){
             case INTERRUPT_EXTERNAL_INT0 :
 
-                (INTCONbits.GIEH = 1);
 
 
-
+                (INTCONbits.GIE = 1);
+                (INTCONbits.PEIE = 1);
 
                 (INTCONbits.INT0IE = 1);
                 ret = (Std_ReturnType)0x01;
                 break;
             case INTERRUPT_EXTERNAL_INT1 :
-
-                (RCONbits.IPEN = 1);
-                if(INTERRUPT_LOW_PRIORITY == int_obj->priority){
-                    (INTCONbits.GIEL = 1);
-                }
-                else if(INTERRUPT_HIGH_PRIORITY == int_obj->priority){
-                    (INTCONbits.GIEH = 1);
-                }
-                else{ }
-
-
-
+# 321 "MCAL_layer/Interrupt/mcal_external_interrupt.c"
+                (INTCONbits.GIE = 1);
+                (INTCONbits.PEIE = 1);
 
                 (INTCON3bits.INT1IE = 1);
                 ret = (Std_ReturnType)0x01;
                 break;
             case INTERRUPT_EXTERNAL_INT2 :
-
-                (RCONbits.IPEN = 1);
-                if(INTERRUPT_LOW_PRIORITY == int_obj->priority){
-                    (INTCONbits.GIEL = 1);
-                }
-                else if(INTERRUPT_HIGH_PRIORITY == int_obj->priority){
-                    (INTCONbits.GIEH = 1);
-                }
-                else{ }
-
-
-
+# 338 "MCAL_layer/Interrupt/mcal_external_interrupt.c"
+                (INTCONbits.GIE = 1);
+                (INTCONbits.PEIE = 1);
 
                 (INTCON3bits.INT2IE = 1);
                 ret = (Std_ReturnType)0x01;
@@ -5153,31 +5120,6 @@ static Std_ReturnType Interrupt_INTx_Disable(const interrupt_INTx_t *int_obj){
                 break;
             case INTERRUPT_EXTERNAL_INT2 :
                 (INTCON3bits.INT2IE = 0);
-                ret = (Std_ReturnType)0x01;
-                break;
-            default : ret = (Std_ReturnType)0x00;
-        }
-    }
-    return ret;
-}
-# 390 "MCAL_layer/Interrupt/mcal_external_interrupt.c"
-static Std_ReturnType Interrupt_INTx_Priority_Init(const interrupt_INTx_t *int_obj){
-    Std_ReturnType ret = (Std_ReturnType)0x00;
-    if(((void*)0) == int_obj){
-        ret = (Std_ReturnType)0x00;
-    }
-    else{
-        switch(int_obj->source){
-            case INTERRUPT_EXTERNAL_INT1 :
-                if(INTERRUPT_LOW_PRIORITY == int_obj->priority){ (INTCON3bits.INT1IP = 0); }
-                else if(INTERRUPT_HIGH_PRIORITY == int_obj->priority){ (INTCON3bits.INT1IP = 1); }
-                else{ }
-                ret = (Std_ReturnType)0x01;
-                break;
-            case INTERRUPT_EXTERNAL_INT2 :
-                if(INTERRUPT_LOW_PRIORITY == int_obj->priority){ (INTCON3bits.INT2IP = 0); }
-                else if(INTERRUPT_HIGH_PRIORITY == int_obj->priority){ (INTCON3bits.INT2IP = 1); }
-                else{ }
                 ret = (Std_ReturnType)0x01;
                 break;
             default : ret = (Std_ReturnType)0x00;
