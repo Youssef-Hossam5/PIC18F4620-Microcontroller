@@ -7,12 +7,10 @@
 
 #include "hal_adc.h"
 
-
 #if ADC_INTERRUPT_FEATURE_ENABLE==INTERRUPT_FEATURE_ENABLE
 static void (*ADC_InterruptHandler)(void) = NULL;
 #endif
 
-/* @brief: Static helper functions     */
 static inline void adc_input_channel_port_configure(adc_channel_select_t channel);
 static inline void select_result_format(const adc_conf_t *_adc);
 static inline void configure_voltage_reference(const adc_conf_t *_adc);
@@ -44,9 +42,7 @@ Std_ReturnType ADC_Init(const adc_conf_t *_adc){
         ADCON0bits.CHS = _adc->adc_channel;
         adc_input_channel_port_configure(_adc->adc_channel);
         /* Configure the interrupt */
-        #if ADC_INTERRUPT_FEATURE_ENABLE==INTERRUPT_FEATURE_ENABLE
-        INTERRUPT_GlobalInterruptEnable();
-        INTERRUPT_PeripheralInterruptEnable();
+        #if ADC_INTERRUPT_FEATURE_ENABLE==INTERRUPT_FEATURE_ENABLE 
         ADC_InterruptEnable();
         ADC_InterruptFlagClear();
         #if INTERRUPT_PRIORITY_LEVELS_ENABLE==INTERRUPT_FEATURE_ENABLE 
@@ -59,6 +55,9 @@ Std_ReturnType ADC_Init(const adc_conf_t *_adc){
             ADC_LowPrioritySet(); 
         }
         else{ /* Nothing */ }
+        #else
+        INTERRUPT_GlobalInterruptEnable();
+        INTERRUPT_PeripheralInterruptEnable();
         #endif
         ADC_InterruptHandler = _adc->ADC_InterruptHandler;
         #endif
@@ -162,7 +161,7 @@ Std_ReturnType ADC_IsConversionDone(const adc_conf_t *_adc, uint8 *conversion_st
         ret = E_NOT_OK;
     }
     else{
-        *conversion_status = (uint8)(!(ADCON0bits.GO_nDONE));           /* complement the bit to return true or false */
+        *conversion_status = (uint8)(!(ADCON0bits.GO_nDONE));
         ret = E_OK;
     }
     return ret;
@@ -187,13 +186,13 @@ Std_ReturnType ADC_GetConversionResult(const adc_conf_t *_adc, adc_result_t *con
     }
     else{
         if(ADC_RESULT_RIGHT == _adc->result_format){
-            *conversion_result = (adc_result_t)((ADRESH << 8) + ADRESL);  /* Shift MSB 8 bits to the left to be in their right position to get the 16 bits result*/
+            *conversion_result = (adc_result_t)((ADRESH << 8) + ADRESL);
         }
         else if(ADC_RESULT_LEFT == _adc->result_format){
-            *conversion_result = (adc_result_t)(((ADRESH << 8) + ADRESL) >> 6); /* Shift bits to the right position to obtain the correct 16 bits result */
+            *conversion_result = (adc_result_t)(((ADRESH << 8) + ADRESL) >> 6);
         }
         else{
-            *conversion_result = (adc_result_t)((ADRESH << 8) + ADRESL);  /* The Default format is right   */
+            *conversion_result = (adc_result_t)((ADRESH << 8) + ADRESL);
         }
         ret = E_OK;
     }

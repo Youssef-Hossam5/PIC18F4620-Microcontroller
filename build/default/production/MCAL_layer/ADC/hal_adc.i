@@ -4856,15 +4856,13 @@ Std_ReturnType ADC_StartConversion_Interrupt(const adc_conf_t *_adc, adc_channel
 
 
 
-
 static void (*ADC_InterruptHandler)(void) = ((void*)0);
-
 
 
 static __attribute__((inline)) void adc_input_channel_port_configure(adc_channel_select_t channel);
 static __attribute__((inline)) void select_result_format(const adc_conf_t *_adc);
 static __attribute__((inline)) void configure_voltage_reference(const adc_conf_t *_adc);
-# 31 "MCAL_layer/ADC/hal_adc.c"
+# 29 "MCAL_layer/ADC/hal_adc.c"
 Std_ReturnType ADC_Init(const adc_conf_t *_adc){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == _adc){
@@ -4882,11 +4880,12 @@ Std_ReturnType ADC_Init(const adc_conf_t *_adc){
         adc_input_channel_port_configure(_adc->adc_channel);
 
 
-        (INTCONbits.GIE = 1);
-        (INTCONbits.PEIE = 1);
         (PIE1bits.ADIE = 1);
         (PIR1bits.ADIF = 0);
-# 63 "MCAL_layer/ADC/hal_adc.c"
+# 59 "MCAL_layer/ADC/hal_adc.c"
+        (INTCONbits.GIE = 1);
+        (INTCONbits.PEIE = 1);
+
         ADC_InterruptHandler = _adc->ADC_InterruptHandler;
 
 
@@ -4899,7 +4898,7 @@ Std_ReturnType ADC_Init(const adc_conf_t *_adc){
     }
     return ret;
 }
-# 83 "MCAL_layer/ADC/hal_adc.c"
+# 82 "MCAL_layer/ADC/hal_adc.c"
 Std_ReturnType ADC_DeInit(const adc_conf_t *_adc){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == _adc){
@@ -4916,7 +4915,7 @@ Std_ReturnType ADC_DeInit(const adc_conf_t *_adc){
     }
     return ret;
 }
-# 110 "MCAL_layer/ADC/hal_adc.c"
+# 109 "MCAL_layer/ADC/hal_adc.c"
 Std_ReturnType ADC_SelectChannel(const adc_conf_t *_adc, adc_channel_select_t channel){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == _adc){
@@ -4930,7 +4929,7 @@ Std_ReturnType ADC_SelectChannel(const adc_conf_t *_adc, adc_channel_select_t ch
     }
     return ret;
 }
-# 133 "MCAL_layer/ADC/hal_adc.c"
+# 132 "MCAL_layer/ADC/hal_adc.c"
 Std_ReturnType ADC_StartConversion(const adc_conf_t *_adc){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if(((void*)0) == _adc){
@@ -4942,7 +4941,7 @@ Std_ReturnType ADC_StartConversion(const adc_conf_t *_adc){
     }
     return ret;
 }
-# 159 "MCAL_layer/ADC/hal_adc.c"
+# 158 "MCAL_layer/ADC/hal_adc.c"
 Std_ReturnType ADC_IsConversionDone(const adc_conf_t *_adc, uint8 *conversion_status){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if((((void*)0) == _adc) || (((void*)0) == conversion_status)){
@@ -4954,7 +4953,7 @@ Std_ReturnType ADC_IsConversionDone(const adc_conf_t *_adc, uint8 *conversion_st
     }
     return ret;
 }
-# 183 "MCAL_layer/ADC/hal_adc.c"
+# 182 "MCAL_layer/ADC/hal_adc.c"
 Std_ReturnType ADC_GetConversionResult(const adc_conf_t *_adc, adc_result_t *conversion_result){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     if((((void*)0) == _adc) || (((void*)0) == conversion_result)){
@@ -4974,7 +4973,7 @@ Std_ReturnType ADC_GetConversionResult(const adc_conf_t *_adc, adc_result_t *con
     }
     return ret;
 }
-# 215 "MCAL_layer/ADC/hal_adc.c"
+# 214 "MCAL_layer/ADC/hal_adc.c"
 Std_ReturnType ADC_GetConversion_Blocking(const adc_conf_t *_adc, adc_channel_select_t channel,
                                  adc_result_t *conversion_result){
     Std_ReturnType ret = (Std_ReturnType)0x00;

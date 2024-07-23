@@ -27,7 +27,7 @@
    <POPUP w="8" x="395" flags="0000000a" y="338" h="32" pid="4" iid="1">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="8" x="415" flags="80000002" y="358" h="16" pid="12" iid="1">
+   <POPUP w="8" x="415" flags="00000002" y="358" h="16" pid="12" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="435" flags="0000000a" y="378" h="32" pid="6" iid="1">
@@ -42,7 +42,7 @@
    <POPUP w="18" x="495" flags="00000008" y="438" h="32" pid="10" iid="1">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="8" x="515" flags="80000002" y="458" h="8" pid="13" iid="1">
+   <POPUP w="8" x="515" flags="00000002" y="458" h="8" pid="13" iid="1">
     <PROPERTIES/>
    </POPUP>
   </PWI>

@@ -4945,6 +4945,7 @@ void application_intialize(void);
 
 
 
+
 # 1 "./MCAL_Layer/ADC/hal_adc.h" 1
 # 13 "./MCAL_Layer/ADC/hal_adc.h"
 # 1 "./MCAL_Layer/ADC/hal_adc_cfg.h" 1
@@ -5040,10 +5041,31 @@ Std_ReturnType ADC_GetConversionResult(const adc_conf_t *_adc, adc_result_t *con
 Std_ReturnType ADC_GetConversion_Blocking(const adc_conf_t *_adc, adc_channel_select_t channel,
                                  adc_result_t *conversion_result);
 Std_ReturnType ADC_StartConversion_Interrupt(const adc_conf_t *_adc, adc_channel_select_t channel);
-# 10 "application.c" 2
+# 11 "application.c" 2
 
 
-void ADC_DefaultInterruptHandler(void);
+
+dc_motor_t dc_motor_1 = {
+    .dc_motor_pin[0].port = PORTD_INDEX,
+    .dc_motor_pin[0].pin = GPIO_PIN0,
+    .dc_motor_pin[0].logic = 0x00U,
+    .dc_motor_pin[0].direction = GPIO_DIRECTION_OUTPUT,
+    .dc_motor_pin[1].port = PORTD_INDEX,
+    .dc_motor_pin[1].pin = GPIO_PIN1,
+    .dc_motor_pin[1].logic = 0x00U,
+    .dc_motor_pin[1].direction = GPIO_DIRECTION_OUTPUT
+};
+
+dc_motor_t dc_motor_2 = {
+    .dc_motor_pin[0].port = PORTD_INDEX,
+    .dc_motor_pin[0].pin = GPIO_PIN2,
+    .dc_motor_pin[0].logic = 0x00U,
+    .dc_motor_pin[0].direction = GPIO_DIRECTION_OUTPUT,
+    .dc_motor_pin[1].port = PORTD_INDEX,
+    .dc_motor_pin[1].pin = GPIO_PIN3,
+    .dc_motor_pin[1].logic = 0x00U,
+    .dc_motor_pin[1].direction = GPIO_DIRECTION_OUTPUT
+};
 
 chr_lcd_4bit_t lcd_1 = {
     .lcd_rs.port = PORTC_INDEX,
@@ -5073,7 +5095,7 @@ chr_lcd_4bit_t lcd_1 = {
 };
 
 adc_conf_t adc_1 = {
-    .ADC_InterruptHandler = ADC_DefaultInterruptHandler,
+    .ADC_InterruptHandler = ((void*)0),
     .acquisition_time = ADC_12_TAD,
     .adc_channel = ADC_CHANNEL_AN0,
     .conversion_clock = ADC_CONVERSION_CLOCK_FOSC_DIV_16,
@@ -5081,51 +5103,53 @@ adc_conf_t adc_1 = {
     .voltage_reference = 0x00U
 };
 
-uint16 adc_res_1 = 0, adc_res_2 = 0, adc_res_3 = 0, adc_res_4 = 0;
-uint8 adc_res_1_txt[6], adc_res_2_txt[6], adc_res_3_txt[6], adc_res_4_txt[6];
-uint8 ADC_Req = 0;
+uint16 lm35_res_1, lm35_res_2, lm35_res_1_Celsius_mv = 0, lm35_res_2_Celsius_mv = 0;
+uint8 lm35_res_1_txt[7], lm35_res_2_txt[7];
 
 int main() {
     Std_ReturnType ret = (Std_ReturnType)0x00;
 
     application_intialize();
 
-    ret = ADC_Init(&adc_1);
     ret = lcd_4bit_intialize(&lcd_1);
+    ret = ADC_Init(&adc_1);
+    ret = dc_motor_initialize(&dc_motor_1);
+    ret = dc_motor_initialize(&dc_motor_2);
 
-    ret = lcd_4bit_send_string_pos(&lcd_1, 1, 7, "ADC Test");
-    _delay((unsigned long)((2000)*(4000000/4000.0)));
-    ret = lcd_4bit_send_command(&lcd_1, 0X01);
+    ret = lcd_4bit_send_string_pos(&lcd_1, 1, 7, "LM35 Test");
 
-    ret = lcd_4bit_send_string_pos(&lcd_1, 1, 1, "Pot0: ");
-    ret = lcd_4bit_send_string_pos(&lcd_1, 2, 1, "Pot1: ");
-    ret = lcd_4bit_send_string_pos(&lcd_1, 3, 1, "Pot2: ");
-    ret = lcd_4bit_send_string_pos(&lcd_1, 4, 1, "Pot3: ");
+    ret = lcd_4bit_send_string_pos(&lcd_1, 2, 1, "Temp1: ");
+    ret = lcd_4bit_send_string_pos(&lcd_1, 3, 1, "Temp2: ");
 
     while(1){
-        if(0 == ADC_Req){
-            ret = ADC_StartConversion_Interrupt(&adc_1, ADC_CHANNEL_AN0);
-        }
-        else if(1 == ADC_Req){
-            ret = ADC_StartConversion_Interrupt(&adc_1, ADC_CHANNEL_AN1);
-        }
-        else if(2 == ADC_Req){
-            ret = ADC_StartConversion_Interrupt(&adc_1, ADC_CHANNEL_AN2);
-        }
-        else if(3 == ADC_Req){
-            ret = ADC_StartConversion_Interrupt(&adc_1, ADC_CHANNEL_AN3);
-        }
-        else { }
+        ret = ADC_GetConversion_Blocking(&adc_1, ADC_CHANNEL_AN0, &lm35_res_1);
+        ret = ADC_GetConversion_Blocking(&adc_1, ADC_CHANNEL_AN1, &lm35_res_2);
 
-        ret = convert_uint16_to_string(adc_res_1, adc_res_1_txt);
-        ret = convert_uint16_to_string(adc_res_2, adc_res_2_txt);
-        ret = convert_uint16_to_string(adc_res_3, adc_res_3_txt);
-        ret = convert_uint16_to_string(adc_res_4, adc_res_4_txt);
+        lm35_res_1_Celsius_mv = lm35_res_1 * 4.88f;
+        lm35_res_2_Celsius_mv = lm35_res_2 * 4.88f;
 
-        ret = lcd_4bit_send_string_pos(&lcd_1, 1, 7, adc_res_1_txt);
-        ret = lcd_4bit_send_string_pos(&lcd_1, 2, 7, adc_res_2_txt);
-        ret = lcd_4bit_send_string_pos(&lcd_1, 3, 7, adc_res_3_txt);
-        ret = lcd_4bit_send_string_pos(&lcd_1, 4, 7, adc_res_4_txt);
+        lm35_res_1_Celsius_mv /= 10;
+        lm35_res_2_Celsius_mv /= 10;
+
+        ret = convert_uint16_to_string(lm35_res_1_Celsius_mv, lm35_res_1_txt);
+        ret = convert_uint16_to_string(lm35_res_2_Celsius_mv, lm35_res_2_txt);
+
+        ret = lcd_4bit_send_string_pos(&lcd_1, 2, 8, lm35_res_1_txt);
+        ret = lcd_4bit_send_string_pos(&lcd_1, 3, 8, lm35_res_2_txt);
+
+        if(lm35_res_1_Celsius_mv > 20){
+            ret = dc_motor_move_right(&dc_motor_1);
+        }
+        else{
+            ret = dc_motor_stop(&dc_motor_1);
+        }
+
+        if(lm35_res_2_Celsius_mv > 25){
+            ret = dc_motor_move_right(&dc_motor_2);
+        }
+        else{
+            ret = dc_motor_stop(&dc_motor_2);
+        }
     }
     return (0);
 }
@@ -5133,25 +5157,4 @@ int main() {
 void application_intialize(void){
     Std_ReturnType ret = (Std_ReturnType)0x00;
     ecu_layer_intialize();
-}
-
-void ADC_DefaultInterruptHandler(void){
-    Std_ReturnType ret = (Std_ReturnType)0x00;
-    if(0 == ADC_Req){
-        ret = ADC_GetConversionResult(&adc_1, &adc_res_1);
-        ADC_Req = 1;
-    }
-    else if(1 == ADC_Req){
-        ret = ADC_GetConversionResult(&adc_1, &adc_res_2);
-        ADC_Req = 2;
-    }
-    else if(2 == ADC_Req){
-        ret = ADC_GetConversionResult(&adc_1, &adc_res_3);
-        ADC_Req = 3;
-    }
-    else if(3 == ADC_Req){
-        ret = ADC_GetConversionResult(&adc_1, &adc_res_4);
-        ADC_Req = 0;
-    }
-    else { }
 }
