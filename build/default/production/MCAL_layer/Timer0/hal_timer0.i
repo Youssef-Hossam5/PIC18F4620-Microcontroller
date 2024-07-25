@@ -1,4 +1,4 @@
-# 1 "MCAL_layer/Interrupt/mcal_interrupt_manager.c"
+# 1 "MCAL_layer/Timer0/hal_timer0.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "MCAL_layer/Interrupt/mcal_interrupt_manager.c" 2
+# 1 "MCAL_layer/Timer0/hal_timer0.c" 2
 
 
 
@@ -14,11 +14,8 @@
 
 
 
-
-# 1 "MCAL_layer/Interrupt/mcal_interrupt_manager.h" 1
-# 12 "MCAL_layer/Interrupt/mcal_interrupt_manager.h"
-# 1 "MCAL_layer/Interrupt/mcal_interrupt_config.h" 1
-# 12 "MCAL_layer/Interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_layer/Timer0/hal_timer0.h" 1
+# 12 "MCAL_layer/Timer0/hal_timer0.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 45 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\__at.h" 1 3
@@ -4231,12 +4228,12 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 12 "MCAL_layer/Interrupt/mcal_interrupt_config.h" 2
+# 12 "MCAL_layer/Timer0/hal_timer0.h" 2
 
-# 1 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/mcal_std_types.h" 1
-# 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/mcal_std_types.h"
-# 1 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 1
-# 12 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h"
+# 1 "MCAL_layer/Timer0/../mcal_std_types.h" 1
+# 13 "MCAL_layer/Timer0/../mcal_std_types.h"
+# 1 "MCAL_layer/Timer0/../std_libraries.h" 1
+# 12 "MCAL_layer/Timer0/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -4400,7 +4397,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
+# 12 "MCAL_layer/Timer0/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 3
@@ -4465,7 +4462,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
+# 13 "MCAL_layer/Timer0/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 3
@@ -4522,11 +4519,11 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 14 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/std_libraries.h" 2
-# 13 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/mcal_std_types.h" 2
+# 14 "MCAL_layer/Timer0/../std_libraries.h" 2
+# 13 "MCAL_layer/Timer0/../mcal_std_types.h" 2
 
-# 1 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/compiler.h" 1
-# 11 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/compiler.h"
+# 1 "MCAL_layer/Timer0/../compiler.h" 1
+# 11 "MCAL_layer/Timer0/../compiler.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4688,8 +4685,8 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 11 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/compiler.h" 2
-# 14 "MCAL_layer/Interrupt/../GPIO/../../MCAL_layer/mcal_std_types.h" 2
+# 11 "MCAL_layer/Timer0/../compiler.h" 2
+# 14 "MCAL_layer/Timer0/../mcal_std_types.h" 2
 
 
 
@@ -4703,16 +4700,16 @@ typedef signed short sint16 ;
 typedef signed int sint32 ;
 
 typedef uint8 Std_ReturnType ;
-# 13 "MCAL_layer/Interrupt/mcal_interrupt_config.h" 2
+# 13 "MCAL_layer/Timer0/hal_timer0.h" 2
 
-# 1 "MCAL_layer/Interrupt/../../MCAL_Layer/GPIO/hal_gpio.h" 1
-# 14 "MCAL_layer/Interrupt/../../MCAL_Layer/GPIO/hal_gpio.h"
-# 1 "MCAL_layer/Interrupt/../../MCAL_Layer/GPIO/../device_config.h" 1
-# 14 "MCAL_layer/Interrupt/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 1 "MCAL_layer/Timer0/../../MCAL_Layer/GPIO/hal_gpio.h" 1
+# 14 "MCAL_layer/Timer0/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 1 "MCAL_layer/Timer0/../../MCAL_Layer/GPIO/../device_config.h" 1
+# 14 "MCAL_layer/Timer0/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "MCAL_layer/Interrupt/../../MCAL_Layer/GPIO/hal_gpio_cfg.h" 1
-# 15 "MCAL_layer/Interrupt/../../MCAL_Layer/GPIO/hal_gpio.h" 2
-# 39 "MCAL_layer/Interrupt/../../MCAL_Layer/GPIO/hal_gpio.h"
+# 1 "MCAL_layer/Timer0/../../MCAL_Layer/GPIO/hal_gpio_cfg.h" 1
+# 15 "MCAL_layer/Timer0/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 39 "MCAL_layer/Timer0/../../MCAL_Layer/GPIO/hal_gpio.h"
 typedef enum {
    GPIO_LOW =0 ,
    GPIO_HIGH
@@ -4762,106 +4759,180 @@ Std_ReturnType gpio_port_get_direction_status(port_index_t port , uint8 *directi
 Std_ReturnType gpio_port_write_logic (port_index_t port , uint8 logic );
 Std_ReturnType gpio_port_read_logic (port_index_t port , uint8 *logic );
 Std_ReturnType gpio_port_toggle_logic (port_index_t port);
-# 14 "MCAL_layer/Interrupt/mcal_interrupt_config.h" 2
+# 14 "MCAL_layer/Timer0/hal_timer0.h" 2
 
-# 1 "MCAL_layer/Interrupt/mcal_interrupt_gen_cfg.h" 1
-# 15 "MCAL_layer/Interrupt/mcal_interrupt_config.h" 2
-# 54 "MCAL_layer/Interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 1
+# 12 "MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h"
+# 1 "MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 1
+# 15 "MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
+# 1 "MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 15 "MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
+# 54 "MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
 typedef enum{
     INTERRUPT_LOW_PRIORITY = 0,
     INTERRUPT_HIGH_PRIORITY
 }interrupt_priority_cfg;
-# 12 "MCAL_layer/Interrupt/mcal_interrupt_manager.h" 2
-# 21 "MCAL_layer/Interrupt/mcal_interrupt_manager.h"
-void INT0_ISR(void);
-void INT1_ISR(void);
-void INT2_ISR(void);
-void RB4_ISR(uint8 RB4_Source);
-void RB5_ISR(uint8 RB5_Source);
-void RB6_ISR(uint8 RB6_Source);
-void RB7_ISR(uint8 RB7_Source);
-void ADC_ISR(void);
-void TMR0_ISR(void);
-# 9 "MCAL_layer/Interrupt/mcal_interrupt_manager.c" 2
+# 12 "MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 2
+# 15 "MCAL_layer/Timer0/hal_timer0.h" 2
+# 44 "MCAL_layer/Timer0/hal_timer0.h"
+typedef enum{
+    TIMER0_PRESCALER_DIV_BY_2= 0,
+    TIMER0_PRESCALER_DIV_BY_4,
+    TIMER0_PRESCALER_DIV_BY_8,
+    TIMER0_PRESCALER_DIV_BY_16,
+    TIMER0_PRESCALER_DIV_BY_32,
+    TIMER0_PRESCALER_DIV_BY_64,
+    TIMER0_PRESCALER_DIV_BY_128,
+    TIMER0_PRESCALER_DIV_BY_256
+}timer0_prescaler_select_t;
+
+typedef struct{
+
+    void (* TMR0_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    timer0_prescaler_select_t prescaler_value;
+    uint16 timer0_preload_value;
+    uint8 prescaler_enable : 1;
+    uint8 timer0_counter_edge : 1;
+    uint8 timer0_mode : 1;
+    uint8 timer0_register_size : 1;
+    uint8 timer0_reserved : 4;
+}timer0_t;
 
 
-static volatile uint8 RB4_Flag = 1, RB5_Flag = 1, RB6_Flag = 1, RB7_Flag = 1;
-# 33 "MCAL_layer/Interrupt/mcal_interrupt_manager.c"
-void __attribute__((picinterrupt(("")))) InterruptManager(void){
-
-    if((1 == INTCONbits.INT0IE) && (1 == INTCONbits.INT0IF)){
-        INT0_ISR();
-    }
-    else{ }
-    if((1 == INTCON3bits.INT1E) && (1 == INTCON3bits.INT1F)){
-        INT1_ISR();
-    }
-    else{ }
-    if((1 == INTCON3bits.INT2IE) && (1 == INTCON3bits.INT2IF)){
-        INT2_ISR();
-    }
-    else{ }
+Std_ReturnType Timer0_Init(const timer0_t *_timer);
+Std_ReturnType Timer0_DeInit(const timer0_t *_timer);
+Std_ReturnType Timer0_Write_Value(const timer0_t *_timer, uint16 _value);
+Std_ReturnType Timer0_Read_Value(const timer0_t *_timer, uint16 *_value);
+# 8 "MCAL_layer/Timer0/hal_timer0.c" 2
 
 
 
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
-       (PORTBbits.RB4 == GPIO_HIGH) && (RB4_Flag == 1)){
-        RB4_Flag = 0;
-        RB4_ISR(0);
+    static void (*TMR0_InterruptHandler)(void) = ((void*)0);
+
+static uint16 timer0_preload = 0;
+
+static __attribute__((inline)) void Timer0_Prescaler_Config(const timer0_t *_timer);
+static __attribute__((inline)) void Timer0_Mode_Select(const timer0_t *_timer);
+static __attribute__((inline)) void Timer0_Register_Size_Config(const timer0_t *_timer);
+
+Std_ReturnType Timer0_Init(const timer0_t *_timer){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    if(((void*)0) == _timer){
+        ret = (Std_ReturnType)0x00;
     }
-    else{ }
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
-       (PORTBbits.RB4 == GPIO_LOW) && (RB4_Flag == 0)){
-        RB4_Flag = 1;
-        RB4_ISR(1);
-    }
-    else{ }
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
-       (PORTBbits.RB5 == GPIO_HIGH) && (RB5_Flag == 1)){
-        RB5_Flag = 0;
-        RB5_ISR(0);
-    }
-    else{ }
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
-       (PORTBbits.RB5 == GPIO_LOW) && (RB5_Flag == 0)){
-        RB5_Flag = 1;
-        RB5_ISR(1);
-    }
-    else{ }
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
-       (PORTBbits.RB6 == GPIO_HIGH) && (RB6_Flag == 1)){
-        RB6_Flag = 0;
-        RB6_ISR(0);
-    }
-    else{ }
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
-       (PORTBbits.RB6 == GPIO_LOW) && (RB6_Flag == 0)){
-        RB6_Flag = 1;
-        RB6_ISR(1);
-    }
-    else{ }
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
-       (PORTBbits.RB7 == GPIO_HIGH) && (RB7_Flag == 1)){
-        RB7_Flag = 0;
-        RB7_ISR(0);
-    }
-    else{ }
-    if((1 == INTCONbits.RBIE) && (1 == INTCONbits.RBIF) &&
-       (PORTBbits.RB7 == GPIO_LOW) && (RB7_Flag == 0)){
-        RB7_Flag = 1;
-        RB7_ISR(1);
-    }
-    else{ }
+    else{
+        (T0CONbits.TMR0ON = 0);
+        Timer0_Prescaler_Config(_timer);
+        Timer0_Mode_Select(_timer);
+        Timer0_Register_Size_Config(_timer);
+        TMR0H = (_timer->timer0_preload_value) >> 8;
+        TMR0L = (uint8)(_timer->timer0_preload_value);
+        timer0_preload = _timer->timer0_preload_value;
 
 
-    if((1 == PIE1bits.ADIE) && (1 == PIR1bits.ADIF)){
-        ADC_ISR();
+        (INTCONbits.TMR0IE = 1);
+        (INTCONbits.TMR0IF = 0);
+        TMR0_InterruptHandler = _timer->TMR0_InterruptHandler;
+# 53 "MCAL_layer/Timer0/hal_timer0.c"
+        (INTCONbits.GIE = 1);
+        (INTCONbits.PEIE = 1);
+
+
+
+        (T0CONbits.TMR0ON = 1);
+        ret = (Std_ReturnType)0x01;
+    }
+    return ret;
+}
+
+Std_ReturnType Timer0_DeInit(const timer0_t *_timer){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    if(((void*)0) == _timer){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
+        (T0CONbits.TMR0ON = 0);
+
+        (INTCONbits.TMR0IE = 0);
+
+        ret = (Std_ReturnType)0x01;
+    }
+    return ret;
+}
+
+Std_ReturnType Timer0_Write_Value(const timer0_t *_timer, uint16 _value){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    if(((void*)0) == _timer){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
+        TMR0H = (_value) >> 8;
+        TMR0L = (uint8)(_value);
+        ret = (Std_ReturnType)0x01;
+    }
+    return ret;
+}
+
+Std_ReturnType Timer0_Read_Value(const timer0_t *_timer, uint16 *_value){
+    Std_ReturnType ret = (Std_ReturnType)0x00;
+    uint8 l_tmr0l = 0, l_tmr0h = 0;
+    if(((void*)0) == _timer){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
+        l_tmr0l = TMR0L;
+        l_tmr0h = TMR0H;
+        *_value = (uint16)((l_tmr0h << 8) + l_tmr0l);
+        ret = (Std_ReturnType)0x01;
+    }
+    return ret;
+}
+
+void TMR0_ISR(void){
+    (INTCONbits.TMR0IF = 0);
+    TMR0H = (timer0_preload) >> 8;
+    TMR0L = (uint8)(timer0_preload);
+    if(TMR0_InterruptHandler){
+        TMR0_InterruptHandler();
+    }
+}
+
+static __attribute__((inline)) void Timer0_Prescaler_Config(const timer0_t *_timer){
+    if(1 == _timer->prescaler_enable){
+        (T0CONbits.PSA = 0);
+        T0CONbits.T0PS = _timer->prescaler_value;
+    }
+    else if(0 == _timer->prescaler_enable){
+        (T0CONbits.PSA = 1);
     }
     else{ }
+}
 
-    if((1 == INTCONbits.TMR0IE) && (1 == INTCONbits.TMR0IF)){
-        TMR0_ISR();
+static __attribute__((inline)) void Timer0_Mode_Select(const timer0_t *_timer){
+    if(1 == _timer->timer0_mode){
+        (T0CONbits.T0CS = 0);
+    }
+    else if(0 == _timer->timer0_mode){
+        (T0CONbits.T0CS = 1);
+        if(1 == _timer->timer0_counter_edge){
+            (T0CONbits.T0SE = 0);
+        }
+        else if(0 == _timer->timer0_counter_edge){
+            (T0CONbits.T0SE = 1);
+        }
+        else{ }
     }
     else{ }
+}
 
+static __attribute__((inline)) void Timer0_Register_Size_Config(const timer0_t *_timer){
+    if(1 == _timer->timer0_register_size){
+        (T0CONbits.T08BIT = 1);
+    }
+    else if(0 == _timer->timer0_register_size){
+        (T0CONbits.T08BIT = 0);
+    }
+    else{ }
 }

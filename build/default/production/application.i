@@ -4946,210 +4946,82 @@ void application_intialize(void);
 
 
 
-# 1 "./MCAL_Layer/ADC/hal_adc.h" 1
-# 13 "./MCAL_Layer/ADC/hal_adc.h"
-# 1 "./MCAL_Layer/ADC/hal_adc_cfg.h" 1
-# 13 "./MCAL_Layer/ADC/hal_adc.h" 2
-
-
-
-# 1 "./MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h" 1
-# 12 "./MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h"
-# 1 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h" 1
-# 15 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h"
-# 1 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_gen_cfg.h" 1
-# 15 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h" 2
-# 54 "./MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h"
+# 1 "./MCAL_layer/Timer0/hal_timer0.h" 1
+# 15 "./MCAL_layer/Timer0/hal_timer0.h"
+# 1 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 1
+# 12 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h"
+# 1 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 1
+# 15 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
+# 1 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 15 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
+# 54 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
 typedef enum{
     INTERRUPT_LOW_PRIORITY = 0,
     INTERRUPT_HIGH_PRIORITY
 }interrupt_priority_cfg;
-# 12 "./MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h" 2
-# 16 "./MCAL_Layer/ADC/hal_adc.h" 2
-# 100 "./MCAL_Layer/ADC/hal_adc.h"
-typedef enum {
- ADC_CHANNEL_AN0 =0,
- ADC_CHANNEL_AN1 ,
- ADC_CHANNEL_AN2 ,
- ADC_CHANNEL_AN3 ,
- ADC_CHANNEL_AN4 ,
- ADC_CHANNEL_AN5 ,
- ADC_CHANNEL_AN6 ,
- ADC_CHANNEL_AN7 ,
- ADC_CHANNEL_AN8 ,
- ADC_CHANNEL_AN9 ,
- ADC_CHANNEL_AN10,
- ADC_CHANNEL_AN11,
- ADC_CHANNEL_AN12
-} adc_channel_select_t;
-# 123 "./MCAL_Layer/ADC/hal_adc.h"
+# 12 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 2
+# 15 "./MCAL_layer/Timer0/hal_timer0.h" 2
+# 44 "./MCAL_layer/Timer0/hal_timer0.h"
 typedef enum{
-    ADC_0_TAD = 0,
-    ADC_2_TAD,
-    ADC_4_TAD,
-    ADC_6_TAD,
-    ADC_8_TAD,
-    ADC_12_TAD,
-    ADC_16_TAD,
-    ADC_20_TAD
-}adc_acquisition_time_t;
-
-
-
-
-
-
-
-typedef enum{
-    ADC_CONVERSION_CLOCK_FOSC_DIV_2 = 0,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_8,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_32,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_FRC,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_4,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_16,
-    ADC_CONVERSION_CLOCK_FOSC_DIV_64
-}adc_conversion_clock_t;
-
-
-
+    TIMER0_PRESCALER_DIV_BY_2= 0,
+    TIMER0_PRESCALER_DIV_BY_4,
+    TIMER0_PRESCALER_DIV_BY_8,
+    TIMER0_PRESCALER_DIV_BY_16,
+    TIMER0_PRESCALER_DIV_BY_32,
+    TIMER0_PRESCALER_DIV_BY_64,
+    TIMER0_PRESCALER_DIV_BY_128,
+    TIMER0_PRESCALER_DIV_BY_256
+}timer0_prescaler_select_t;
 
 typedef struct{
 
-    void (* ADC_InterruptHandler)(void);
+    void (* TMR0_InterruptHandler)(void);
     interrupt_priority_cfg priority;
 
-    adc_acquisition_time_t acquisition_time;
-    adc_conversion_clock_t conversion_clock;
-    adc_channel_select_t adc_channel;
-    uint8 voltage_reference : 1;
-    uint8 result_format : 1;
-    uint8 ADC_Reserved : 6;
-}adc_conf_t;
+    timer0_prescaler_select_t prescaler_value;
+    uint16 timer0_preload_value;
+    uint8 prescaler_enable : 1;
+    uint8 timer0_counter_edge : 1;
+    uint8 timer0_mode : 1;
+    uint8 timer0_register_size : 1;
+    uint8 timer0_reserved : 4;
+}timer0_t;
 
 
-
-
-typedef uint16 adc_result_t;
-
-
-Std_ReturnType ADC_Init(const adc_conf_t *_adc);
-Std_ReturnType ADC_DeInit(const adc_conf_t *_adc);
-Std_ReturnType ADC_SelectChannel(const adc_conf_t *_adc, adc_channel_select_t channel);
-Std_ReturnType ADC_StartConversion(const adc_conf_t *_adc);
-Std_ReturnType ADC_IsConversionDone(const adc_conf_t *_adc, uint8 *conversion_status);
-Std_ReturnType ADC_GetConversionResult(const adc_conf_t *_adc, adc_result_t *conversion_result);
-Std_ReturnType ADC_GetConversion_Blocking(const adc_conf_t *_adc, adc_channel_select_t channel,
-                                 adc_result_t *conversion_result);
-Std_ReturnType ADC_StartConversion_Interrupt(const adc_conf_t *_adc, adc_channel_select_t channel);
+Std_ReturnType Timer0_Init(const timer0_t *_timer);
+Std_ReturnType Timer0_DeInit(const timer0_t *_timer);
+Std_ReturnType Timer0_Write_Value(const timer0_t *_timer, uint16 _value);
+Std_ReturnType Timer0_Read_Value(const timer0_t *_timer, uint16 *_value);
 # 11 "application.c" 2
 
-
-
-dc_motor_t dc_motor_1 = {
-    .dc_motor_pin[0].port = PORTD_INDEX,
-    .dc_motor_pin[0].pin = GPIO_PIN0,
-    .dc_motor_pin[0].logic = 0x00U,
-    .dc_motor_pin[0].direction = GPIO_DIRECTION_OUTPUT,
-    .dc_motor_pin[1].port = PORTD_INDEX,
-    .dc_motor_pin[1].pin = GPIO_PIN1,
-    .dc_motor_pin[1].logic = 0x00U,
-    .dc_motor_pin[1].direction = GPIO_DIRECTION_OUTPUT
+volatile uint8 timer0_1000ms = 0;
+void Timer0_DefaultInterruptHandler(void){
+    timer0_1000ms = 1;
+}
+led_t led1 = {.port_name = PORTC_INDEX, .pin = GPIO_PIN0, .led_status = GPIO_LOW};
+timer0_t timer0 ={
+.TMR0_InterruptHandler=Timer0_DefaultInterruptHandler ,
+.timer0_mode =1 ,
+.timer0_register_size=0,
+.prescaler_enable =1 ,
+.prescaler_value = TIMER0_PRESCALER_DIV_BY_16,
+.timer0_preload_value=3036,
 };
 
-dc_motor_t dc_motor_2 = {
-    .dc_motor_pin[0].port = PORTD_INDEX,
-    .dc_motor_pin[0].pin = GPIO_PIN2,
-    .dc_motor_pin[0].logic = 0x00U,
-    .dc_motor_pin[0].direction = GPIO_DIRECTION_OUTPUT,
-    .dc_motor_pin[1].port = PORTD_INDEX,
-    .dc_motor_pin[1].pin = GPIO_PIN3,
-    .dc_motor_pin[1].logic = 0x00U,
-    .dc_motor_pin[1].direction = GPIO_DIRECTION_OUTPUT
-};
-
-chr_lcd_4bit_t lcd_1 = {
-    .lcd_rs.port = PORTC_INDEX,
-    .lcd_rs.pin = GPIO_PIN0,
-    .lcd_rs.direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_rs.logic = GPIO_LOW,
-    .lcd_en.port = PORTC_INDEX,
-    .lcd_en.pin = GPIO_PIN1,
-    .lcd_en.direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_en.logic = GPIO_LOW,
-    .lcd_data[0].port = PORTC_INDEX,
-    .lcd_data[0].pin = GPIO_PIN2,
-    .lcd_data[0].direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_data[0].logic = GPIO_LOW,
-    .lcd_data[1].port = PORTC_INDEX,
-    .lcd_data[1].pin = GPIO_PIN3,
-    .lcd_data[1].direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_data[1].logic = GPIO_LOW,
-    .lcd_data[2].port = PORTC_INDEX,
-    .lcd_data[2].pin = GPIO_PIN4,
-    .lcd_data[2].direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_data[2].logic = GPIO_LOW,
-    .lcd_data[3].port = PORTC_INDEX,
-    .lcd_data[3].pin = GPIO_PIN5,
-    .lcd_data[3].direction = GPIO_DIRECTION_OUTPUT,
-    .lcd_data[3].logic = GPIO_LOW
-};
-
-adc_conf_t adc_1 = {
-    .ADC_InterruptHandler = ((void*)0),
-    .acquisition_time = ADC_12_TAD,
-    .adc_channel = ADC_CHANNEL_AN0,
-    .conversion_clock = ADC_CONVERSION_CLOCK_FOSC_DIV_16,
-    .result_format = 0x01U,
-    .voltage_reference = 0x00U
-};
-
-uint16 lm35_res_1, lm35_res_2, lm35_res_1_Celsius_mv = 0, lm35_res_2_Celsius_mv = 0;
-uint8 lm35_res_1_txt[7], lm35_res_2_txt[7];
 
 int main() {
     Std_ReturnType ret = (Std_ReturnType)0x00;
 
-    application_intialize();
-
-    ret = lcd_4bit_intialize(&lcd_1);
-    ret = ADC_Init(&adc_1);
-    ret = dc_motor_initialize(&dc_motor_1);
-    ret = dc_motor_initialize(&dc_motor_2);
-
-    ret = lcd_4bit_send_string_pos(&lcd_1, 1, 7, "LM35 Test");
-
-    ret = lcd_4bit_send_string_pos(&lcd_1, 2, 1, "Temp1: ");
-    ret = lcd_4bit_send_string_pos(&lcd_1, 3, 1, "Temp2: ");
-
+    ret=led_initialize(&led1);
+    ret=led_turn_on(&led1);
+    ret=Timer0_Init(&timer0);
     while(1){
-        ret = ADC_GetConversion_Blocking(&adc_1, ADC_CHANNEL_AN0, &lm35_res_1);
-        ret = ADC_GetConversion_Blocking(&adc_1, ADC_CHANNEL_AN1, &lm35_res_2);
+          if(timer0_1000ms == 1){
+            timer0_1000ms = 0;
+            led_turn_toggle(&led1);
+             }
+           else { }
 
-        lm35_res_1_Celsius_mv = lm35_res_1 * 4.88f;
-        lm35_res_2_Celsius_mv = lm35_res_2 * 4.88f;
-
-        lm35_res_1_Celsius_mv /= 10;
-        lm35_res_2_Celsius_mv /= 10;
-
-        ret = convert_uint16_to_string(lm35_res_1_Celsius_mv, lm35_res_1_txt);
-        ret = convert_uint16_to_string(lm35_res_2_Celsius_mv, lm35_res_2_txt);
-
-        ret = lcd_4bit_send_string_pos(&lcd_1, 2, 8, lm35_res_1_txt);
-        ret = lcd_4bit_send_string_pos(&lcd_1, 3, 8, lm35_res_2_txt);
-
-        if(lm35_res_1_Celsius_mv > 20){
-            ret = dc_motor_move_right(&dc_motor_1);
-        }
-        else{
-            ret = dc_motor_stop(&dc_motor_1);
-        }
-
-        if(lm35_res_2_Celsius_mv > 25){
-            ret = dc_motor_move_right(&dc_motor_2);
-        }
-        else{
-            ret = dc_motor_stop(&dc_motor_2);
-        }
     }
     return (0);
 }

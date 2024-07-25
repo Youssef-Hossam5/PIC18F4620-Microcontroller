@@ -23,8 +23,7 @@ ECU_Layer/KeyPad/ecu_keypad_cfg.h  \
 ECU_Layer/chr_lcd/chr_lcd.h  \
 ECU_Layer/chr_lcd/chr_lcd_cfg.h  \
 ECU_Layer/chr_lcd/../../../MPLABXProjects/application.h  \
-MCAL_Layer/ADC/hal_adc.h  \
-MCAL_Layer/ADC/hal_adc_cfg.h  \
-MCAL_Layer/ADC/../Interrupt/mcal_internal_interrupt.h  \
-MCAL_Layer/ADC/../Interrupt/mcal_interrupt_config.h  \
-MCAL_Layer/ADC/../Interrupt/mcal_interrupt_gen_cfg.h 
+MCAL_layer/Timer0/hal_timer0.h  \
+MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h  \
+MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h  \
+MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h 

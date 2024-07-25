@@ -94,6 +94,9 @@
                          projectFiles="true">
           </logicalFolder>
         </logicalFolder>
+        <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
+          <itemPath>MCAL_layer/Timer0/hal_timer0.h</itemPath>
+        </logicalFolder>
         <itemPath>MCAL_layer/compiler.h</itemPath>
         <itemPath>MCAL_layer/mcal_std_types.h</itemPath>
         <itemPath>MCAL_layer/std_libraries.h</itemPath>
@@ -146,6 +149,9 @@
           <itemPath>MCAL_layer/Interrupt/mcal_internal_interrupt.c</itemPath>
           <itemPath>MCAL_layer/Interrupt/mcal_external_interrupt.c</itemPath>
           <itemPath>MCAL_layer/Interrupt/mcal_interrupt_manager.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Timer0" displayName="Timer0" projectFiles="true">
+          <itemPath>MCAL_layer/Timer0/hal_timer0.c</itemPath>
         </logicalFolder>
         <itemPath>MCAL_layer/device_config.c</itemPath>
       </logicalFolder>
