@@ -12,14 +12,14 @@
   0h - 3h		(dist/default/production\MPLABXProjects.production.hex)
   8h - 11h		(dist/default/production\MPLABXProjects.production.hex)
   1000h - 1014h		(dist/default/production\MPLABXProjects.production.hex)
-  1016h - 1AEDh		(dist/default/production\MPLABXProjects.production.hex)
+  1016h - 1AF3h		(dist/default/production\MPLABXProjects.production.hex)
   200000h - 200007h		(dist/default/production\MPLABXProjects.production.hex)
   300000h - 30000Dh		(dist/default/production\MPLABXProjects.production.hex)
  Unused ranges:
   4h - 7h
   12h - FFFh
   1015h - 1015h
-  1AEEh - 1FFFFFh
+  1AF4h - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -206,7 +206,8 @@
 00001AB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001AC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001AD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001AE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
+00001AE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001AF0 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------

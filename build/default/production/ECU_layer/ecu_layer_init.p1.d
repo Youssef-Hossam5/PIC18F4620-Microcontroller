@@ -22,5 +22,4 @@ ECU_layer/KeyPad/ecu_keypad_cfg.h  \
 ECU_layer/chr_lcd/chr_lcd.h  \
 ECU_layer/chr_lcd/chr_lcd_cfg.h  \
 ECU_layer/chr_lcd/../../../MPLABXProjects/application.h  \
-ECU_Layer/ecu_layer_init.h  \
-
+ECU_Layer/ecu_layer_init.h 

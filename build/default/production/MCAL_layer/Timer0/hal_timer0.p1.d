@@ -9,5 +9,4 @@ MCAL_layer/Timer0/../../MCAL_Layer/GPIO/../device_config.h  \
 MCAL_layer/Timer0/../../MCAL_Layer/GPIO/hal_gpio_cfg.h  \
 MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h  \
 MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h  \
-MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h  \
-
+MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h 
