@@ -40,6 +40,10 @@
           <itemPath>MCAL_layer/ADC/hal_adc.h</itemPath>
           <itemPath>MCAL_layer/ADC/hal_adc_cfg.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="CCP" displayName="CCP" projectFiles="true">
+          <itemPath>MCAL_layer/CCP/ccp_cfg.h</itemPath>
+          <itemPath>MCAL_layer/CCP/hal_ccp.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
           <itemPath>MCAL_layer/EEPROM/hal_eeprom.h</itemPath>
         </logicalFolder>
@@ -100,6 +104,12 @@
         <logicalFolder name="Timer1" displayName="Timer1" projectFiles="true">
           <itemPath>MCAL_layer/Timer1/hal_timer1.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="Timer2" displayName="Timer2" projectFiles="true">
+          <itemPath>MCAL_layer/Timer2/hal_timer2.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Timer3" displayName="Timer3" projectFiles="true">
+          <itemPath>MCAL_layer/Timer3/hal_timer3.h</itemPath>
+        </logicalFolder>
         <itemPath>MCAL_layer/compiler.h</itemPath>
         <itemPath>MCAL_layer/mcal_std_types.h</itemPath>
         <itemPath>MCAL_layer/std_libraries.h</itemPath>
@@ -142,6 +152,9 @@
         <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
           <itemPath>MCAL_layer/ADC/hal_adc.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="CCP" displayName="CCP" projectFiles="true">
+          <itemPath>MCAL_layer/CCP/hal_ccp.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="EEPROM" displayName="EEPROM" projectFiles="true">
           <itemPath>MCAL_layer/EEPROM/hal_eeprom.c</itemPath>
         </logicalFolder>
@@ -158,6 +171,12 @@
         </logicalFolder>
         <logicalFolder name="Timer1" displayName="Timer1" projectFiles="true">
           <itemPath>MCAL_layer/Timer1/hal_timer1.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Timer2" displayName="Timer2" projectFiles="true">
+          <itemPath>MCAL_layer/Timer2/hal_timer2.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Timer3" displayName="Timer3" projectFiles="true">
+          <itemPath>MCAL_layer/Timer3/hal_timer3.c</itemPath>
         </logicalFolder>
         <itemPath>MCAL_layer/device_config.c</itemPath>
       </logicalFolder>

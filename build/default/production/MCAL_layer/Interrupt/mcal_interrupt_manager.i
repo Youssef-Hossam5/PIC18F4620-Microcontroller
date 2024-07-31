@@ -4697,10 +4697,10 @@ unsigned char __t3rd16on(void);
 
 typedef unsigned char uint8 ;
 typedef unsigned short uint16 ;
-typedef unsigned int uint32 ;
+typedef unsigned long uint32 ;
 typedef signed char sint8 ;
 typedef signed short sint16 ;
-typedef signed int sint32 ;
+typedef signed long sint32 ;
 
 typedef uint8 Std_ReturnType ;
 # 13 "MCAL_layer/Interrupt/mcal_interrupt_config.h" 2
@@ -4782,6 +4782,11 @@ void RB6_ISR(uint8 RB6_Source);
 void RB7_ISR(uint8 RB7_Source);
 void ADC_ISR(void);
 void TMR0_ISR(void);
+void TMR1_ISR(void);
+void TMR2_ISR(void);
+void TMR3_ISR(void);
+void CCP1_ISR(void);
+void CCP2_ISR(void);
 # 9 "MCAL_layer/Interrupt/mcal_interrupt_manager.c" 2
 
 
@@ -4861,6 +4866,31 @@ void __attribute__((picinterrupt(("")))) InterruptManager(void){
 
     if((1 == INTCONbits.TMR0IE) && (1 == INTCONbits.TMR0IF)){
         TMR0_ISR();
+    }
+    else{ }
+
+    if((1 == PIE1bits.TMR1IE) && (1 == PIR1bits.TMR1IF)){
+        TMR1_ISR();
+    }
+    else{ }
+    if((1 == PIE1bits.TMR2IE) && (1 == PIR1bits.TMR2IF)){
+        TMR2_ISR();
+    }
+    else{ }
+
+    if((1 == PIE2bits.TMR3IE) && (1 == PIR2bits.TMR3IF)){
+        TMR3_ISR();
+    }
+    else{ }
+
+
+
+    if((1 == PIE1bits.CCP1IE) && (1 == PIR1bits.CCP1IF)){
+        CCP1_ISR();
+    }
+    else{ }
+    if((1 == PIE2bits.CCP2IE) && (1 == PIR2bits.CCP2IF)){
+        CCP2_ISR();
     }
     else{ }
 

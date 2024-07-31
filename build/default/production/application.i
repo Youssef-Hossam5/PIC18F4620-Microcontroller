@@ -9,10 +9,6 @@
 # 1 "application.c" 2
 
 
-
-
-
-
 # 1 "./application.h" 1
 # 13 "./application.h"
 # 1 "./ECU_Layer/ecu_layer_init.h" 1
@@ -4699,10 +4695,10 @@ unsigned char __t3rd16on(void);
 
 typedef unsigned char uint8 ;
 typedef unsigned short uint16 ;
-typedef unsigned int uint32 ;
+typedef unsigned long uint32 ;
 typedef signed char sint8 ;
 typedef signed short sint16 ;
-typedef signed int sint32 ;
+typedef signed long sint32 ;
 
 typedef uint8 Std_ReturnType ;
 # 13 "./ECU_Layer/LED/../../MCAL_layer/GPIO/hal_gpio.h" 2
@@ -4941,92 +4937,140 @@ Std_ReturnType convert_uint32_to_string(uint32 value, uint8 *str);
 # 13 "./ECU_Layer/chr_lcd/../../../MPLABXProjects/application.h" 2
 # 23 "./ECU_Layer/chr_lcd/../../../MPLABXProjects/application.h"
 void application_intialize(void);
-# 7 "application.c" 2
+# 3 "application.c" 2
 
-
-
-
-# 1 "./MCAL_layer/Timer0/hal_timer0.h" 1
-# 15 "./MCAL_layer/Timer0/hal_timer0.h"
-# 1 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 1
-# 12 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h"
-# 1 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 1
-# 15 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
-# 1 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h" 1
-# 15 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
-# 54 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
+# 1 "./MCAL_layer/Timer3/hal_timer3.h" 1
+# 15 "./MCAL_layer/Timer3/hal_timer3.h"
+# 1 "./MCAL_layer/Timer3/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 1
+# 12 "./MCAL_layer/Timer3/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h"
+# 1 "./MCAL_layer/Timer3/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 1
+# 15 "./MCAL_layer/Timer3/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
+# 1 "./MCAL_layer/Timer3/../../MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 15 "./MCAL_layer/Timer3/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
+# 54 "./MCAL_layer/Timer3/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
 typedef enum{
     INTERRUPT_LOW_PRIORITY = 0,
     INTERRUPT_HIGH_PRIORITY
 }interrupt_priority_cfg;
-# 12 "./MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 2
-# 15 "./MCAL_layer/Timer0/hal_timer0.h" 2
-# 44 "./MCAL_layer/Timer0/hal_timer0.h"
-typedef enum{
-    TIMER0_PRESCALER_DIV_BY_2= 0,
-    TIMER0_PRESCALER_DIV_BY_4,
-    TIMER0_PRESCALER_DIV_BY_8,
-    TIMER0_PRESCALER_DIV_BY_16,
-    TIMER0_PRESCALER_DIV_BY_32,
-    TIMER0_PRESCALER_DIV_BY_64,
-    TIMER0_PRESCALER_DIV_BY_128,
-    TIMER0_PRESCALER_DIV_BY_256
-}timer0_prescaler_select_t;
-
+# 12 "./MCAL_layer/Timer3/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 2
+# 15 "./MCAL_layer/Timer3/hal_timer3.h" 2
+# 50 "./MCAL_layer/Timer3/hal_timer3.h"
 typedef struct{
 
-    void (* TMR0_InterruptHandler)(void);
+    void (* TMR3_InterruptHandler)(void);
     interrupt_priority_cfg priority;
 
-    timer0_prescaler_select_t prescaler_value;
-    uint16 timer0_preload_value;
-    uint8 prescaler_enable : 1;
-    uint8 timer0_counter_edge : 1;
-    uint8 timer0_mode : 1;
-    uint8 timer0_register_size : 1;
-    uint8 timer0_reserved : 4;
-}timer0_t;
+    uint16 timer3_preload_value;
+    uint8 timer3_prescaler_value : 2;
+    uint8 timer3_mode : 1;
+    uint8 timer3_counter_mode : 1;
+    uint8 timer3_reg_wr_mode : 1;
+    uint8 timer1_reserved : 3;
+}timer3_t;
 
 
-Std_ReturnType Timer0_Init(const timer0_t *_timer);
-Std_ReturnType Timer0_DeInit(const timer0_t *_timer);
-Std_ReturnType Timer0_Write_Value(const timer0_t *_timer, uint16 _value);
-Std_ReturnType Timer0_Read_Value(const timer0_t *_timer, uint16 *_value);
-# 11 "application.c" 2
+Std_ReturnType Timer3_Init(const timer3_t *_timer);
+Std_ReturnType Timer3_DeInit(const timer3_t *_timer);
+Std_ReturnType Timer3_Write_Value(const timer3_t *_timer, uint16 _value);
+Std_ReturnType Timer3_Read_Value(const timer3_t *_timer, uint16 *_value);
+# 4 "application.c" 2
 
-volatile uint8 timer0_1000ms = 0;
-void Timer0_DefaultInterruptHandler(void){
-    timer0_1000ms = 1;
+# 1 "./MCAL_layer/CCP/hal_ccp.h" 1
+# 15 "./MCAL_layer/CCP/hal_ccp.h"
+# 1 "./MCAL_layer/CCP/ccp_cfg.h" 1
+# 15 "./MCAL_layer/CCP/hal_ccp.h" 2
+# 73 "./MCAL_layer/CCP/hal_ccp.h"
+typedef enum{
+    CCP_CAPTURE_MODE_SELECTED = 0,
+    CCP_COMPARE_MODE_SELECTED,
+    CCP_PWM_MODE_SELECTED
+}ccp1_mode_t;
+
+
+
+
+
+typedef union{
+    struct{
+        uint8 ccpr_low;
+        uint8 ccpr_high;
+    };
+    struct{
+        uint16 ccpr_16Bit;
+    };
+}CCP_REG_T;
+
+typedef enum{
+    CCP1_INST = 0,
+    CCP2_INST
+}ccp_inst_t;
+
+typedef enum{
+    CCP1_CCP2_TIMER3 = 0,
+    CCP1_TIMER1_CCP2_TIMER3,
+    CCP1_CCP2_TIMER1
+}ccp_capture_timer_t;
+
+
+
+
+
+typedef struct{
+    ccp_inst_t ccp_inst;
+    ccp1_mode_t ccp_mode;
+    uint8 ccp_mode_variant;
+    pin_config_t ccp_pin;
+    ccp_capture_timer_t ccp_capture_timer;
+
+    uint32 PWM_Frequency;
+    uint8 timer2_postscaler_value;
+    uint8 timer2_prescaler_value;
+
+
+    void (* CCP1_InterruptHandler)(void);
+    interrupt_priority_cfg CCP1_priority;
+
+
+    void (* CCP2_InterruptHandler)(void);
+    interrupt_priority_cfg CCP2_priority;
+
+}ccp_t;
+
+
+Std_ReturnType CCP_Init(const ccp_t *_ccp_obj);
+Std_ReturnType CCP_DeInit(const ccp_t *_ccp_obj);
+# 144 "./MCAL_layer/CCP/hal_ccp.h"
+Std_ReturnType CCP_PWM_Set_Duty(const ccp_t *_ccp_obj, const uint8 _duty);
+Std_ReturnType CCP_PWM_Start(const ccp_t *_ccp_obj);
+Std_ReturnType CCP_PWM_Stop(const ccp_t *_ccp_obj);
+# 5 "application.c" 2
+
+
+volatile uint32 CCP1_Interrupt_Flag =0;
+timer3_t timer3_obj;
+
+
+ccp_t ccp_obj;
+
+
+void CCP1_DefaultInterruptHandler (void) {
+    CCP1_Interrupt_Flag++ ;
 }
-led_t led1 = {.port_name = PORTC_INDEX, .pin = GPIO_PIN0, .led_status = GPIO_LOW};
-timer0_t timer0 ={
-.TMR0_InterruptHandler=Timer0_DefaultInterruptHandler ,
-.timer0_mode =1 ,
-.timer0_register_size=0,
-.prescaler_enable =1 ,
-.prescaler_value = TIMER0_PRESCALER_DIV_BY_16,
-.timer0_preload_value=3036,
-};
-
 
 int main() {
-    Std_ReturnType ret = (Std_ReturnType)0x00;
+Std_ReturnType ret = (Std_ReturnType)0x00;
 
-    ret=led_initialize(&led1);
-    ret=led_turn_on(&led1);
-    ret=Timer0_Init(&timer0);
-    while(1){
-          if(timer0_1000ms == 1){
-            timer0_1000ms = 0;
-            led_turn_toggle(&led1);
-             }
-           else { }
+ccp_obj.CCP1_InterruptHandler = CCP1_DefaultInterruptHandler;
+ccp_obj.ccp_inst = CCP1_INST;
+ccp_obj.ccp_mode = CCP_CAPTURE_MODE_SELECTED;
+ccp_obj.ccp_mode_variant = ((uint8)0x05);
+ccp_obj.ccp_pin.port = PORTC_INDEX;
+ccp_obj.ccp_pin.pin = GPIO_PIN2;
+ccp_obj.ccp_pin.direction = GPIO_DIRECTION_INPUT;
+ret = CCP_Init(&ccp_obj);
 
-    }
-    return (0);
+while(1){
+
 }
-
-void application_intialize(void){
-    Std_ReturnType ret = (Std_ReturnType)0x00;
-    ecu_layer_intialize();
+return (0);
 }

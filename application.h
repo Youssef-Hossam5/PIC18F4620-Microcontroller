@@ -13,7 +13,7 @@
 #include "ECU_Layer/ecu_layer_init.h"
 
 /* Section: Macro Declarations */
-#define _XTAL_FREQ  4000000  // 4MHz crystal frquency
+
 
 /* Section: Macro Functions Declarations */
 

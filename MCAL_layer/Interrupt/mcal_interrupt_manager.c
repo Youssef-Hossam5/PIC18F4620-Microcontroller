@@ -106,7 +106,32 @@ void __interrupt() InterruptManager(void){
         TMR0_ISR();
     }
     else{ /* Nothing */ }
+  
+    if((INTERRUPT_ENABLE == PIE1bits.TMR1IE) && (INTERRUPT_OCCUR == PIR1bits.TMR1IF)){
+        TMR1_ISR();
+    }
+    else{ /* Nothing */ }
+    if((INTERRUPT_ENABLE == PIE1bits.TMR2IE) && (INTERRUPT_OCCUR == PIR1bits.TMR2IF)){
+        TMR2_ISR();
+    }
+    else{ /* Nothing */ }
     
+    if((INTERRUPT_ENABLE == PIE2bits.TMR3IE) && (INTERRUPT_OCCUR == PIR2bits.TMR3IF)){
+        TMR3_ISR();
+    }
+    else{ /* Nothing */ }
+    
+    
+     /* ============ CCP1 and CCP2 Modules Interrupt Start ============ */
+    if((INTERRUPT_ENABLE == PIE1bits.CCP1IE) && (INTERRUPT_OCCUR == PIR1bits.CCP1IF)){
+        CCP1_ISR();
+    }
+    else{ /* Nothing */ }
+    if((INTERRUPT_ENABLE == PIE2bits.CCP2IE) && (INTERRUPT_OCCUR == PIR2bits.CCP2IF)){
+        CCP2_ISR();
+    }
+    else{ /* Nothing */ }
+    /* ============ CCP1 and CCP2 Modules Interrupt End   ============ */
 }
 #endif
 

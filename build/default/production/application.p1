@@ -1,39 +1,48 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"23 ./ECU_layer/LED/ecu_led.h
-[s S274 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S274 . port_name pin led_status ]
-"16 application.c
-[; ;application.c: 16: led_t led1 = {.port_name = PORTC_INDEX, .pin = GPIO_PIN0, .led_status = GPIO_LOW};
-[c E2983 0 1 2 3 4 .. ]
-[n E2983 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-[c E2973 0 1 2 3 4 5 6 7 .. ]
-[n E2973 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
-[c E2965 0 1 .. ]
-[n E2965 . GPIO_LOW GPIO_HIGH  ]
-[v F3195 `(v ~T0 @X0 0 tf ]
-"17
-[; ;application.c: 17: timer0_t timer0 ={
+[v F3185 `(v ~T0 @X0 0 tf ]
+"8 application.c
+[; ;application.c: 8: timer3_t timer3_obj;
 [c E3179 0 1 .. ]
 [n E3179 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
-[c E3183 0 1 2 3 4 5 6 7 .. ]
-[n E3183 . TIMER0_PRESCALER_DIV_BY_2 TIMER0_PRESCALER_DIV_BY_4 TIMER0_PRESCALER_DIV_BY_8 TIMER0_PRESCALER_DIV_BY_16 TIMER0_PRESCALER_DIV_BY_32 TIMER0_PRESCALER_DIV_BY_64 TIMER0_PRESCALER_DIV_BY_128 TIMER0_PRESCALER_DIV_BY_256  ]
-"55 ./MCAL_layer/Timer0/hal_timer0.h
-[; ;./MCAL_layer/Timer0/hal_timer0.h: 55: typedef struct{
-[s S282 `*F3195 1 `E3179 1 `E3183 1 `us 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
-[n S282 . TMR0_InterruptHandler priority prescaler_value timer0_preload_value prescaler_enable timer0_counter_edge timer0_mode timer0_register_size timer0_reserved ]
+"50 ./MCAL_layer/Timer3/hal_timer3.h
+[; ;./MCAL_layer/Timer3/hal_timer3.h: 50: typedef struct{
+[s S282 `*F3185 1 `E3179 1 `us 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S282 . TMR3_InterruptHandler priority timer3_preload_value timer3_prescaler_value timer3_mode timer3_counter_mode timer3_reg_wr_mode timer1_reserved ]
+"11 application.c
+[; ;application.c: 11: ccp_t ccp_obj;
+[c E3218 0 1 .. ]
+[n E3218 . CCP1_INST CCP2_INST  ]
+[c E3204 0 1 2 .. ]
+[n E3204 . CCP_CAPTURE_MODE_SELECTED CCP_COMPARE_MODE_SELECTED CCP_PWM_MODE_SELECTED  ]
+"68 ./MCAL_layer/CCP/../../MCAL_Layer/GPIO/hal_gpio.h
+[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . port pin direction logic ]
+"11 application.c
+[; ;application.c: 11: ccp_t ccp_obj;
+[c E3222 0 1 2 .. ]
+[n E3222 . CCP1_CCP2_TIMER3 CCP1_TIMER1_CCP2_TIMER3 CCP1_CCP2_TIMER1  ]
+[v F3237 `(v ~T0 @X0 0 tf ]
+[v F3240 `(v ~T0 @X0 0 tf ]
+"108 ./MCAL_layer/CCP/hal_ccp.h
+[; ;./MCAL_layer/CCP/hal_ccp.h: 108: typedef struct{
+[s S286 `E3218 1 `E3204 1 `uc 1 `S273 1 `E3222 1 `ul 1 `uc 1 `uc 1 `*F3237 1 `E3179 1 `*F3240 1 `E3179 1 ]
+[n S286 . ccp_inst ccp_mode ccp_mode_variant ccp_pin ccp_capture_timer PWM_Frequency timer2_postscaler_value timer2_prescaler_value CCP1_InterruptHandler CCP1_priority CCP2_InterruptHandler CCP2_priority ]
 [p mainexit ]
-"30 ./ECU_layer/LED/ecu_led.h
-[v _led_initialize `(uc ~T0 @X0 0 ef1`*CS274 ]
-"31
-[v _led_turn_on `(uc ~T0 @X0 0 ef1`*CS274 ]
-"70 ./MCAL_layer/Timer0/hal_timer0.h
-[; ;./MCAL_layer/Timer0/hal_timer0.h: 70: Std_ReturnType Timer0_Init(const timer0_t *_timer);
-[v _Timer0_Init `(uc ~T0 @X0 0 ef1`*CS282 ]
-"33 ./ECU_layer/LED/ecu_led.h
-[v _led_turn_toggle `(uc ~T0 @X0 0 ef1`*CS274 ]
-"22 ./ECU_Layer/ecu_layer_init.h
-[; ;./ECU_Layer/ecu_layer_init.h: 22:  void ecu_layer_intialize(void);
-[v _ecu_layer_intialize `(v ~T0 @X0 0 ef ]
+"25 application.c
+[; ;application.c: 25: ccp_obj.ccp_pin.port = PORTC_INDEX;
+[c E2983 0 1 2 3 4 .. ]
+[n E2983 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+"26
+[; ;application.c: 26: ccp_obj.ccp_pin.pin = GPIO_PIN2;
+[c E2973 0 1 2 3 4 5 6 7 .. ]
+[n E2973 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
+"27
+[; ;application.c: 27: ccp_obj.ccp_pin.direction = GPIO_DIRECTION_INPUT;
+[c E2969 0 1 .. ]
+[n E2969 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
+"130 ./MCAL_layer/CCP/hal_ccp.h
+[; ;./MCAL_layer/CCP/hal_ccp.h: 130: Std_ReturnType CCP_Init(const ccp_t *_ccp_obj);
+[v _CCP_Init `(uc ~T0 @X0 0 ef1`*CS286 ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 55: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -445,126 +454,81 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6716
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h: 6716: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"12 application.c
-[; ;application.c: 12: volatile uint8 timer0_1000ms = 0;
-[v _timer0_1000ms `Vuc ~T0 @X0 1 e ]
-[i _timer0_1000ms
--> -> 0 `i `uc
+"7 application.c
+[; ;application.c: 7: volatile uint32 CCP1_Interrupt_Flag =0;
+[v _CCP1_Interrupt_Flag `Vul ~T0 @X0 1 e ]
+[i _CCP1_Interrupt_Flag
+-> -> -> 0 `i `l `ul
 ]
-"13
-[; ;application.c: 13: void Timer0_DefaultInterruptHandler(void){
-[v _Timer0_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
-{
-[e :U _Timer0_DefaultInterruptHandler ]
-[f ]
+"8
+[; ;application.c: 8: timer3_t timer3_obj;
+[v _timer3_obj `S282 ~T0 @X0 1 e ]
+"11
+[; ;application.c: 11: ccp_t ccp_obj;
+[v _ccp_obj `S286 ~T0 @X0 1 e ]
 "14
-[; ;application.c: 14:     timer0_1000ms = 1;
-[e = _timer0_1000ms -> -> 1 `i `uc ]
+[; ;application.c: 14: void CCP1_DefaultInterruptHandler (void) {
+[v _CCP1_DefaultInterruptHandler `(v ~T0 @X0 1 ef ]
+{
+[e :U _CCP1_DefaultInterruptHandler ]
+[f ]
 "15
-[; ;application.c: 15: }
-[e :UE 283 ]
-}
+[; ;application.c: 15:     CCP1_Interrupt_Flag++ ;
+[e ++ _CCP1_Interrupt_Flag -> -> 1 `i `Vul ]
 "16
-[; ;application.c: 16: led_t led1 = {.port_name = PORTC_INDEX, .pin = GPIO_PIN0, .led_status = GPIO_LOW};
-[v _led1 `S274 ~T0 @X0 1 e ]
-[i _led1
-:U ..
-:U ..
--> . `E2983 2 `uc
--> . `E2973 0 `uc
--> . `E2965 0 `uc
-..
-..
-]
-"17
-[; ;application.c: 17: timer0_t timer0 ={
-[v _timer0 `S282 ~T0 @X0 1 e ]
-[i _timer0
-:U ..
-:U ..
-&U _Timer0_DefaultInterruptHandler
--> -> 0 `i `E3179
-. `E3183 3
--> -> 3036 `i `us
--> -> 1 `i `uc
--> -> 0 `i `uc
--> -> 1 `i `uc
--> -> 0 `i `uc
-..
-..
-]
+[; ;application.c: 16: }
+[e :UE 287 ]
+}
 [v $root$_main `(v ~T0 @X0 0 e ]
-"27
-[; ;application.c: 27: int main() {
+"18
+[; ;application.c: 18: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"28
-[; ;application.c: 28:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"19
+[; ;application.c: 19: Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
+"21
+[; ;application.c: 21: ccp_obj.CCP1_InterruptHandler = CCP1_DefaultInterruptHandler;
+[e = . _ccp_obj 8 &U _CCP1_DefaultInterruptHandler ]
+"22
+[; ;application.c: 22: ccp_obj.ccp_inst = CCP1_INST;
+[e = . _ccp_obj 0 . `E3218 0 ]
+"23
+[; ;application.c: 23: ccp_obj.ccp_mode = CCP_CAPTURE_MODE_SELECTED;
+[e = . _ccp_obj 1 . `E3204 0 ]
+"24
+[; ;application.c: 24: ccp_obj.ccp_mode_variant = ((uint8)0x05);
+[e = . _ccp_obj 2 -> -> 5 `i `uc ]
+"25
+[; ;application.c: 25: ccp_obj.ccp_pin.port = PORTC_INDEX;
+[e = . . _ccp_obj 3 0 -> . `E2983 2 `uc ]
+"26
+[; ;application.c: 26: ccp_obj.ccp_pin.pin = GPIO_PIN2;
+[e = . . _ccp_obj 3 1 -> . `E2973 2 `uc ]
+"27
+[; ;application.c: 27: ccp_obj.ccp_pin.direction = GPIO_DIRECTION_INPUT;
+[e = . . _ccp_obj 3 2 -> . `E2969 1 `uc ]
+"28
+[; ;application.c: 28: ret = CCP_Init(&ccp_obj);
+[e = _ret ( _CCP_Init (1 -> &U _ccp_obj `*CS286 ]
 "30
-[; ;application.c: 30:     ret=led_initialize(&led1);
-[e = _ret ( _led_initialize (1 -> &U _led1 `*CS274 ]
-"31
-[; ;application.c: 31:     ret=led_turn_on(&led1);
-[e = _ret ( _led_turn_on (1 -> &U _led1 `*CS274 ]
+[; ;application.c: 30: while(1){
+[e :U 290 ]
+{
 "32
-[; ;application.c: 32:     ret=Timer0_Init(&timer0);
-[e = _ret ( _Timer0_Init (1 -> &U _timer0 `*CS282 ]
-"33
-[; ;application.c: 33:     while(1){
-[e :U 286 ]
-{
-"34
-[; ;application.c: 34:           if(timer0_1000ms == 1){
-[e $ ! == -> _timer0_1000ms `i -> 1 `i 288  ]
-{
-"35
-[; ;application.c: 35:             timer0_1000ms = 0;
-[e = _timer0_1000ms -> -> 0 `i `uc ]
-"36
-[; ;application.c: 36:             led_turn_toggle(&led1);
-[e ( _led_turn_toggle (1 -> &U _led1 `*CS274 ]
-"37
-[; ;application.c: 37:              }
-}
-[e $U 289  ]
-"38
-[; ;application.c: 38:            else { }
-[e :U 288 ]
-{
+[; ;application.c: 32: }
 }
 [e :U 289 ]
-"40
-[; ;application.c: 40:     }
-}
-[e :U 285 ]
-[e $U 286  ]
-[e :U 287 ]
-"41
-[; ;application.c: 41:     return (0);
+[e $U 290  ]
+[e :U 291 ]
+"33
+[; ;application.c: 33: return (0);
 [e ) -> 0 `i ]
-[e $UE 284  ]
-"42
-[; ;application.c: 42: }
-[e :UE 284 ]
-}
-"44
-[; ;application.c: 44: void application_intialize(void){
-[v _application_intialize `(v ~T0 @X0 1 ef ]
-{
-[e :U _application_intialize ]
-[f ]
-"45
-[; ;application.c: 45:     Std_ReturnType ret = (Std_ReturnType)0x00;
-[v _ret `uc ~T0 @X0 1 a ]
-[e = _ret -> -> 0 `i `uc ]
-"46
-[; ;application.c: 46:     ecu_layer_intialize();
-[e ( _ecu_layer_intialize ..  ]
-"47
-[; ;application.c: 47: }
-[e :UE 290 ]
+[e $UE 288  ]
+"34
+[; ;application.c: 34: }
+[e :UE 288 ]
 }

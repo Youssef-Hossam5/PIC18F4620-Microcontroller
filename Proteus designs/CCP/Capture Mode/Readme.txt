@@ -1,0 +1,1 @@
+using ccp capture mode to measure clock frequency

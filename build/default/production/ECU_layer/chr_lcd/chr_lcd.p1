@@ -1497,10 +1497,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "445
 [; ;ECU_layer/chr_lcd/chr_lcd.c: 445: Std_ReturnType convert_uint32_to_string(uint32 value, uint8 *str){
-[v _convert_uint32_to_string `(uc ~T0 @X0 1 ef2`ui`*uc ]
+[v _convert_uint32_to_string `(uc ~T0 @X0 1 ef2`ul`*uc ]
 {
 [e :U _convert_uint32_to_string ]
-[v _value `ui ~T0 @X0 1 r1 ]
+[v _value `ul ~T0 @X0 1 r1 ]
 [v _str `*uc ~T0 @X0 1 r2 ]
 [f ]
 "446
