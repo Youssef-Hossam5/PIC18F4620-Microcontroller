@@ -9,7 +9,7 @@
 #define	MCAL_INTERRUPT_CONFIG_H
 
 /* ----------------- Includes -----------------*/
-#include "pic18f4620.h"
+#include "../include/proc/pic18f4620.h"
 #include "../GPIO/../../MCAL_layer/mcal_std_types.h"
 #include "../../MCAL_Layer/GPIO/hal_gpio.h"
 #include "mcal_interrupt_gen_cfg.h"

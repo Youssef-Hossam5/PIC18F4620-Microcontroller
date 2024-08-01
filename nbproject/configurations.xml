@@ -110,6 +110,10 @@
         <logicalFolder name="Timer3" displayName="Timer3" projectFiles="true">
           <itemPath>MCAL_layer/Timer3/hal_timer3.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="usart" displayName="usart" projectFiles="true">
+          <itemPath>MCAL_layer/usart/hal_usart.h</itemPath>
+          <itemPath>MCAL_layer/usart/hal_usart_cfg.h</itemPath>
+        </logicalFolder>
         <itemPath>MCAL_layer/compiler.h</itemPath>
         <itemPath>MCAL_layer/mcal_std_types.h</itemPath>
         <itemPath>MCAL_layer/std_libraries.h</itemPath>
@@ -177,6 +181,9 @@
         </logicalFolder>
         <logicalFolder name="Timer3" displayName="Timer3" projectFiles="true">
           <itemPath>MCAL_layer/Timer3/hal_timer3.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="usart" displayName="usart" projectFiles="true">
+          <itemPath>MCAL_layer/usart/hal_usart.c</itemPath>
         </logicalFolder>
         <itemPath>MCAL_layer/device_config.c</itemPath>
       </logicalFolder>

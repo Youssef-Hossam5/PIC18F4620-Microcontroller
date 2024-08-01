@@ -6,7 +6,7 @@
 
 /* ----------------- Includes -----------------*/
 #include "hal_ccp.h"
-#include "../device_config.h"
+
 #if CCP1_INTERRUPT_FEATURE_ENABLE==INTERRUPT_FEATURE_ENABLE
     static void (*CCP1_InterruptHandler)(void) = NULL;
 #endif

@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   hal_ccp.h
  * Author: Lenovo
  * Created on July 31, 2024, 2:32 PM
@@ -8,7 +8,7 @@
 #define	HAL_CCP_H
 
 /* ----------------- Includes -----------------*/
-#include "pic18f4620.h"
+#include "../include/proc/pic18f4620.h"
 #include "../mcal_std_types.h"
 #include "../../MCAL_Layer/GPIO/hal_gpio.h"
 #include "../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h"

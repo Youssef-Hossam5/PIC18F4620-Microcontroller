@@ -1,34 +1,72 @@
 
-
 #include "application.h"
 #include "MCAL_layer/Timer3/hal_timer3.h"
 #include "MCAL_layer/CCP/hal_ccp.h"
 
-volatile uint32 CCP1_Interrupt_Flag =0;
-timer3_t timer3_obj;
+volatile uint8 ccp1_int_flag = 0;
+volatile uint8 ccp1_second_cap_flag = 0;
+volatile uint32 timer3_overflow = 0;
 
+uint32 totalPeriod_us = 0;
+uint32 freq = 0;
+uint16 capture_val  = 0;
 
-ccp_t ccp_obj;
+void ccp1_callback(void);
+void timer3_callback(void);
 
+ccp_t ccp_1 = {
+    .CCP1_InterruptHandler = ccp1_callback,
+    .ccp_inst = CCP1_INST,
+    .ccp_mode = CCP_CAPTURE_MODE_SELECTED,
+    .ccp_mode_variant = CCP_CAPTURE_MODE_1_RISING_EDGE,
+    .ccp_pin.port = PORTC_INDEX,
+    .ccp_pin.pin = GPIO_PIN2,
+    .ccp_pin.direction = GPIO_DIRECTION_INPUT,
+    .ccp_capture_timer = CCP1_CCP2_TIMER3
+};
 
-void CCP1_DefaultInterruptHandler (void) {
-    CCP1_Interrupt_Flag++ ;
+timer3_t timer_3 = {
+    .TMR3_InterruptHandler = timer3_callback,
+    .timer3_mode = TIMER3_TIMER_MODE,
+    .priority = INTERRUPT_LOW_PRIORITY,
+    .timer3_prescaler_value = TIMER3_PRESCALER_DIV_BY_1,
+    .timer3_preload_value = 0,
+    .timer3_reg_wr_mode = TIMER3_RW_REG_8Bit_MODE
+};
+
+void ccp1_callback(void){
+    ccp1_int_flag++;
+    ccp1_second_cap_flag++;
+    if(1 == ccp1_int_flag){
+        Timer3_Write_Value(&timer_3, 0);
+    }
+    else if(2 == ccp1_int_flag){
+        timer3_overflow = 0;
+        ccp1_int_flag = 0;
+        CCP1_Capture_Mode_Read_Value(&capture_val);
+    }
+}
+
+void timer3_callback(void){
+    timer3_overflow++;
 }
 
 int main() {
-Std_ReturnType ret = E_NOT_OK;
+    Std_ReturnType ret = E_NOT_OK;
+    
+    ret = CCP_Init(&ccp_1);
+    ret = Timer3_Init(&timer_3);
+    
+    while(1){
+        //__delay_ms(000);
+        
+        if(ccp1_second_cap_flag == 2){
+            ccp1_second_cap_flag = 0;
+            totalPeriod_us = timer3_overflow * 65536 + capture_val;
+            freq = (uint32)(1000000.0 / totalPeriod_us);
+        }
+        
+    }
 
-ccp_obj.CCP1_InterruptHandler = CCP1_DefaultInterruptHandler;
-ccp_obj.ccp_inst = CCP1_INST;
-ccp_obj.ccp_mode = CCP_CAPTURE_MODE_SELECTED;
-ccp_obj.ccp_mode_variant = CCP_CAPTURE_MODE_1_RISING_EDGE;
-ccp_obj.ccp_pin.port = PORTC_INDEX;
-ccp_obj.ccp_pin.pin = GPIO_PIN2;
-ccp_obj.ccp_pin.direction = GPIO_DIRECTION_INPUT;
-ret = CCP_Init(&ccp_obj);
-
-while(1){
-
-}
-return (EXIT_SUCCESS);
+    return (EXIT_SUCCESS);
 }

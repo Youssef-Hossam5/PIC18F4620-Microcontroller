@@ -30,6 +30,33 @@
 #endif
 
 
+#if EUSART_TX_INTERRUPT_FEATURE_ENABLE==INTERRUPT_FEATURE_ENABLE
+/* This routine clears the interrupt enable for the EUSART Module */
+#define EUSART_TX_InterruptDisable()         (PIE1bits.TXIE = 0)
+/* This routine sets the interrupt enable for the EUSART Module */
+#define EUSART_TX_InterruptEnable()          (PIE1bits.TXIE = 1)
+#if INTERRUPT_PRIORITY_LEVELS_ENABLE==INTERRUPT_FEATURE_ENABLE 
+/* This routine set the EUSART Module Interrupt Priority to be High priority */
+#define EUSART_TX_HighPrioritySet()          (IPR1bits.TXIP = 1)
+/* This routine set the EUSART Module Interrupt Priority to be Low priority */
+#define EUSART_TX_LowPrioritySet()           (IPR1bits.TXIP = 0)
+#endif
+#endif
+
+#if EUSART_RX_INTERRUPT_FEATURE_ENABLE==INTERRUPT_FEATURE_ENABLE
+/* This routine clears the interrupt enable for the EUSART Module */
+#define EUSART_RX_InterruptDisable()         (PIE1bits.RCIE = 0)
+/* This routine sets the interrupt enable for the EUSART Module */
+#define EUSART_RX_InterruptEnable()          (PIE1bits.RCIE = 1)
+#if INTERRUPT_PRIORITY_LEVELS_ENABLE==INTERRUPT_FEATURE_ENABLE 
+/* This routine set the EUSART Module Interrupt Priority to be High priority */
+#define EUSART_RX_HighPrioritySet()          (IPR1bits.RCIP = 1)
+/* This routine set the EUSART Module Interrupt Priority to be Low priority */
+#define EUSART_RX_LowPrioritySet()           (IPR1bits.RCIP = 0)
+#endif
+#endif
+
+
 #if TIMER0_INTERRUPT_FEATURE_ENABLE==INTERRUPT_FEATURE_ENABLE
 /* This routine clears the interrupt enable for the TIMER0 Module */
 #define TIMER0_InterruptDisable()         (INTCONbits.TMR0IE = 0)
