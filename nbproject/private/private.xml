@@ -3,17 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/chr_lcd/chr_lcd.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/CCP/ccp_cfg.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/CCP/hal_ccp.c</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/device_config.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/usart/hal_usart.c</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/application.c</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_manager.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/GPIO/hal_gpio.c</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_config.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_internal_interrupt.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/chr_lcd/chr_lcd.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_manager.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/CCP/hal_ccp.h</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Timer3/hal_timer3.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_gen_cfg.h</file>
         </group>
     </open-files>
 </project-private>

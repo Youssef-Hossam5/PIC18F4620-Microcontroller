@@ -97,6 +97,7 @@ Std_ReturnType EUSART_ASYNC_WriteStringBlocking(uint8 *_data, uint16 str_len){
 
 Std_ReturnType EUSART_ASYNC_WriteByteNonBlocking(uint8 _data){
     
+    
 }
 
 Std_ReturnType EUSART_ASYNC_WriteStringNonBlocking(uint8 *_data, uint16 str_len){

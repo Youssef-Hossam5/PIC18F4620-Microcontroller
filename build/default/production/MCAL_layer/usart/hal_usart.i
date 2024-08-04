@@ -4929,6 +4929,7 @@ Std_ReturnType EUSART_ASYNC_WriteStringBlocking(uint8 *_data, uint16 str_len){
 
 Std_ReturnType EUSART_ASYNC_WriteByteNonBlocking(uint8 _data){
 
+
 }
 
 Std_ReturnType EUSART_ASYNC_WriteStringNonBlocking(uint8 *_data, uint16 str_len){
@@ -4988,7 +4989,7 @@ static void EUSART_ASYNC_TX_Init(const usart_t *_eusart){
 
 
             (PIE1bits.TXIE = 1);
-# 174 "MCAL_layer/usart/hal_usart.c"
+# 175 "MCAL_layer/usart/hal_usart.c"
             (INTCONbits.GIE = 1);
             (INTCONbits.PEIE = 1);
 
@@ -5023,7 +5024,7 @@ static void EUSART_ASYNC_RX_Init(const usart_t *_eusart){
 
 
             (PIE1bits.RCIE = 1);
-# 223 "MCAL_layer/usart/hal_usart.c"
+# 224 "MCAL_layer/usart/hal_usart.c"
             (INTCONbits.GIE = 1);
             (INTCONbits.PEIE = 1);
 
