@@ -224,25 +224,20 @@ INTERRUPT_HIGH_PRIORITY 1
 INTERRUPT_LOW_PRIORITY 0
 INTERRUPT_HIGH_PRIORITY 1
 ]
-"17 C:\Users\lenovo\MPLABXProjects\application.c
-[e E3218 . `uc
-CCP1_INST 0
-CCP2_INST 1
+"23 C:\Users\lenovo\MPLABXProjects\MCAL_layer/usart/hal_usart.c
+[e E3029 . `uc
+BAUDRATE_ASYN_8BIT_lOW_SPEED 0
+BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
+BAUDRATE_ASYN_16BIT_lOW_SPEED 2
+BAUDRATE_ASYN_16BIT_HIGH_SPEED 3
+BAUDRATE_SYN_8BIT 4
+BAUDRATE_SYN_16BIT 5
 ]
-[e E3204 . `uc
-CCP_CAPTURE_MODE_SELECTED 0
-CCP_COMPARE_MODE_SELECTED 1
-CCP_PWM_MODE_SELECTED 2
-]
-[e E3222 . `uc
-CCP1_CCP2_TIMER3 0
-CCP1_TIMER1_CCP2_TIMER3 1
-CCP1_CCP2_TIMER1 2
-]
-[e E3179 . `uc
+[e E3025 . `uc
 INTERRUPT_LOW_PRIORITY 0
 INTERRUPT_HIGH_PRIORITY 1
 ]
+"143 C:\Users\lenovo\MPLABXProjects\MCAL_layer/SPI/hal_spi.c
 [e E2983 . `uc
 PORTA_INDEX 0
 PORTB_INDEX 1
@@ -264,24 +259,12 @@ GPIO_PIN7 7
 GPIO_DIRECTION_OUTPUT 0
 GPIO_DIRECTION_INPUT 1
 ]
-"23 C:\Users\lenovo\MPLABXProjects\MCAL_layer/usart/hal_usart.c
-[e E3029 . `uc
-BAUDRATE_ASYN_8BIT_lOW_SPEED 0
-BAUDRATE_ASYN_8BIT_HIGH_SPEED 1
-BAUDRATE_ASYN_16BIT_lOW_SPEED 2
-BAUDRATE_ASYN_16BIT_HIGH_SPEED 3
-BAUDRATE_SYN_8BIT 4
-BAUDRATE_SYN_16BIT 5
+"21 C:\Users\lenovo\MPLABXProjects\ECU_layer/Ultrasonic/Ultrasonic.c
+[e E2965 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
 ]
-[e E3025 . `uc
-INTERRUPT_LOW_PRIORITY 0
-INTERRUPT_HIGH_PRIORITY 1
-]
-"37 C:\Users\lenovo\MPLABXProjects\application.c
-[v _ccp1_callback ccp1_callback `(v  1 e 1 0 ]
-"50
-[v _timer3_callback timer3_callback `(v  1 e 1 0 ]
-"54
+"13 C:\Users\lenovo\MPLABXProjects\application.c
 [v _main main `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -339,6 +322,8 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _lcd_8bit_set_cursor lcd_8bit_set_cursor `(uc  1 s 1 lcd_8bit_set_cursor ]
 "535
 [v _lcd_4bit_set_cursor lcd_4bit_set_cursor `(uc  1 s 1 lcd_4bit_set_cursor ]
+"95 C:\Users\lenovo\MPLABXProjects\ECU_layer/ecu_layer_init.c
+[v _ecu_layer_intialize ecu_layer_intialize `(v  1 e 1 0 ]
 "109 C:\Users\lenovo\MPLABXProjects\MCAL_layer/ADC/hal_adc.c
 [v _ADC_SelectChannel ADC_SelectChannel `(uc  1 e 1 0 ]
 "132
@@ -353,11 +338,7 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _configure_voltage_reference configure_voltage_reference `T(v  1 s 1 configure_voltage_reference ]
 "297
 [v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]
-"24 C:\Users\lenovo\MPLABXProjects\MCAL_layer/CCP/hal_ccp.c
-[v _CCP_Init CCP_Init `(uc  1 e 1 0 ]
-"119
-[v _CCP1_Capture_Mode_Read_Value CCP1_Capture_Mode_Read_Value `(uc  1 e 1 0 ]
-"251
+"251 C:\Users\lenovo\MPLABXProjects\MCAL_layer/CCP/hal_ccp.c
 [v _CCP1_ISR CCP1_ISR `(v  1 e 1 0 ]
 "259
 [v _CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]
@@ -381,6 +362,18 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _gpio_pin_read_logic gpio_pin_read_logic `(uc  1 e 1 0 ]
 "137
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
+"21 C:\Users\lenovo\MPLABXProjects\MCAL_layer/I2C/hal_i2c.c
+[v _MSSP_I2C_Init MSSP_I2C_Init `(uc  1 e 1 0 ]
+"102
+[v _MSSP_I2C_Master_Send_Start MSSP_I2C_Master_Send_Start `(uc  1 e 1 0 ]
+"142
+[v _MSSP_I2C_Master_Send_Stop MSSP_I2C_Master_Send_Stop `(uc  1 e 1 0 ]
+"260
+[v _MSSP_I2C_Mode_GPIO_CFG MSSP_I2C_Mode_GPIO_CFG `T(v  1 s 1 MSSP_I2C_Mode_GPIO_CFG ]
+"265
+[v _I2C_Master_Mode_Clock_Configurations I2C_Master_Mode_Clock_Configurations `T(v  1 s 1 I2C_Master_Mode_Clock_Configurations ]
+"271
+[v _I2C_Slave_Mode_Configurations I2C_Slave_Mode_Configurations `T(v  1 s 1 I2C_Slave_Mode_Configurations ]
 "75 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Interrupt/mcal_external_interrupt.c
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
 "87
@@ -415,6 +408,12 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _Interrupt_INTx_SetInterruptHandler Interrupt_INTx_SetInterruptHandler `(uc  1 s 1 Interrupt_INTx_SetInterruptHandler ]
 "33 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Interrupt/mcal_interrupt_manager.c
 [v _InterruptManager InterruptManager `IIH(v  1 e 1 0 ]
+"114 C:\Users\lenovo\MPLABXProjects\MCAL_layer/SPI/hal_spi.c
+[v _MSSP_SPI_Interrupt_Init MSSP_SPI_Interrupt_Init `(v  1 s 1 MSSP_SPI_Interrupt_Init ]
+"141
+[v _MSSP_SPI_Msster_Mode_GPIO_PIN_Configurations MSSP_SPI_Msster_Mode_GPIO_PIN_Configurations `(v  1 s 1 MSSP_SPI_Msster_Mode_GPIO_PIN_Configurations ]
+"152
+[v _MSSP_SPI_Slave_Mode_GPIO_PIN_Configurations MSSP_SPI_Slave_Mode_GPIO_PIN_Configurations `(v  1 s 1 MSSP_SPI_Slave_Mode_GPIO_PIN_Configurations ]
 "107 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Timer0/hal_timer0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
 "116
@@ -429,59 +428,39 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _Timer1_Mode_Select Timer1_Mode_Select `T(v  1 s 1 Timer1_Mode_Select ]
 "95 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Timer2/hal_timer2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
-"16 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Timer3/hal_timer3.c
-[v _Timer3_Init Timer3_Init `(uc  1 e 1 0 ]
-"73
-[v _Timer3_Write_Value Timer3_Write_Value `(uc  1 e 1 0 ]
-"101
+"101 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Timer3/hal_timer3.c
 [v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
 "110
 [v _Timer3_Mode_Select Timer3_Mode_Select `T(v  1 s 1 Timer3_Mode_Select ]
 "79 C:\Users\lenovo\MPLABXProjects\MCAL_layer/usart/hal_usart.c
 [v _EUSART_ASYNC_WriteByteBlocking EUSART_ASYNC_WriteByteBlocking `(uc  1 e 1 0 ]
-"107
+"98
+[v _EUSART_ASYNC_WriteByteNonBlocking EUSART_ASYNC_WriteByteNonBlocking `(uc  1 e 1 0 ]
+"119
 [v _EUSART_Baud_Rate_Calculation EUSART_Baud_Rate_Calculation `(v  1 s 1 EUSART_Baud_Rate_Calculation ]
-"150
+"162
 [v _EUSART_ASYNC_TX_Init EUSART_ASYNC_TX_Init `(v  1 s 1 EUSART_ASYNC_TX_Init ]
-"197
+"209
 [v _EUSART_ASYNC_RX_Init EUSART_ASYNC_RX_Init `(v  1 s 1 EUSART_ASYNC_RX_Init ]
-"246
+"258
 [v _EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
-"253
+"265
 [v _EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
-"6 C:\Users\lenovo\MPLABXProjects\application.c
-[v _ccp1_int_flag ccp1_int_flag `VEuc  1 e 1 0 ]
-"7
-[v _ccp1_second_cap_flag ccp1_second_cap_flag `VEuc  1 e 1 0 ]
-"8
-[v _timer3_overflow timer3_overflow `VEul  1 e 4 0 ]
-"10
-[v _totalPeriod_us totalPeriod_us `ul  1 e 4 0 ]
-"11
-[v _freq freq `ul  1 e 4 0 ]
-"12
-[v _capture_val capture_val `us  1 e 2 0 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
+[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
 ]
-"17
-[s S1127 . 17 `E3043 1 ccp_inst 1 0 `E3029 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S24 1 ccp_pin 1 3 `E3047 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `uc 1 timer2_postscaler_value 1 9 `uc 1 timer2_prescaler_value 1 10 `*.37(v 1 CCP1_InterruptHandler 2 11 `E3025 1 CCP1_priority 1 13 `*.37(v 1 CCP2_InterruptHandler 2 14 `E3025 1 CCP2_priority 1 16 ]
-[v _ccp_1 ccp_1 `S1127  1 e 17 0 ]
-[s S2975 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3025 1 priority 1 2 `us 1 timer3_preload_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
-`uc 1 timer3_mode 1 5 :1:2 
-`uc 1 timer3_counter_mode 1 5 :1:3 
-`uc 1 timer3_reg_wr_mode 1 5 :1:4 
-`uc 1 timer1_reserved 1 5 :3:5 
-]
-"28
-[v _timer_3 timer_3 `S2975  1 e 6 0 ]
+"11 C:\Users\lenovo\MPLABXProjects\application.c
+[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
+[v _i2c_obj i2c_obj `S3610  1 e 7 0 ]
 "1381 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic/include/proc/pic18f4620.h
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "1603
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-[s S3351 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S3233 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -491,7 +470,7 @@ INTERRUPT_HIGH_PRIORITY 1
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1857
-[s S3360 . 1 `uc 1 RC0 1 0 :1:0 
+[s S3242 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -500,8 +479,8 @@ INTERRUPT_HIGH_PRIORITY 1
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S3369 . 1 `S3351 1 . 1 0 `S3360 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES3369  1 e 1 @3988 ]
+[u S3251 . 1 `S3233 1 . 1 0 `S3242 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES3251  1 e 1 @3988 ]
 "2269
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
 [s S820 . 1 `uc 1 TMR1IE 1 0 :1:0 
@@ -536,7 +515,7 @@ INTERRUPT_HIGH_PRIORITY 1
 ]
 [u S863 . 1 `S850 1 . 1 0 `S859 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES863  1 e 1 @3998 ]
-[s S3297 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S3179 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -546,23 +525,23 @@ INTERRUPT_HIGH_PRIORITY 1
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3062
-[s S3306 . 1 `uc 1 . 1 0 :3:0 
+[s S3188 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S3309 . 1 `uc 1 . 1 0 :5:0 
+[s S3191 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S3312 . 1 `uc 1 . 1 0 :6:0 
+[s S3194 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S3315 . 1 `uc 1 . 1 0 :6:0 
+[s S3197 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S3318 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S3200 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S3320 . 1 `S3297 1 . 1 0 `S3306 1 . 1 0 `S3309 1 . 1 0 `S3312 1 . 1 0 `S3315 1 . 1 0 `S3318 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES3320  1 e 1 @4011 ]
-[s S3424 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S3202 . 1 `S3179 1 . 1 0 `S3188 1 . 1 0 `S3191 1 . 1 0 `S3194 1 . 1 0 `S3197 1 . 1 0 `S3200 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES3202  1 e 1 @4011 ]
+[s S3306 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -572,7 +551,7 @@ INTERRUPT_HIGH_PRIORITY 1
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3270
-[s S3433 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S3315 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -581,13 +560,13 @@ INTERRUPT_HIGH_PRIORITY 1
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S3442 . 1 `uc 1 . 1 0 :6:0 
+[s S3324 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S3445 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S3327 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S3447 . 1 `S3424 1 . 1 0 `S3433 1 . 1 0 `S3442 1 . 1 0 `S3445 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES3447  1 e 1 @4012 ]
+[u S3329 . 1 `S3306 1 . 1 0 `S3315 1 . 1 0 `S3324 1 . 1 0 `S3327 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES3329  1 e 1 @4012 ]
 "3487
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "3499
@@ -600,7 +579,7 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "3656
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
-[s S3494 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S3376 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -610,16 +589,16 @@ INTERRUPT_HIGH_PRIORITY 1
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4016
-[s S3503 . 1 `uc 1 . 1 0 :4:0 
+[s S3385 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 RXCKP 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S3508 . 1 `uc 1 . 1 0 :1:0 
+[s S3390 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S3511 . 1 `S3494 1 . 1 0 `S3503 1 . 1 0 `S3508 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES3511  1 e 1 @4024 ]
+[u S3393 . 1 `S3376 1 . 1 0 `S3385 1 . 1 0 `S3390 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES3393  1 e 1 @4024 ]
 [s S786 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
@@ -689,6 +668,96 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "4663
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+[s S3693 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"4687
+[u S3702 . 1 `S3693 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES3702  1 e 1 @4037 ]
+[s S3661 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"4752
+[s S3667 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S3672 . 1 `S3661 1 . 1 0 `S3667 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES3672  1 e 1 @4038 ]
+[s S3726 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_NOT_W 1 0 :1:2 
+]
+"4878
+[s S3729 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_NOT_A 1 0 :1:5 
+]
+[s S3732 . 1 `uc 1 BF 1 0 :1:0 
+`uc 1 UA 1 0 :1:1 
+`uc 1 R_nW 1 0 :1:2 
+`uc 1 S 1 0 :1:3 
+`uc 1 P 1 0 :1:4 
+`uc 1 D_nA 1 0 :1:5 
+`uc 1 CKE 1 0 :1:6 
+`uc 1 SMP 1 0 :1:7 
+]
+[s S3741 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D 1 0 :1:5 
+]
+[s S3746 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 A 1 0 :1:5 
+]
+[s S3751 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nW 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nA 1 0 :1:5 
+]
+[s S3756 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 D_A 1 0 :1:5 
+]
+[s S3761 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_WRITE 1 0 :1:2 
+]
+[s S3764 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_ADDRESS 1 0 :1:5 
+]
+[s S3767 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 nWRITE 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 nADDRESS 1 0 :1:5 
+]
+[s S3772 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW 1 0 :1:2 
+`uc 1 START 1 0 :1:3 
+`uc 1 STOP 1 0 :1:4 
+`uc 1 DA 1 0 :1:5 
+]
+[s S3778 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_W 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 NOT_A 1 0 :1:5 
+]
+[u S3783 . 1 `S3726 1 . 1 0 `S3729 1 . 1 0 `S3732 1 . 1 0 `S3741 1 . 1 0 `S3746 1 . 1 0 `S3751 1 . 1 0 `S3756 1 . 1 0 `S3761 1 . 1 0 `S3764 1 . 1 0 `S3767 1 . 1 0 `S3772 1 . 1 0 `S3778 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES3783  1 e 1 @4039 ]
+"5023
+[v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
+"5030
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
 [s S2852 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
@@ -1065,247 +1134,155 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _EUSART_FramingErrorHandler EUSART_FramingErrorHandler `*.37(v  1 s 2 EUSART_FramingErrorHandler ]
 "16
 [v _EUSART_OverrunErrorHandler EUSART_OverrunErrorHandler `*.37(v  1 s 2 EUSART_OverrunErrorHandler ]
-"54 C:\Users\lenovo\MPLABXProjects\application.c
+"13 C:\Users\lenovo\MPLABXProjects\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"72
+"29
 } 0
-"16 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Timer3/hal_timer3.c
-[v _Timer3_Init Timer3_Init `(uc  1 e 1 0 ]
+"142 C:\Users\lenovo\MPLABXProjects\MCAL_layer/I2C/hal_i2c.c
+[v _MSSP_I2C_Master_Send_Stop MSSP_I2C_Master_Send_Stop `(uc  1 e 1 0 ]
 {
-"17
-[v Timer3_Init@ret ret `uc  1 a 1 14 ]
-[s S2975 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3025 1 priority 1 2 `us 1 timer3_preload_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
-`uc 1 timer3_mode 1 5 :1:2 
-`uc 1 timer3_counter_mode 1 5 :1:3 
-`uc 1 timer3_reg_wr_mode 1 5 :1:4 
-`uc 1 timer1_reserved 1 5 :3:5 
+"143
+[v MSSP_I2C_Master_Send_Stop@ret ret `uc  1 a 1 3 ]
+[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
 ]
-"16
-[v Timer3_Init@_timer _timer `*.39CS2975  1 p 2 10 ]
-"56
+"142
+[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
+[v MSSP_I2C_Master_Send_Stop@i2c_obj i2c_obj `*.39CS3610  1 p 2 1 ]
+"163
 } 0
-"110
-[v _Timer3_Mode_Select Timer3_Mode_Select `T(v  1 s 1 Timer3_Mode_Select ]
+"102
+[v _MSSP_I2C_Master_Send_Start MSSP_I2C_Master_Send_Start `(uc  1 e 1 0 ]
 {
-[s S2975 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3025 1 priority 1 2 `us 1 timer3_preload_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
-`uc 1 timer3_mode 1 5 :1:2 
-`uc 1 timer3_counter_mode 1 5 :1:3 
-`uc 1 timer3_reg_wr_mode 1 5 :1:4 
-`uc 1 timer1_reserved 1 5 :3:5 
+"103
+[v MSSP_I2C_Master_Send_Start@ret ret `uc  1 a 1 3 ]
+[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
 ]
-[v Timer3_Mode_Select@_timer _timer `*.39CS2975  1 p 2 8 ]
-"125
+"102
+[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
+[v MSSP_I2C_Master_Send_Start@i2c_obj i2c_obj `*.39CS3610  1 p 2 1 ]
+"123
 } 0
-"24 C:\Users\lenovo\MPLABXProjects\MCAL_layer/CCP/hal_ccp.c
-[v _CCP_Init CCP_Init `(uc  1 e 1 0 ]
+"21
+[v _MSSP_I2C_Init MSSP_I2C_Init `(uc  1 e 1 0 ]
 {
-"25
-[v CCP_Init@ret ret `uc  1 a 1 2 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
+"22
+[v MSSP_I2C_Init@ret ret `uc  1 a 1 0 ]
+[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
 ]
-"24
-[s S1127 . 17 `E3043 1 ccp_inst 1 0 `E3029 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S24 1 ccp_pin 1 3 `E3047 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `uc 1 timer2_postscaler_value 1 9 `uc 1 timer2_prescaler_value 1 10 `*.37(v 1 CCP1_InterruptHandler 2 11 `E3025 1 CCP1_priority 1 13 `*.37(v 1 CCP2_InterruptHandler 2 14 `E3025 1 CCP2_priority 1 16 ]
-[v CCP_Init@_ccp_obj _ccp_obj `*.39CS1127  1 p 2 0 ]
-"72
+"21
+[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
+[v MSSP_I2C_Init@i2c_obj i2c_obj `*.39CS3610  1 p 2 69 ]
+"82
 } 0
-"26 C:\Users\lenovo\MPLABXProjects\MCAL_layer/GPIO/hal_gpio.c
-[v _gpio_pin_initialize gpio_pin_initialize `(uc  1 e 1 0 ]
+"260
+[v _MSSP_I2C_Mode_GPIO_CFG MSSP_I2C_Mode_GPIO_CFG `T(v  1 s 1 MSSP_I2C_Mode_GPIO_CFG ]
 {
-"27
-[v gpio_pin_initialize@ret ret `uc  1 a 1 21 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"26
-[v gpio_pin_initialize@_pin_config _pin_config `*.39CS24  1 p 2 18 ]
-"36
+"263
 } 0
-"92
-[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+"271
+[v _I2C_Slave_Mode_Configurations I2C_Slave_Mode_Configurations `T(v  1 s 1 I2C_Slave_Mode_Configurations ]
 {
-"93
-[v gpio_pin_write_logic@ret ret `uc  1 a 1 17 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
+[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
 ]
-"92
-[v gpio_pin_write_logic@_pin_config _pin_config `*.39CS24  1 p 2 8 ]
-[v gpio_pin_write_logic@logic logic `E2965  1 p 1 10 ]
-"110
+[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
+[v I2C_Slave_Mode_Configurations@i2c_obj i2c_obj `*.39CS3610  1 p 2 1 ]
+"273
 } 0
-"47
-[v _gpio_pin_direction_initialize gpio_pin_direction_initialize `(uc  1 e 1 0 ]
+"265
+[v _I2C_Master_Mode_Clock_Configurations I2C_Master_Mode_Clock_Configurations `T(v  1 s 1 I2C_Master_Mode_Clock_Configurations ]
 {
-"48
-[v gpio_pin_direction_initialize@ret ret `uc  1 a 1 16 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
+[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
 ]
-"47
-[v gpio_pin_direction_initialize@_pin_config _pin_config `*.39CS24  1 p 2 8 ]
-"64
-} 0
-"268 C:\Users\lenovo\MPLABXProjects\MCAL_layer/CCP/hal_ccp.c
-[v _CCP_PWM_Mode_Config CCP_PWM_Mode_Config `(v  1 s 1 CCP_PWM_Mode_Config ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S1127 . 17 `E3043 1 ccp_inst 1 0 `E3029 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S24 1 ccp_pin 1 3 `E3047 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `uc 1 timer2_postscaler_value 1 9 `uc 1 timer2_prescaler_value 1 10 `*.37(v 1 CCP1_InterruptHandler 2 11 `E3025 1 CCP1_priority 1 13 `*.37(v 1 CCP2_InterruptHandler 2 14 `E3025 1 CCP2_priority 1 16 ]
-[v CCP_PWM_Mode_Config@_ccp_obj _ccp_obj `*.39CS1127  1 p 2 98 ]
-"286
+[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
+[v I2C_Master_Mode_Clock_Configurations@i2c_obj i2c_obj `*.39CS3610  1 p 2 66 ]
+"269
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
 [v ___xxtofl __xxtofl `(d  1 e 4 0 ]
 {
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
 "13
-[v ___xxtofl@arg arg `ul  1 a 4 18 ]
+[v ___xxtofl@arg arg `ul  1 a 4 11 ]
 "12
-[v ___xxtofl@exp exp `uc  1 a 1 17 ]
+[v ___xxtofl@exp exp `uc  1 a 1 10 ]
 "10
 [v ___xxtofl@sign sign `uc  1 a 1 wreg ]
-[v ___xxtofl@val val `l  1 p 4 8 ]
+[v ___xxtofl@val val `l  1 p 4 1 ]
 "15
-[v ___xxtofl@sign sign `uc  1 a 1 16 ]
+[v ___xxtofl@sign sign `uc  1 a 1 9 ]
 "44
 } 0
 "43 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fltol.c
 [v ___fltol __fltol `(l  1 e 4 0 ]
 {
 "45
-[v ___fltol@exp1 exp1 `uc  1 a 1 97 ]
-[v ___fltol@sign1 sign1 `uc  1 a 1 96 ]
+[v ___fltol@exp1 exp1 `uc  1 a 1 65 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 64 ]
 "43
-[v ___fltol@f1 f1 `d  1 p 4 88 ]
+[v ___fltol@f1 f1 `d  1 p 4 56 ]
 "70
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
-[v ___flmul __flmul `(d  1 e 4 0 ]
-{
-[s S4017 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
-"13
-[s S4022 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
-[u S4025 . 4 `l 1 i 4 0 `d 1 f 4 0 `S4017 1 fAsBytes 4 0 `S4022 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S4025  1 a 4 41 ]
-"12
-[v ___flmul@grs grs `ul  1 a 4 36 ]
-[s S4093 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
-"14
-[u S4096 . 2 `s 1 i 2 0 `us 1 n 2 0 `S4093 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S4096  1 a 2 45 ]
-"10
-[v ___flmul@bexp bexp `uc  1 a 1 40 ]
-"11
-[v ___flmul@aexp aexp `uc  1 a 1 35 ]
-"9
-[v ___flmul@sign sign `uc  1 a 1 34 ]
-"8
-[v ___flmul@b b `d  1 p 4 22 ]
-[v ___flmul@a a `d  1 p 4 26 ]
-"205
 } 0
 "11 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 {
 "21
-[v ___fldiv@grs grs `ul  1 a 4 66 ]
+[v ___fldiv@grs grs `ul  1 a 4 34 ]
 "22
-[v ___fldiv@rem rem `ul  1 a 4 59 ]
+[v ___fldiv@rem rem `ul  1 a 4 27 ]
 "20
-[v ___fldiv@new_exp new_exp `s  1 a 2 64 ]
+[v ___fldiv@new_exp new_exp `s  1 a 2 32 ]
 "19
-[v ___fldiv@aexp aexp `uc  1 a 1 71 ]
+[v ___fldiv@aexp aexp `uc  1 a 1 39 ]
 "18
-[v ___fldiv@bexp bexp `uc  1 a 1 70 ]
+[v ___fldiv@bexp bexp `uc  1 a 1 38 ]
 "16
-[v ___fldiv@sign sign `uc  1 a 1 63 ]
+[v ___fldiv@sign sign `uc  1 a 1 31 ]
 "11
-[v ___fldiv@b b `d  1 p 4 47 ]
-[v ___fldiv@a a `d  1 p 4 51 ]
+[v ___fldiv@b b `d  1 p 4 15 ]
+[v ___fldiv@a a `d  1 p 4 19 ]
 "185
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 {
 "17
-[v ___fladd@grs grs `uc  1 a 1 87 ]
+[v ___fladd@grs grs `uc  1 a 1 55 ]
 "15
-[v ___fladd@bexp bexp `uc  1 a 1 86 ]
+[v ___fladd@bexp bexp `uc  1 a 1 54 ]
 "16
-[v ___fladd@aexp aexp `uc  1 a 1 85 ]
+[v ___fladd@aexp aexp `uc  1 a 1 53 ]
 "13
-[v ___fladd@signs signs `uc  1 a 1 84 ]
+[v ___fladd@signs signs `uc  1 a 1 52 ]
 "10
-[v ___fladd@b b `d  1 p 4 72 ]
-[v ___fladd@a a `d  1 p 4 76 ]
+[v ___fladd@b b `d  1 p 4 40 ]
+[v ___fladd@a a `d  1 p 4 44 ]
 "237
-} 0
-"289 C:\Users\lenovo\MPLABXProjects\MCAL_layer/CCP/hal_ccp.c
-[v _CCP_Interrupt_Config CCP_Interrupt_Config `(v  1 s 1 CCP_Interrupt_Config ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S1127 . 17 `E3043 1 ccp_inst 1 0 `E3029 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S24 1 ccp_pin 1 3 `E3047 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `uc 1 timer2_postscaler_value 1 9 `uc 1 timer2_prescaler_value 1 10 `*.37(v 1 CCP1_InterruptHandler 2 11 `E3025 1 CCP1_priority 1 13 `*.37(v 1 CCP2_InterruptHandler 2 14 `E3025 1 CCP2_priority 1 16 ]
-[v CCP_Interrupt_Config@_ccp_obj _ccp_obj `*.39CS1127  1 p 2 8 ]
-"339
-} 0
-"391
-[v _CCP_Compare_Mode_Config CCP_Compare_Mode_Config `(uc  1 s 1 CCP_Compare_Mode_Config ]
-{
-"392
-[v CCP_Compare_Mode_Config@ret ret `uc  1 a 1 15 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"391
-[s S1127 . 17 `E3043 1 ccp_inst 1 0 `E3029 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S24 1 ccp_pin 1 3 `E3047 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `uc 1 timer2_postscaler_value 1 9 `uc 1 timer2_prescaler_value 1 10 `*.37(v 1 CCP1_InterruptHandler 2 11 `E3025 1 CCP1_priority 1 13 `*.37(v 1 CCP2_InterruptHandler 2 14 `E3025 1 CCP2_priority 1 16 ]
-[v CCP_Compare_Mode_Config@_ccp_obj _ccp_obj `*.39CS1127  1 p 2 11 ]
-"421
-} 0
-"361
-[v _CCP_Capture_Mode_Config CCP_Capture_Mode_Config `(uc  1 s 1 CCP_Capture_Mode_Config ]
-{
-"362
-[v CCP_Capture_Mode_Config@ret ret `uc  1 a 1 15 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"361
-[s S1127 . 17 `E3043 1 ccp_inst 1 0 `E3029 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S24 1 ccp_pin 1 3 `E3047 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `uc 1 timer2_postscaler_value 1 9 `uc 1 timer2_prescaler_value 1 10 `*.37(v 1 CCP1_InterruptHandler 2 11 `E3025 1 CCP1_priority 1 13 `*.37(v 1 CCP2_InterruptHandler 2 14 `E3025 1 CCP2_priority 1 16 ]
-[v CCP_Capture_Mode_Config@_ccp_obj _ccp_obj `*.39CS1127  1 p 2 11 ]
-"389
-} 0
-"341
-[v _CCP_Mode_Timer_Select CCP_Mode_Timer_Select `(v  1 s 1 CCP_Mode_Timer_Select ]
-{
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-[s S1127 . 17 `E3043 1 ccp_inst 1 0 `E3029 1 ccp_mode 1 1 `uc 1 ccp_mode_variant 1 2 `S24 1 ccp_pin 1 3 `E3047 1 ccp_capture_timer 1 4 `ul 1 PWM_Frequency 4 5 `uc 1 timer2_postscaler_value 1 9 `uc 1 timer2_prescaler_value 1 10 `*.37(v 1 CCP1_InterruptHandler 2 11 `E3025 1 CCP1_priority 1 13 `*.37(v 1 CCP2_InterruptHandler 2 14 `E3025 1 CCP2_priority 1 16 ]
-[v CCP_Mode_Timer_Select@_ccp_obj _ccp_obj `*.39CS1127  1 p 2 8 ]
-"359
 } 0
 "33 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Interrupt/mcal_interrupt_manager.c
 [v _InterruptManager InterruptManager `IIH(v  1 e 1 0 ]
@@ -1316,11 +1293,6 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
 {
 "108
-} 0
-"50 C:\Users\lenovo\MPLABXProjects\application.c
-[v _timer3_callback timer3_callback `(v  1 e 1 0 ]
-{
-"52
 } 0
 "95 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Timer2/hal_timer2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 1 0 ]
@@ -1388,15 +1360,15 @@ INTERRUPT_HIGH_PRIORITY 1
 {
 "82
 } 0
-"246 C:\Users\lenovo\MPLABXProjects\MCAL_layer/usart/hal_usart.c
+"258 C:\Users\lenovo\MPLABXProjects\MCAL_layer/usart/hal_usart.c
 [v _EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
 {
-"251
+"263
 } 0
-"253
+"265
 [v _EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
 {
-"263
+"275
 } 0
 "259 C:\Users\lenovo\MPLABXProjects\MCAL_layer/CCP/hal_ccp.c
 [v _CCP2_ISR CCP2_ISR `(v  1 e 1 0 ]
@@ -1407,38 +1379,6 @@ INTERRUPT_HIGH_PRIORITY 1
 [v _CCP1_ISR CCP1_ISR `(v  1 e 1 0 ]
 {
 "257
-} 0
-"37 C:\Users\lenovo\MPLABXProjects\application.c
-[v _ccp1_callback ccp1_callback `(v  1 e 1 0 ]
-{
-"48
-} 0
-"73 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Timer3/hal_timer3.c
-[v _Timer3_Write_Value Timer3_Write_Value `(uc  1 e 1 0 ]
-{
-[s S2975 . 6 `*.37(v 1 TMR3_InterruptHandler 2 0 `E3025 1 priority 1 2 `us 1 timer3_preload_value 2 3 `uc 1 timer3_prescaler_value 1 5 :2:0 
-`uc 1 timer3_mode 1 5 :1:2 
-`uc 1 timer3_counter_mode 1 5 :1:3 
-`uc 1 timer3_reg_wr_mode 1 5 :1:4 
-`uc 1 timer1_reserved 1 5 :3:5 
-]
-[v Timer3_Write_Value@_timer _timer `*.39CS2975  1 p 2 0 ]
-[v Timer3_Write_Value@_value _value `us  1 p 2 2 ]
-"84
-} 0
-"119 C:\Users\lenovo\MPLABXProjects\MCAL_layer/CCP/hal_ccp.c
-[v _CCP1_Capture_Mode_Read_Value CCP1_Capture_Mode_Read_Value `(uc  1 e 1 0 ]
-{
-[s S1295 . 2 `uc 1 ccpr_low 1 0 `uc 1 ccpr_high 1 1 ]
-"121
-[s S1298 . 2 `us 1 ccpr_16Bit 2 0 ]
-[u S1300 . 2 `S1295 1 . 2 0 `S1298 1 . 2 0 ]
-[v CCP1_Capture_Mode_Read_Value@capture_temp_value capture_temp_value `S1300  1 a 2 2 ]
-"119
-[v CCP1_Capture_Mode_Read_Value@capture_value capture_value `*.39us  1 p 2 0 ]
-"120
-[v CCP1_Capture_Mode_Read_Value@F3111 F3111 `S1300  1 s 2 F3111 ]
-"134
 } 0
 "297 C:\Users\lenovo\MPLABXProjects\MCAL_layer/ADC/hal_adc.c
 [v _ADC_ISR ADC_ISR `(v  1 e 1 0 ]

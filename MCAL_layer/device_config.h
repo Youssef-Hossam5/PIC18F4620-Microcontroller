@@ -9,7 +9,7 @@
 #define	DEVICE_CONFIG_H
 
 /* Section : Macro Declarations*/
-#define _XTAL_FREQ  4000000  // 4MHz crystal frquency
+#define _XTAL_FREQ  8000000UL  // 4MHz crystal frquency
 
 /* Section :Data Type Declarations */
 

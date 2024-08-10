@@ -1,57 +1,25 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"17 application.c
-[; ;application.c: 17: ccp_t ccp_1 = {
-[c E3218 0 1 .. ]
-[n E3218 . CCP1_INST CCP2_INST  ]
-[c E3204 0 1 2 .. ]
-[n E3204 . CCP_CAPTURE_MODE_SELECTED CCP_COMPARE_MODE_SELECTED CCP_PWM_MODE_SELECTED  ]
-"68 ./MCAL_layer/CCP/../../MCAL_Layer/GPIO/hal_gpio.h
-[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S273 . port pin direction logic ]
-"17 application.c
-[; ;application.c: 17: ccp_t ccp_1 = {
-[c E3222 0 1 2 .. ]
-[n E3222 . CCP1_CCP2_TIMER3 CCP1_TIMER1_CCP2_TIMER3 CCP1_CCP2_TIMER1  ]
-[v F3237 `(v ~T0 @X0 0 tf ]
-[c E3179 0 1 .. ]
-[n E3179 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
-[v F3240 `(v ~T0 @X0 0 tf ]
-"108 ./MCAL_layer/CCP/hal_ccp.h
-[; ;./MCAL_layer/CCP/hal_ccp.h: 108: typedef struct{
-[s S286 `E3218 1 `E3204 1 `uc 1 `S273 1 `E3222 1 `ul 1 `uc 1 `uc 1 `*F3237 1 `E3179 1 `*F3240 1 `E3179 1 ]
-[n S286 . ccp_inst ccp_mode ccp_mode_variant ccp_pin ccp_capture_timer PWM_Frequency timer2_postscaler_value timer2_prescaler_value CCP1_InterruptHandler CCP1_priority CCP2_InterruptHandler CCP2_priority ]
-"17 application.c
-[; ;application.c: 17: ccp_t ccp_1 = {
-[c E2983 0 1 2 3 4 .. ]
-[n E2983 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-[c E2973 0 1 2 3 4 5 6 7 .. ]
-[n E2973 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
-[c E2969 0 1 .. ]
-[n E2969 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
-"14
-[; ;application.c: 14: void ccp1_callback(void);
-[v _ccp1_callback `(v ~T0 @X0 0 ef ]
-[v F3185 `(v ~T0 @X0 0 tf ]
-"50 ./MCAL_layer/Timer3/hal_timer3.h
-[; ;./MCAL_layer/Timer3/hal_timer3.h: 50: typedef struct{
-[s S282 `*F3185 1 `E3179 1 `us 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S282 . TMR3_InterruptHandler priority timer3_preload_value timer3_prescaler_value timer3_mode timer3_counter_mode timer3_reg_wr_mode timer1_reserved ]
-"15 application.c
-[; ;application.c: 15: void timer3_callback(void);
-[v _timer3_callback `(v ~T0 @X0 0 ef ]
-"66 ./MCAL_layer/Timer3/hal_timer3.h
-[; ;./MCAL_layer/Timer3/hal_timer3.h: 66: Std_ReturnType Timer3_Write_Value(const timer3_t *_timer, uint16 _value);
-[v _Timer3_Write_Value `(uc ~T0 @X0 0 ef2`*CS282`us ]
-"135 ./MCAL_layer/CCP/hal_ccp.h
-[; ;./MCAL_layer/CCP/hal_ccp.h: 135: Std_ReturnType CCP1_Capture_Mode_Read_Value(uint16 *capture_value);
-[v _CCP1_Capture_Mode_Read_Value `(uc ~T0 @X0 0 ef1`*us ]
+"77 ./MCAL_layer/I2C/hal_i2c.h
+[; ;./MCAL_layer/I2C/hal_i2c.h: 77: typedef struct{
+[s S287 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
+[n S287 . i2c_mode_cfg i2c_slave_address i2c_mode i2c_slew_rate i2c_SMBus_control i2c_general_call i2c_master_rec_mode i2c_reserved ]
+"92
+[; ;./MCAL_layer/I2C/hal_i2c.h: 92: typedef struct{
+[s S288 `ul 1 `S287 1 ]
+[n S288 . i2c_clock i2c_cfg ]
 [p mainexit ]
-"130
-[; ;./MCAL_layer/CCP/hal_ccp.h: 130: Std_ReturnType CCP_Init(const ccp_t *_ccp_obj);
-[v _CCP_Init `(uc ~T0 @X0 0 ef1`*CS286 ]
-"64 ./MCAL_layer/Timer3/hal_timer3.h
-[; ;./MCAL_layer/Timer3/hal_timer3.h: 64: Std_ReturnType Timer3_Init(const timer3_t *_timer);
-[v _Timer3_Init `(uc ~T0 @X0 0 ef1`*CS282 ]
+"103
+[; ;./MCAL_layer/I2C/hal_i2c.h: 103: Std_ReturnType MSSP_I2C_Init(const mssp_i2c_t *i2c_obj);
+[v _MSSP_I2C_Init `(uc ~T0 @X0 0 ef1`*CS288 ]
+"106
+[; ;./MCAL_layer/I2C/hal_i2c.h: 106: Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_t *i2c_obj);
+[v _MSSP_I2C_Master_Send_Start `(uc ~T0 @X0 0 ef1`*CS288 ]
+"108
+[; ;./MCAL_layer/I2C/hal_i2c.h: 108: Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_t *i2c_obj);
+[v _MSSP_I2C_Master_Send_Stop `(uc ~T0 @X0 0 ef1`*CS288 ]
+"22 ./ECU_Layer/ecu_layer_init.h
+[; ;./ECU_Layer/ecu_layer_init.h: 22:  void ecu_layer_intialize(void);
+[v _ecu_layer_intialize `(v ~T0 @X0 0 ef ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\../include/proc/pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "192
@@ -326,190 +294,76 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "6716
 [; <" TOSU equ 0FFFh ;# ">
-"6 application.c
-[; ;application.c: 6: volatile uint8 ccp1_int_flag = 0;
-[v _ccp1_int_flag `Vuc ~T0 @X0 1 e ]
-[i _ccp1_int_flag
--> -> 0 `i `uc
-]
-"7
-[; ;application.c: 7: volatile uint8 ccp1_second_cap_flag = 0;
-[v _ccp1_second_cap_flag `Vuc ~T0 @X0 1 e ]
-[i _ccp1_second_cap_flag
--> -> 0 `i `uc
-]
-"8
-[; ;application.c: 8: volatile uint32 timer3_overflow = 0;
-[v _timer3_overflow `Vul ~T0 @X0 1 e ]
-[i _timer3_overflow
--> -> -> 0 `i `l `ul
-]
-"10
-[; ;application.c: 10: uint32 totalPeriod_us = 0;
-[v _totalPeriod_us `ul ~T0 @X0 1 e ]
-[i _totalPeriod_us
--> -> -> 0 `i `l `ul
-]
-"11
-[; ;application.c: 11: uint32 freq = 0;
-[v _freq `ul ~T0 @X0 1 e ]
-[i _freq
--> -> -> 0 `i `l `ul
-]
-"12
-[; ;application.c: 12: uint16 capture_val = 0;
-[v _capture_val `us ~T0 @X0 1 e ]
-[i _capture_val
--> -> 0 `i `us
-]
-"17
-[; ;application.c: 17: ccp_t ccp_1 = {
-[v _ccp_1 `S286 ~T0 @X0 1 e ]
-[i _ccp_1
-:U ..
-:U ..
-. `E3218 0
-. `E3204 0
--> -> 5 `i `uc
-:U ..
-:U ..
--> . `E2983 2 `uc
--> . `E2973 2 `uc
--> . `E2969 1 `uc
-..
-..
-. `E3222 0
--> -> 0 `i `ul
--> -> 0 `i `uc
--> -> 0 `i `uc
-&U _ccp1_callback
-..
-..
-]
-"28
-[; ;application.c: 28: timer3_t timer_3 = {
-[v _timer_3 `S282 ~T0 @X0 1 e ]
-[i _timer_3
-:U ..
-:U ..
-&U _timer3_callback
-. `E3179 0
--> -> 0 `i `us
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
-..
-..
-]
-"37
-[; ;application.c: 37: void ccp1_callback(void){
-[v _ccp1_callback `(v ~T0 @X0 1 ef ]
-{
-[e :U _ccp1_callback ]
-[f ]
-"38
-[; ;application.c: 38:     ccp1_int_flag++;
-[e ++ _ccp1_int_flag -> -> 1 `i `Vuc ]
-"39
-[; ;application.c: 39:     ccp1_second_cap_flag++;
-[e ++ _ccp1_second_cap_flag -> -> 1 `i `Vuc ]
-"40
-[; ;application.c: 40:     if(1 == ccp1_int_flag){
-[e $ ! == -> 1 `i -> _ccp1_int_flag `i 288  ]
-{
-"41
-[; ;application.c: 41:         Timer3_Write_Value(&timer_3, 0);
-[e ( _Timer3_Write_Value (2 , -> &U _timer_3 `*CS282 -> -> 0 `i `us ]
-"42
-[; ;application.c: 42:     }
-}
-[e $U 289  ]
-"43
-[; ;application.c: 43:     else if(2 == ccp1_int_flag){
-[e :U 288 ]
-[e $ ! == -> 2 `i -> _ccp1_int_flag `i 290  ]
-{
-"44
-[; ;application.c: 44:         timer3_overflow = 0;
-[e = _timer3_overflow -> -> -> 0 `i `l `ul ]
-"45
-[; ;application.c: 45:         ccp1_int_flag = 0;
-[e = _ccp1_int_flag -> -> 0 `i `uc ]
-"46
-[; ;application.c: 46:         CCP1_Capture_Mode_Read_Value(&capture_val);
-[e ( _CCP1_Capture_Mode_Read_Value (1 &U _capture_val ]
-"47
-[; ;application.c: 47:     }
-}
-[e :U 290 ]
-[e :U 289 ]
-"48
-[; ;application.c: 48: }
-[e :UE 287 ]
-}
-"50
-[; ;application.c: 50: void timer3_callback(void){
-[v _timer3_callback `(v ~T0 @X0 1 ef ]
-{
-[e :U _timer3_callback ]
-[f ]
-"51
-[; ;application.c: 51:     timer3_overflow++;
-[e ++ _timer3_overflow -> -> 1 `i `Vul ]
-"52
-[; ;application.c: 52: }
-[e :UE 291 ]
-}
+"11 application.c
+[; ;application.c: 11: mssp_i2c_t i2c_obj;
+[v _i2c_obj `S288 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"54
-[; ;application.c: 54: int main() {
+"13
+[; ;application.c: 13: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"55
-[; ;application.c: 55:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"14
+[; ;application.c: 14:     i2c_obj.i2c_clock = 100000;
+[e = . _i2c_obj 0 -> -> 100000 `l `ul ]
+"15
+[; ;application.c: 15:     i2c_obj.i2c_cfg.i2c_mode = 1;
+[e = . . _i2c_obj 1 2 -> -> 1 `i `uc ]
+"16
+[; ;application.c: 16:     i2c_obj.i2c_cfg.i2c_mode_cfg = 0x08U;
+[e = . . _i2c_obj 1 0 -> -> 8 `ui `uc ]
+"17
+[; ;application.c: 17:     i2c_obj.i2c_cfg.i2c_SMBus_control = 0;
+[e = . . _i2c_obj 1 4 -> -> 0 `i `uc ]
+"18
+[; ;application.c: 18:     i2c_obj.i2c_cfg.i2c_slew_rate = 1;
+[e = . . _i2c_obj 1 3 -> -> 1 `i `uc ]
+"20
+[; ;application.c: 20:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"57
-[; ;application.c: 57:     ret = CCP_Init(&ccp_1);
-[e = _ret ( _CCP_Init (1 -> &U _ccp_1 `*CS286 ]
-"58
-[; ;application.c: 58:     ret = Timer3_Init(&timer_3);
-[e = _ret ( _Timer3_Init (1 -> &U _timer_3 `*CS282 ]
-"60
-[; ;application.c: 60:     while(1){
-[e :U 294 ]
+"21
+[; ;application.c: 21:     ret = MSSP_I2C_Init(&i2c_obj);
+[e = _ret ( _MSSP_I2C_Init (1 -> &U _i2c_obj `*CS288 ]
+"22
+[; ;application.c: 22:     ret=MSSP_I2C_Master_Send_Start(&i2c_obj);
+[e = _ret ( _MSSP_I2C_Master_Send_Start (1 -> &U _i2c_obj `*CS288 ]
+"23
+[; ;application.c: 23:     ret=MSSP_I2C_Master_Send_Stop(&i2c_obj);
+[e = _ret ( _MSSP_I2C_Master_Send_Stop (1 -> &U _i2c_obj `*CS288 ]
+"25
+[; ;application.c: 25:     while(1){
+[e :U 291 ]
 {
-"63
-[; ;application.c: 63:         if(ccp1_second_cap_flag == 2){
-[e $ ! == -> _ccp1_second_cap_flag `i -> 2 `i 296  ]
-{
-"64
-[; ;application.c: 64:             ccp1_second_cap_flag = 0;
-[e = _ccp1_second_cap_flag -> -> 0 `i `uc ]
-"65
-[; ;application.c: 65:             totalPeriod_us = timer3_overflow * 65536 + capture_val;
-[e = _totalPeriod_us + * _timer3_overflow -> -> 65536 `l `ul -> _capture_val `ul ]
-"66
-[; ;application.c: 66:             freq = (uint32)(1000000.0 / totalPeriod_us);
-[e = _freq -> / .1000000.0 -> _totalPeriod_us `d `ul ]
-"67
-[; ;application.c: 67:         }
+"27
+[; ;application.c: 27:     }
 }
-[e :U 296 ]
-"69
-[; ;application.c: 69:     }
-}
-[e :U 293 ]
-[e $U 294  ]
-[e :U 295 ]
-"71
-[; ;application.c: 71:     return (0);
+[e :U 290 ]
+[e $U 291  ]
+[e :U 292 ]
+"28
+[; ;application.c: 28:     return (0);
 [e ) -> 0 `i ]
-[e $UE 292  ]
-"72
-[; ;application.c: 72: }
-[e :UE 292 ]
+[e $UE 289  ]
+"29
+[; ;application.c: 29: }
+[e :UE 289 ]
+}
+"31
+[; ;application.c: 31: void application_intialize(void){
+[v _application_intialize `(v ~T0 @X0 1 ef ]
+{
+[e :U _application_intialize ]
+[f ]
+"32
+[; ;application.c: 32:     Std_ReturnType ret = (Std_ReturnType)0x00;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 0 `i `uc ]
+"33
+[; ;application.c: 33:     ecu_layer_intialize();
+[e ( _ecu_layer_intialize ..  ]
+"34
+[; ;application.c: 34: }
+[e :UE 293 ]
 }

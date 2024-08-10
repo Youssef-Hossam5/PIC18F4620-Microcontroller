@@ -1,4 +1,4 @@
-# 1 "application.c"
+# 1 "ECU_layer/Ultrasonic/Ultrasonic.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,21 +6,26 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "application.c" 2
+# 1 "ECU_layer/Ultrasonic/Ultrasonic.c" 2
+
+# 1 "ECU_layer/Ultrasonic/Ultrasonic.h" 1
 
 
 
 
 
 
-# 1 "./application.h" 1
-# 13 "./application.h"
-# 1 "./ECU_Layer/ecu_layer_init.h" 1
-# 14 "./ECU_Layer/ecu_layer_init.h"
-# 1 "./ECU_Layer/LED/ecu_led.h" 1
-# 12 "./ECU_Layer/LED/ecu_led.h"
-# 1 "./ECU_Layer/LED/../../MCAL_layer/GPIO/hal_gpio.h" 1
-# 12 "./ECU_Layer/LED/../../MCAL_layer/GPIO/hal_gpio.h"
+
+# 1 "ECU_layer/Ultrasonic/Ultrasonic_Cfg.h" 1
+
+
+
+
+
+
+
+# 1 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/hal_gpio.h" 1
+# 12 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/hal_gpio.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 1 3
 # 45 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\proc\\pic18f4620.h" 3
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\__at.h" 1 3
@@ -4233,12 +4238,12 @@ extern volatile __bit nWR __attribute__((address(0x7C21)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 12 "./ECU_Layer/LED/../../MCAL_layer/GPIO/hal_gpio.h" 2
+# 12 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../mcal_std_types.h" 1
-# 13 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../mcal_std_types.h"
-# 1 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../std_libraries.h" 1
-# 12 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../std_libraries.h"
+# 1 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../mcal_std_types.h" 1
+# 13 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../mcal_std_types.h"
+# 1 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../std_libraries.h" 1
+# 12 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../std_libraries.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -4402,7 +4407,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 12 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../std_libraries.h" 2
+# 12 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 3
@@ -4467,7 +4472,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 13 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../std_libraries.h" 2
+# 13 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../std_libraries.h" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\string.h" 3
@@ -4524,11 +4529,11 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 14 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../std_libraries.h" 2
-# 13 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
+# 14 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../std_libraries.h" 2
+# 13 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
 
-# 1 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../compiler.h" 1
-# 11 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../compiler.h"
+# 1 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../compiler.h" 1
+# 11 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../compiler.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4690,8 +4695,8 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../compiler.h" 2
-# 14 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../mcal_std_types.h" 2
+# 11 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../compiler.h" 2
+# 14 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
 
 
 
@@ -4705,14 +4710,14 @@ typedef signed short sint16 ;
 typedef signed long sint32 ;
 
 typedef uint8 Std_ReturnType ;
-# 13 "./ECU_Layer/LED/../../MCAL_layer/GPIO/hal_gpio.h" 2
+# 13 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./ECU_Layer/LED/../../MCAL_layer/GPIO/../device_config.h" 1
-# 14 "./ECU_Layer/LED/../../MCAL_layer/GPIO/hal_gpio.h" 2
+# 1 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/../device_config.h" 1
+# 14 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/hal_gpio.h" 2
 
-# 1 "./ECU_Layer/LED/../../MCAL_layer/GPIO/hal_gpio_cfg.h" 1
-# 15 "./ECU_Layer/LED/../../MCAL_layer/GPIO/hal_gpio.h" 2
-# 39 "./ECU_Layer/LED/../../MCAL_layer/GPIO/hal_gpio.h"
+# 1 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/hal_gpio_cfg.h" 1
+# 15 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/hal_gpio.h" 2
+# 39 "ECU_layer/Ultrasonic/../../MCAL_Layer/GPIO/hal_gpio.h"
 typedef enum {
    GPIO_LOW =0 ,
    GPIO_HIGH
@@ -4762,330 +4767,120 @@ Std_ReturnType gpio_port_get_direction_status(port_index_t port , uint8 *directi
 Std_ReturnType gpio_port_write_logic (port_index_t port , uint8 logic );
 Std_ReturnType gpio_port_read_logic (port_index_t port , uint8 *logic );
 Std_ReturnType gpio_port_toggle_logic (port_index_t port);
-# 12 "./ECU_Layer/LED/ecu_led.h" 2
+# 8 "ECU_layer/Ultrasonic/Ultrasonic_Cfg.h" 2
 
-# 1 "./ECU_Layer/LED/ecu_led_cfg.h" 1
-# 13 "./ECU_Layer/LED/ecu_led.h" 2
-
-
-
-
-
-typedef enum {
-    LED_OFF,
-    LED_ON
-} led_status_t ;
-
-typedef struct {
-    uint8 port_name :4;
-    uint8 pin :3;
-    uint8 led_status :1;
-}led_t;
-
-
-Std_ReturnType led_initialize(const led_t *led);
-Std_ReturnType led_turn_on(const led_t *led);
-Std_ReturnType led_turn_off(const led_t *led);
-Std_ReturnType led_turn_toggle(const led_t *led);
-# 14 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/button/ecu_button.h" 1
-# 13 "./ECU_Layer/button/ecu_button.h"
-# 1 "./ECU_Layer/button/ecu_button_cfg.h" 1
-# 13 "./ECU_Layer/button/ecu_button.h" 2
-
-
-
-
-
-
-
-typedef enum{
-    BUTTON_PRESSED = 0,
-    BUTTON_RELEASED =1
-}button_state_t;
-
-typedef enum{
-    BUTTON_ACTIVE_HIGH,
-    BUTTON_ACTIVE_LOW
-}button_active_t;
-
-typedef struct{
-    pin_config_t button_pin;
-    button_state_t button_state;
-    button_active_t button_connection;
-}button_t;
-# 44 "./ECU_Layer/button/ecu_button.h"
-Std_ReturnType button_initialize(const button_t *btn);
-# 54 "./ECU_Layer/button/ecu_button.h"
-Std_ReturnType button_read_state(const button_t *btn, button_state_t *btn_state);
-# 15 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/Relay/ecu_relay.h" 1
-# 12 "./ECU_Layer/Relay/ecu_relay.h"
-# 1 "./ECU_Layer/Relay/ecu_relay_cfg.h" 1
-# 12 "./ECU_Layer/Relay/ecu_relay.h" 2
-# 21 "./ECU_Layer/Relay/ecu_relay.h"
-typedef struct {
-    uint8 relay_port :4;
-    uint8 relay_pin :3;
-    uint8 relay_status :1;
-} relay_t;
-
-
-
-
-Std_ReturnType relay_initialize(const relay_t * _relay);
-Std_ReturnType relay_on(const relay_t * _relay);
-Std_ReturnType relay_off(const relay_t * _relay);
-# 16 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/DC_Motor/ecu_dc_motor.h" 1
-# 12 "./ECU_Layer/DC_Motor/ecu_dc_motor.h"
-# 1 "./ECU_Layer/DC_Motor/ecu_dc_motor_cfg.h" 1
-# 12 "./ECU_Layer/DC_Motor/ecu_dc_motor.h" 2
-# 25 "./ECU_Layer/DC_Motor/ecu_dc_motor.h"
-typedef struct{
-    pin_config_t dc_motor_pin[2];
-}dc_motor_t;
-
-
-Std_ReturnType dc_motor_initialize(const dc_motor_t *_dc_motor);
-Std_ReturnType dc_motor_move_right(const dc_motor_t *_dc_motor);
-Std_ReturnType dc_motor_move_left(const dc_motor_t *_dc_motor);
-Std_ReturnType dc_motor_stop(const dc_motor_t *_dc_motor);
-# 17 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/7_Segment/ecu_seven_segment.h" 1
-# 13 "./ECU_Layer/7_Segment/ecu_seven_segment.h"
-# 1 "./ECU_Layer/7_Segment/ecu_seven_segment_cfg.h" 1
-# 13 "./ECU_Layer/7_Segment/ecu_seven_segment.h" 2
-# 22 "./ECU_Layer/7_Segment/ecu_seven_segment.h"
-typedef enum {
-    SEGMENT_COMMON_ANODE,
-    SEGMENT_COMMON_CATHODE
-} segment_type_t;
-
-typedef struct {
-    pin_config_t segment_pins[4];
-    segment_type_t segment_type;
-} segment_t;
-
-
-Std_ReturnType seven_segment_initialize(const segment_t * seg );
-Std_ReturnType seven_segment_write_number(const segment_t * seg, uint8 number );
-# 18 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/KeyPad/ecu_keypad.h" 1
-# 12 "./ECU_Layer/KeyPad/ecu_keypad.h"
-# 1 "./ECU_Layer/KeyPad/ecu_keypad_cfg.h" 1
-# 12 "./ECU_Layer/KeyPad/ecu_keypad.h" 2
-# 25 "./ECU_Layer/KeyPad/ecu_keypad.h"
-typedef struct {
-    pin_config_t keypad_row_pins[4];
-    pin_config_t keypad_col_pins[4];
-} keypad_t;
-
-
-Std_ReturnType Keypad_initialize (const keypad_t * _keypad_obj);
-Std_ReturnType Keypad_get_value (const keypad_t * _keypad_obj,uint8 * value);
-# 19 "./ECU_Layer/ecu_layer_init.h" 2
-
-# 1 "./ECU_Layer/chr_lcd/chr_lcd.h" 1
-# 12 "./ECU_Layer/chr_lcd/chr_lcd.h"
-# 1 "./ECU_Layer/chr_lcd/chr_lcd_cfg.h" 1
-# 12 "./ECU_Layer/chr_lcd/chr_lcd.h" 2
-
-
-# 1 "./ECU_Layer/chr_lcd/../../../MPLABXProjects/application.h" 1
-# 14 "./ECU_Layer/chr_lcd/chr_lcd.h" 2
-# 45 "./ECU_Layer/chr_lcd/chr_lcd.h"
-typedef struct{
-    pin_config_t lcd_rs;
-    pin_config_t lcd_en;
-    pin_config_t lcd_data[4];
-}chr_lcd_4bit_t;
-
-typedef struct{
-    pin_config_t lcd_rs;
-    pin_config_t lcd_en;
-    pin_config_t lcd_data[8];
-}chr_lcd_8bit_t;
-
-
-Std_ReturnType lcd_4bit_intialize(const chr_lcd_4bit_t *lcd);
-Std_ReturnType lcd_4bit_send_command(const chr_lcd_4bit_t *lcd, uint8 command);
-Std_ReturnType lcd_4bit_send_char_data(const chr_lcd_4bit_t *lcd, uint8 data);
-Std_ReturnType lcd_4bit_send_char_data_pos(const chr_lcd_4bit_t *lcd,uint8 row, uint8 column, uint8 data);
-Std_ReturnType lcd_4bit_send_string(const chr_lcd_4bit_t *lcd, uint8 *str);
-Std_ReturnType lcd_4bit_send_string_pos(const chr_lcd_4bit_t *lcd, uint8 row, uint8 column, uint8 *str);
-Std_ReturnType lcd_4bit_send_custom_char(const chr_lcd_4bit_t *lcd, uint8 row, uint8 column,
-                                         const uint8 _chr[], uint8 mem_pos);
-
-Std_ReturnType lcd_8bit_intialize(const chr_lcd_8bit_t *lcd);
-Std_ReturnType lcd_8bit_send_command(const chr_lcd_8bit_t *lcd, uint8 command);
-Std_ReturnType lcd_8bit_send_char_data(const chr_lcd_8bit_t *lcd, uint8 data);
-Std_ReturnType lcd_8bit_send_char_data_pos(const chr_lcd_8bit_t *lcd,uint8 row, uint8 column, uint8 data);
-Std_ReturnType lcd_8bit_send_string(const chr_lcd_8bit_t *lcd, uint8 *str);
-Std_ReturnType lcd_8bit_send_string_pos(const chr_lcd_8bit_t *lcd, uint8 row, uint8 column, uint8 *str);
-Std_ReturnType lcd_8bit_send_custom_char(const chr_lcd_8bit_t *lcd, uint8 row, uint8 column,
-                                         const uint8 _chr[], uint8 mem_pos);
-
-Std_ReturnType convert_uint8_to_string(uint8 value, uint8 *str);
-Std_ReturnType convert_uint16_to_string(uint16 value, uint8 *str);
-Std_ReturnType convert_uint32_to_string(uint32 value, uint8 *str);
-# 20 "./ECU_Layer/ecu_layer_init.h" 2
-
-
- void ecu_layer_intialize(void);
-# 13 "./ECU_Layer/chr_lcd/../../../MPLABXProjects/application.h" 2
-# 23 "./ECU_Layer/chr_lcd/../../../MPLABXProjects/application.h"
-void application_intialize(void);
-# 7 "application.c" 2
-
-# 1 "./MCAL_Layer/usart/hal_usart.h" 1
-# 15 "./MCAL_Layer/usart/hal_usart.h"
-# 1 "./MCAL_Layer/usart/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 1
-# 12 "./MCAL_Layer/usart/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h"
-# 1 "./MCAL_Layer/usart/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 1
-# 15 "./MCAL_Layer/usart/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
-# 1 "./MCAL_Layer/usart/../../MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h" 1
-# 15 "./MCAL_Layer/usart/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
-# 54 "./MCAL_Layer/usart/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
+# 1 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/hal_timer0.h" 1
+# 15 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/hal_timer0.h"
+# 1 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 1
+# 12 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h"
+# 1 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 1
+# 15 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
+# 1 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_gen_cfg.h" 1
+# 15 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h" 2
+# 54 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_interrupt_config.h"
 typedef enum{
     INTERRUPT_LOW_PRIORITY = 0,
     INTERRUPT_HIGH_PRIORITY
 }interrupt_priority_cfg;
-# 12 "./MCAL_Layer/usart/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 2
-# 15 "./MCAL_Layer/usart/hal_usart.h" 2
-
-# 1 "./MCAL_Layer/usart/hal_usart_cfg.h" 1
-# 16 "./MCAL_Layer/usart/hal_usart.h" 2
-# 63 "./MCAL_Layer/usart/hal_usart.h"
+# 12 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/../../MCAL_Layer/Interrupt/mcal_internal_interrupt.h" 2
+# 15 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/hal_timer0.h" 2
+# 44 "ECU_layer/Ultrasonic/../../MCAL_layer/Timer0/hal_timer0.h"
 typedef enum{
-    BAUDRATE_ASYN_8BIT_lOW_SPEED,
-    BAUDRATE_ASYN_8BIT_HIGH_SPEED,
-    BAUDRATE_ASYN_16BIT_lOW_SPEED,
-    BAUDRATE_ASYN_16BIT_HIGH_SPEED,
-    BAUDRATE_SYN_8BIT,
-    BAUDRATE_SYN_16BIT
-}baudrate_gen_t;
+    TIMER0_PRESCALER_DIV_BY_2= 0,
+    TIMER0_PRESCALER_DIV_BY_4,
+    TIMER0_PRESCALER_DIV_BY_8,
+    TIMER0_PRESCALER_DIV_BY_16,
+    TIMER0_PRESCALER_DIV_BY_32,
+    TIMER0_PRESCALER_DIV_BY_64,
+    TIMER0_PRESCALER_DIV_BY_128,
+    TIMER0_PRESCALER_DIV_BY_256
+}timer0_prescaler_select_t;
 
 typedef struct{
-    interrupt_priority_cfg usart_tx_int_priority;
- uint8 usart_tx_enable : 1;
- uint8 usart_tx_interrupt_enable : 1;
- uint8 usart_tx_9bit_enable : 1;
-    uint8 usart_tx_reserved : 5;
-}usart_tx_cfg_t;
+
+    void (* TMR0_InterruptHandler)(void);
+    interrupt_priority_cfg priority;
+
+    timer0_prescaler_select_t prescaler_value;
+    uint16 timer0_preload_value;
+    uint8 prescaler_enable : 1;
+    uint8 timer0_counter_edge : 1;
+    uint8 timer0_mode : 1;
+    uint8 timer0_register_size : 1;
+    uint8 timer0_reserved : 4;
+}timer0_t;
+
+
+Std_ReturnType Timer0_Init(const timer0_t *_timer);
+Std_ReturnType Timer0_DeInit(const timer0_t *_timer);
+Std_ReturnType Timer0_Write_Value(const timer0_t *_timer, uint16 _value);
+Std_ReturnType Timer0_Read_Value(const timer0_t *_timer, uint16 *_value);
+# 9 "ECU_layer/Ultrasonic/Ultrasonic_Cfg.h" 2
+
+
+extern timer0_t timer0_timer_obj;
+# 8 "ECU_layer/Ultrasonic/Ultrasonic.h" 2
+
+
+
 
 typedef struct{
-    interrupt_priority_cfg usart_rx_int_priority;
- uint8 usart_rx_enable : 1;
- uint8 usart_rx_interrupt_enable : 1;
- uint8 usart_rx_9bit_enable : 1;
-    uint8 usart_rx_reserved : 5;
-}usart_rx_cfg_t;
+    pin_config_t Trigger_Pin;
+    pin_config_t Echo_Pin;
+}ultrasonic_t;
 
-typedef union{
- struct{
-  uint8 usart_tx_reserved : 6;
-  uint8 usart_ferr : 1;
-  uint8 usart_oerr : 1;
- };
- uint8 status;
-}usart_error_status_t;
-
-typedef struct{
-    uint32 baudrate;
-    baudrate_gen_t baudrate_gen_gonfig;
-    usart_tx_cfg_t usart_tx_cfg;
- usart_rx_cfg_t usart_rx_cfg;
- usart_error_status_t error_status;
- void (*EUSART_TxDefaultInterruptHandler)(void);
-    void (*EUSART_RxDefaultInterruptHandler)(void);
-    void (*EUSART_FramingErrorHandler)(void);
-    void (*EUSART_OverrunErrorHandler)(void);
-}usart_t;
+Std_ReturnType Ultrasonic_Init(const ultrasonic_t *_config);
+Std_ReturnType Ultrasonic_Calculate_Distance(const ultrasonic_t *_config, uint16 *Distance);
+# 2 "ECU_layer/Ultrasonic/Ultrasonic.c" 2
 
 
-Std_ReturnType EUSART_ASYNC_Init(const usart_t *_eusart);
-Std_ReturnType EUSART_ASYNC_DeInit(const usart_t *_eusart);
+Std_ReturnType Ultrasonic_Init(const ultrasonic_t *_config){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
 
-Std_ReturnType EUSART_ASYNC_ReadByteBlocking(uint8 *_data);
-Std_ReturnType EUSART_ASYNC_ReadByteNonBlocking(uint8 *_data);
-Std_ReturnType EUSART_ASYNC_RX_Restart(void);
-
-Std_ReturnType EUSART_ASYNC_WriteByteBlocking(uint8 _data);
-Std_ReturnType EUSART_ASYNC_WriteStringBlocking(uint8 *_data, uint16 str_len);
-Std_ReturnType EUSART_ASYNC_WriteByteNonBlocking(uint8 _data);
-Std_ReturnType EUSART_ASYNC_WriteStringNonBlocking(uint8 *_data, uint16 str_len);
-# 8 "application.c" 2
-
-# 1 "./MCAL_layer/I2C/hal_i2c.h" 1
-# 77 "./MCAL_layer/I2C/hal_i2c.h"
-typedef struct{
- uint8 i2c_mode_cfg;
-    uint8 i2c_slave_address;
- uint8 i2c_mode : 1;
- uint8 i2c_slew_rate : 1;
- uint8 i2c_SMBus_control : 1;
- uint8 i2c_general_call : 1;
- uint8 i2c_master_rec_mode : 1;
- uint8 i2c_reserved : 3;
-
-
-
-
-}i2c_configs_t;
-
-typedef struct{
- uint32 i2c_clock;
-    i2c_configs_t i2c_cfg;
-
-
-
-
-
-}mssp_i2c_t;
-
-
-Std_ReturnType MSSP_I2C_Init(const mssp_i2c_t *i2c_obj);
-Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_t *i2c_obj);
-
-Std_ReturnType MSSP_I2C_Master_Send_Start(const mssp_i2c_t *i2c_obj);
-Std_ReturnType MSSP_I2C_Master_Send_Repeated_Start(const mssp_i2c_t *i2c_obj);
-Std_ReturnType MSSP_I2C_Master_Send_Stop(const mssp_i2c_t *i2c_obj);
-
-Std_ReturnType MSSP_I2C_Master_Write_Blocking(const mssp_i2c_t *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_ReturnType MSSP_I2C_Master_Read_Blocking(const mssp_i2c_t *i2c_obj, uint8 ack, uint8 *i2c_data);
-
-Std_ReturnType MSSP_I2C_Master_Write_NBlocking(const mssp_i2c_t *i2c_obj, uint8 i2c_data, uint8 *_ack);
-Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_t *i2c_obj, uint8 ack, uint8 *i2c_data);
-# 9 "application.c" 2
-
-
-mssp_i2c_t i2c_obj;
-
-int main() {
-    i2c_obj.i2c_clock = 100000;
-    i2c_obj.i2c_cfg.i2c_mode = 1;
-    i2c_obj.i2c_cfg.i2c_mode_cfg = 0x08U;
-    i2c_obj.i2c_cfg.i2c_SMBus_control = 0;
-    i2c_obj.i2c_cfg.i2c_slew_rate = 1;
-
-    Std_ReturnType ret = (Std_ReturnType)0x00;
-    ret = MSSP_I2C_Init(&i2c_obj);
-    ret=MSSP_I2C_Master_Send_Start(&i2c_obj);
-    ret=MSSP_I2C_Master_Send_Stop(&i2c_obj);
-
-    while(1){
-
+    if(((void*)0) == _config){
+        ret = (Std_ReturnType)0x00;
     }
-    return (0);
+    else{
+        ret = gpio_pin_intialize(&(_config->Trigger_Pin));
+        ret &= gpio_pin_intialize(&(_config->Echo_Pin));
+    }
+
+    return ret;
 }
 
-void application_intialize(void){
-    Std_ReturnType ret = (Std_ReturnType)0x00;
-    ecu_layer_intialize();
+Std_ReturnType Ultrasonic_Calculate_Distance(const ultrasonic_t *_config, uint16 *Distance){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    uint16 Timer0_Value = 0;
+    logic_t EchoPinLogic = GPIO_LOW;
+
+    if(((void*)0) == _config){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
+
+        ret = gpio_pin_write_logic(&(_config->Trigger_Pin), GPIO_HIGH);
+        _delay((unsigned long)((10)*(8000000UL/4000000.0)));
+        ret = gpio_pin_write_logic(&(_config->Trigger_Pin), GPIO_LOW);
+
+
+        while(GPIO_LOW == EchoPinLogic){
+            ret = gpio_pin_read_logic(&(_config->Echo_Pin), &EchoPinLogic);
+        }
+
+
+
+
+
+        while(GPIO_HIGH == EchoPinLogic){
+            ret = gpio_pin_read_logic(&(_config->Echo_Pin), &EchoPinLogic);
+        }
+
+
+
+
+
+        *Distance = (uint16)(Timer0_Value / 58.8f);
+    }
+
+    return ret;
 }

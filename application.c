@@ -1,72 +1,36 @@
+/* 
+ * File:   application.c
+ * Author: Ahmed.Elghafar
+ * https://www.linkedin.com/in/ahmedabdelghafarmohammed/
+ */
 
 #include "application.h"
-#include "MCAL_layer/Timer3/hal_timer3.h"
-#include "MCAL_layer/CCP/hal_ccp.h"
+#include "MCAL_Layer/usart/hal_usart.h"
+#include "MCAL_layer/I2C/hal_i2c.h"
 
-volatile uint8 ccp1_int_flag = 0;
-volatile uint8 ccp1_second_cap_flag = 0;
-volatile uint32 timer3_overflow = 0;
-
-uint32 totalPeriod_us = 0;
-uint32 freq = 0;
-uint16 capture_val  = 0;
-
-void ccp1_callback(void);
-void timer3_callback(void);
-
-ccp_t ccp_1 = {
-    .CCP1_InterruptHandler = ccp1_callback,
-    .ccp_inst = CCP1_INST,
-    .ccp_mode = CCP_CAPTURE_MODE_SELECTED,
-    .ccp_mode_variant = CCP_CAPTURE_MODE_1_RISING_EDGE,
-    .ccp_pin.port = PORTC_INDEX,
-    .ccp_pin.pin = GPIO_PIN2,
-    .ccp_pin.direction = GPIO_DIRECTION_INPUT,
-    .ccp_capture_timer = CCP1_CCP2_TIMER3
-};
-
-timer3_t timer_3 = {
-    .TMR3_InterruptHandler = timer3_callback,
-    .timer3_mode = TIMER3_TIMER_MODE,
-    .priority = INTERRUPT_LOW_PRIORITY,
-    .timer3_prescaler_value = TIMER3_PRESCALER_DIV_BY_1,
-    .timer3_preload_value = 0,
-    .timer3_reg_wr_mode = TIMER3_RW_REG_8Bit_MODE
-};
-
-void ccp1_callback(void){
-    ccp1_int_flag++;
-    ccp1_second_cap_flag++;
-    if(1 == ccp1_int_flag){
-        Timer3_Write_Value(&timer_3, 0);
-    }
-    else if(2 == ccp1_int_flag){
-        timer3_overflow = 0;
-        ccp1_int_flag = 0;
-        CCP1_Capture_Mode_Read_Value(&capture_val);
-    }
-}
-
-void timer3_callback(void){
-    timer3_overflow++;
-}
+mssp_i2c_t i2c_obj;
 
 int main() {
+    i2c_obj.i2c_clock = 100000;
+    i2c_obj.i2c_cfg.i2c_mode = I2C_MSSP_MASTER_MODE;
+    i2c_obj.i2c_cfg.i2c_mode_cfg = I2C_MASTER_MODE_DEFINED_CLOCK;
+    i2c_obj.i2c_cfg.i2c_SMBus_control = I2C_SMBus_DISABLE;
+    i2c_obj.i2c_cfg.i2c_slew_rate = I2C_SLEW_RATE_DISABLE;
+
     Std_ReturnType ret = E_NOT_OK;
-    
-    ret = CCP_Init(&ccp_1);
-    ret = Timer3_Init(&timer_3);
+    ret = MSSP_I2C_Init(&i2c_obj);
+    ret=MSSP_I2C_Master_Send_Start(&i2c_obj);
+    ret=MSSP_I2C_Master_Send_Stop(&i2c_obj);
     
     while(1){
-        //__delay_ms(000);
-        
-        if(ccp1_second_cap_flag == 2){
-            ccp1_second_cap_flag = 0;
-            totalPeriod_us = timer3_overflow * 65536 + capture_val;
-            freq = (uint32)(1000000.0 / totalPeriod_us);
-        }
         
     }
-
     return (EXIT_SUCCESS);
 }
+
+void application_intialize(void){
+    Std_ReturnType ret = E_NOT_OK;
+    ecu_layer_intialize();
+}
+
+

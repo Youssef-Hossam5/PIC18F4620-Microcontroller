@@ -96,12 +96,24 @@ Std_ReturnType EUSART_ASYNC_WriteStringBlocking(uint8 *_data, uint16 str_len){
 }
 
 Std_ReturnType EUSART_ASYNC_WriteByteNonBlocking(uint8 _data){
-    
-    
+    Std_ReturnType ret = E_OK;
+    if(1 ==TXSTAbits.TRMT){
+        TXREG = _data;
+    }
+    else{
+        ret = E_NOT_OK;
+    }
+
+    return ret;
 }
 
 Std_ReturnType EUSART_ASYNC_WriteStringNonBlocking(uint8 *_data, uint16 str_len){
-    
+    Std_ReturnType ret = E_OK;
+    uint16 char_counter = ZERO_INIT;
+    for(char_counter=ZERO_INIT; char_counter < str_len; char_counter++){
+        ret = EUSART_ASYNC_WriteByteNonBlocking(_data[char_counter]);
+    }
+    return ret;
 }
 
 static void EUSART_Baud_Rate_Calculation(const usart_t *_eusart){

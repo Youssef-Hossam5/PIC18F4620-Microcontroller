@@ -155,10 +155,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S257 . . . . ]
 "6407
 [v _INTCONbits `VS257 ~T0 @X0 0 e@4082 ]
-[v F3158 `(v ~T0 @X0 0 tf ]
-[v F3160 `(v ~T0 @X0 0 tf ]
 [v F3161 `(v ~T0 @X0 0 tf ]
-[v F3162 `(v ~T0 @X0 0 tf ]
+[v F3163 `(v ~T0 @X0 0 tf ]
+[v F3164 `(v ~T0 @X0 0 tf ]
+[v F3165 `(v ~T0 @X0 0 tf ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\../include/proc/pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "192
@@ -741,76 +741,100 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _EUSART_ASYNC_WriteByteNonBlocking ]
 [v __data `uc ~T0 @X0 1 r1 ]
 [f ]
+"99
+[; ;MCAL_layer/usart/hal_usart.c: 99:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"100
+[; ;MCAL_layer/usart/hal_usart.c: 100:     if(1 ==TXSTAbits.TRMT){
+[e $ ! == -> 1 `i -> . . _TXSTAbits 0 1 `i 303  ]
+{
 "101
-[; ;MCAL_layer/usart/hal_usart.c: 101: }
+[; ;MCAL_layer/usart/hal_usart.c: 101:         TXREG = _data;
+[e = _TXREG __data ]
+"102
+[; ;MCAL_layer/usart/hal_usart.c: 102:     }
+}
+[e $U 304  ]
+"103
+[; ;MCAL_layer/usart/hal_usart.c: 103:     else{
+[e :U 303 ]
+{
+"104
+[; ;MCAL_layer/usart/hal_usart.c: 104:         ret = (Std_ReturnType)0x00;
+[e = _ret -> -> 0 `i `uc ]
+"105
+[; ;MCAL_layer/usart/hal_usart.c: 105:     }
+}
+[e :U 304 ]
+"107
+[; ;MCAL_layer/usart/hal_usart.c: 107:     return ret;
+[e ) _ret ]
+[e $UE 302  ]
+"108
+[; ;MCAL_layer/usart/hal_usart.c: 108: }
 [e :UE 302 ]
 }
-"103
-[; ;MCAL_layer/usart/hal_usart.c: 103: Std_ReturnType EUSART_ASYNC_WriteStringNonBlocking(uint8 *_data, uint16 str_len){
+"110
+[; ;MCAL_layer/usart/hal_usart.c: 110: Std_ReturnType EUSART_ASYNC_WriteStringNonBlocking(uint8 *_data, uint16 str_len){
 [v _EUSART_ASYNC_WriteStringNonBlocking `(uc ~T0 @X0 1 ef2`*uc`us ]
 {
 [e :U _EUSART_ASYNC_WriteStringNonBlocking ]
 [v __data `*uc ~T0 @X0 1 r1 ]
 [v _str_len `us ~T0 @X0 1 r2 ]
 [f ]
-"105
-[; ;MCAL_layer/usart/hal_usart.c: 105: }
-[e :UE 303 ]
+"111
+[; ;MCAL_layer/usart/hal_usart.c: 111:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"112
+[; ;MCAL_layer/usart/hal_usart.c: 112:     uint16 char_counter = 0;
+[v _char_counter `us ~T0 @X0 1 a ]
+[e = _char_counter -> -> 0 `i `us ]
+"113
+[; ;MCAL_layer/usart/hal_usart.c: 113:     for(char_counter=0; char_counter < str_len; char_counter++){
+{
+[e = _char_counter -> -> 0 `i `us ]
+[e $U 309  ]
+[e :U 306 ]
+{
+"114
+[; ;MCAL_layer/usart/hal_usart.c: 114:         ret = EUSART_ASYNC_WriteByteNonBlocking(_data[char_counter]);
+[e = _ret ( _EUSART_ASYNC_WriteByteNonBlocking (1 *U + __data * -> _char_counter `ux -> -> # *U __data `ui `ux ]
+"115
+[; ;MCAL_layer/usart/hal_usart.c: 115:     }
 }
-"107
-[; ;MCAL_layer/usart/hal_usart.c: 107: static void EUSART_Baud_Rate_Calculation(const usart_t *_eusart){
+[e ++ _char_counter -> -> 1 `i `us ]
+[e :U 309 ]
+[e $ < -> _char_counter `ui -> _str_len `ui 306  ]
+[e :U 307 ]
+}
+"116
+[; ;MCAL_layer/usart/hal_usart.c: 116:     return ret;
+[e ) _ret ]
+[e $UE 305  ]
+"117
+[; ;MCAL_layer/usart/hal_usart.c: 117: }
+[e :UE 305 ]
+}
+"119
+[; ;MCAL_layer/usart/hal_usart.c: 119: static void EUSART_Baud_Rate_Calculation(const usart_t *_eusart){
 [v _EUSART_Baud_Rate_Calculation `(v ~T0 @X0 1 sf1`*CS278 ]
 {
 [e :U _EUSART_Baud_Rate_Calculation ]
 [v __eusart `*CS278 ~T0 @X0 1 r1 ]
 [f ]
-"108
-[; ;MCAL_layer/usart/hal_usart.c: 108:     float Baud_Rate_Temp = 0;
+"120
+[; ;MCAL_layer/usart/hal_usart.c: 120:     float Baud_Rate_Temp = 0;
 [v _Baud_Rate_Temp `f ~T0 @X0 1 a ]
 [e = _Baud_Rate_Temp -> -> 0 `i `f ]
-"109
-[; ;MCAL_layer/usart/hal_usart.c: 109:     switch(_eusart->baudrate_gen_gonfig){
-[e $U 306  ]
-{
-"110
-[; ;MCAL_layer/usart/hal_usart.c: 110:         case BAUDRATE_ASYN_8BIT_lOW_SPEED:
-[e :U 307 ]
-"111
-[; ;MCAL_layer/usart/hal_usart.c: 111:             TXSTAbits.SYNC = 0;
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-"112
-[; ;MCAL_layer/usart/hal_usart.c: 112:             TXSTAbits.BRGH = 0;
-[e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
-"113
-[; ;MCAL_layer/usart/hal_usart.c: 113:             BAUDCONbits.BRG16 = 0;
-[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
-"114
-[; ;MCAL_layer/usart/hal_usart.c: 114:             Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 64) - 1;
-[e = _Baud_Rate_Temp - / / -> -> 4000000 `l `f -> . *U __eusart 0 `f -> -> 64 `i `f -> -> 1 `i `f ]
-"115
-[; ;MCAL_layer/usart/hal_usart.c: 115:             break;
-[e $U 305  ]
-"116
-[; ;MCAL_layer/usart/hal_usart.c: 116:         case BAUDRATE_ASYN_8BIT_HIGH_SPEED:
-[e :U 308 ]
-"117
-[; ;MCAL_layer/usart/hal_usart.c: 117:             TXSTAbits.SYNC = 0;
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
-"118
-[; ;MCAL_layer/usart/hal_usart.c: 118:             TXSTAbits.BRGH = 1;
-[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-"119
-[; ;MCAL_layer/usart/hal_usart.c: 119:             BAUDCONbits.BRG16 = 0;
-[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
-"120
-[; ;MCAL_layer/usart/hal_usart.c: 120:             Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 16) - 1;
-[e = _Baud_Rate_Temp - / / -> -> 4000000 `l `f -> . *U __eusart 0 `f -> -> 16 `i `f -> -> 1 `i `f ]
 "121
-[; ;MCAL_layer/usart/hal_usart.c: 121:             break;
-[e $U 305  ]
+[; ;MCAL_layer/usart/hal_usart.c: 121:     switch(_eusart->baudrate_gen_gonfig){
+[e $U 312  ]
+{
 "122
-[; ;MCAL_layer/usart/hal_usart.c: 122:         case BAUDRATE_ASYN_16BIT_lOW_SPEED:
-[e :U 309 ]
+[; ;MCAL_layer/usart/hal_usart.c: 122:         case BAUDRATE_ASYN_8BIT_lOW_SPEED:
+[e :U 313 ]
 "123
 [; ;MCAL_layer/usart/hal_usart.c: 123:             TXSTAbits.SYNC = 0;
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
@@ -818,17 +842,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL_layer/usart/hal_usart.c: 124:             TXSTAbits.BRGH = 0;
 [e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
 "125
-[; ;MCAL_layer/usart/hal_usart.c: 125:             BAUDCONbits.BRG16 = 1;
-[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+[; ;MCAL_layer/usart/hal_usart.c: 125:             BAUDCONbits.BRG16 = 0;
+[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
 "126
-[; ;MCAL_layer/usart/hal_usart.c: 126:             Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 16) - 1;
-[e = _Baud_Rate_Temp - / / -> -> 4000000 `l `f -> . *U __eusart 0 `f -> -> 16 `i `f -> -> 1 `i `f ]
+[; ;MCAL_layer/usart/hal_usart.c: 126:             Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 64) - 1;
+[e = _Baud_Rate_Temp - / / -> -> 8000000 `ul `f -> . *U __eusart 0 `f -> -> 64 `i `f -> -> 1 `i `f ]
 "127
 [; ;MCAL_layer/usart/hal_usart.c: 127:             break;
-[e $U 305  ]
+[e $U 311  ]
 "128
-[; ;MCAL_layer/usart/hal_usart.c: 128:         case BAUDRATE_ASYN_16BIT_HIGH_SPEED:
-[e :U 310 ]
+[; ;MCAL_layer/usart/hal_usart.c: 128:         case BAUDRATE_ASYN_8BIT_HIGH_SPEED:
+[e :U 314 ]
 "129
 [; ;MCAL_layer/usart/hal_usart.c: 129:             TXSTAbits.SYNC = 0;
 [e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
@@ -836,356 +860,392 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;MCAL_layer/usart/hal_usart.c: 130:             TXSTAbits.BRGH = 1;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
 "131
-[; ;MCAL_layer/usart/hal_usart.c: 131:             BAUDCONbits.BRG16 = 1;
-[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+[; ;MCAL_layer/usart/hal_usart.c: 131:             BAUDCONbits.BRG16 = 0;
+[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
 "132
-[; ;MCAL_layer/usart/hal_usart.c: 132:             Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 4) - 1;
-[e = _Baud_Rate_Temp - / / -> -> 4000000 `l `f -> . *U __eusart 0 `f -> -> 4 `i `f -> -> 1 `i `f ]
+[; ;MCAL_layer/usart/hal_usart.c: 132:             Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 16) - 1;
+[e = _Baud_Rate_Temp - / / -> -> 8000000 `ul `f -> . *U __eusart 0 `f -> -> 16 `i `f -> -> 1 `i `f ]
 "133
 [; ;MCAL_layer/usart/hal_usart.c: 133:             break;
-[e $U 305  ]
+[e $U 311  ]
 "134
-[; ;MCAL_layer/usart/hal_usart.c: 134:         case BAUDRATE_SYN_8BIT:
-[e :U 311 ]
+[; ;MCAL_layer/usart/hal_usart.c: 134:         case BAUDRATE_ASYN_16BIT_lOW_SPEED:
+[e :U 315 ]
 "135
-[; ;MCAL_layer/usart/hal_usart.c: 135:             TXSTAbits.SYNC = 1;
-[e = . . _TXSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;MCAL_layer/usart/hal_usart.c: 135:             TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
 "136
-[; ;MCAL_layer/usart/hal_usart.c: 136:             BAUDCONbits.BRG16 = 0;
-[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
+[; ;MCAL_layer/usart/hal_usart.c: 136:             TXSTAbits.BRGH = 0;
+[e = . . _TXSTAbits 0 2 -> -> 0 `i `uc ]
 "137
-[; ;MCAL_layer/usart/hal_usart.c: 137:             Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 4) - 1;
-[e = _Baud_Rate_Temp - / / -> -> 4000000 `l `f -> . *U __eusart 0 `f -> -> 4 `i `f -> -> 1 `i `f ]
-"138
-[; ;MCAL_layer/usart/hal_usart.c: 138:             break;
-[e $U 305  ]
-"139
-[; ;MCAL_layer/usart/hal_usart.c: 139:         case BAUDRATE_SYN_16BIT:
-[e :U 312 ]
-"140
-[; ;MCAL_layer/usart/hal_usart.c: 140:             TXSTAbits.SYNC = 1;
-[e = . . _TXSTAbits 0 4 -> -> 1 `i `uc ]
-"141
-[; ;MCAL_layer/usart/hal_usart.c: 141:             BAUDCONbits.BRG16 = 1;
+[; ;MCAL_layer/usart/hal_usart.c: 137:             BAUDCONbits.BRG16 = 1;
 [e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+"138
+[; ;MCAL_layer/usart/hal_usart.c: 138:             Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 16) - 1;
+[e = _Baud_Rate_Temp - / / -> -> 8000000 `ul `f -> . *U __eusart 0 `f -> -> 16 `i `f -> -> 1 `i `f ]
+"139
+[; ;MCAL_layer/usart/hal_usart.c: 139:             break;
+[e $U 311  ]
+"140
+[; ;MCAL_layer/usart/hal_usart.c: 140:         case BAUDRATE_ASYN_16BIT_HIGH_SPEED:
+[e :U 316 ]
+"141
+[; ;MCAL_layer/usart/hal_usart.c: 141:             TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
 "142
-[; ;MCAL_layer/usart/hal_usart.c: 142:             Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 4) - 1;
-[e = _Baud_Rate_Temp - / / -> -> 4000000 `l `f -> . *U __eusart 0 `f -> -> 4 `i `f -> -> 1 `i `f ]
+[; ;MCAL_layer/usart/hal_usart.c: 142:             TXSTAbits.BRGH = 1;
+[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
 "143
-[; ;MCAL_layer/usart/hal_usart.c: 143:             break;
-[e $U 305  ]
+[; ;MCAL_layer/usart/hal_usart.c: 143:             BAUDCONbits.BRG16 = 1;
+[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
 "144
-[; ;MCAL_layer/usart/hal_usart.c: 144:         default : ;
-[e :U 313 ]
+[; ;MCAL_layer/usart/hal_usart.c: 144:             Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 4) - 1;
+[e = _Baud_Rate_Temp - / / -> -> 8000000 `ul `f -> . *U __eusart 0 `f -> -> 4 `i `f -> -> 1 `i `f ]
 "145
-[; ;MCAL_layer/usart/hal_usart.c: 145:     }
-}
-[e $U 305  ]
-[e :U 306 ]
-[e [\ -> . *U __eusart 1 `ui , $ -> . `E3029 0 `ui 307
- , $ -> . `E3029 1 `ui 308
- , $ -> . `E3029 2 `ui 309
- , $ -> . `E3029 3 `ui 310
- , $ -> . `E3029 4 `ui 311
- , $ -> . `E3029 5 `ui 312
- 313 ]
-[e :U 305 ]
+[; ;MCAL_layer/usart/hal_usart.c: 145:             break;
+[e $U 311  ]
 "146
-[; ;MCAL_layer/usart/hal_usart.c: 146:     SPBRG = (uint8)((uint32)Baud_Rate_Temp);
-[e = _SPBRG -> -> _Baud_Rate_Temp `ul `uc ]
+[; ;MCAL_layer/usart/hal_usart.c: 146:         case BAUDRATE_SYN_8BIT:
+[e :U 317 ]
 "147
-[; ;MCAL_layer/usart/hal_usart.c: 147:     SPBRGH = (uint8)(((uint32)Baud_Rate_Temp) >> 8);
-[e = _SPBRGH -> >> -> _Baud_Rate_Temp `ul -> 8 `i `uc ]
+[; ;MCAL_layer/usart/hal_usart.c: 147:             TXSTAbits.SYNC = 1;
+[e = . . _TXSTAbits 0 4 -> -> 1 `i `uc ]
 "148
-[; ;MCAL_layer/usart/hal_usart.c: 148: }
-[e :UE 304 ]
-}
+[; ;MCAL_layer/usart/hal_usart.c: 148:             BAUDCONbits.BRG16 = 0;
+[e = . . _BAUDCONbits 0 3 -> -> 0 `i `uc ]
+"149
+[; ;MCAL_layer/usart/hal_usart.c: 149:             Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 4) - 1;
+[e = _Baud_Rate_Temp - / / -> -> 8000000 `ul `f -> . *U __eusart 0 `f -> -> 4 `i `f -> -> 1 `i `f ]
 "150
-[; ;MCAL_layer/usart/hal_usart.c: 150: static void EUSART_ASYNC_TX_Init(const usart_t *_eusart){
+[; ;MCAL_layer/usart/hal_usart.c: 150:             break;
+[e $U 311  ]
+"151
+[; ;MCAL_layer/usart/hal_usart.c: 151:         case BAUDRATE_SYN_16BIT:
+[e :U 318 ]
+"152
+[; ;MCAL_layer/usart/hal_usart.c: 152:             TXSTAbits.SYNC = 1;
+[e = . . _TXSTAbits 0 4 -> -> 1 `i `uc ]
+"153
+[; ;MCAL_layer/usart/hal_usart.c: 153:             BAUDCONbits.BRG16 = 1;
+[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+"154
+[; ;MCAL_layer/usart/hal_usart.c: 154:             Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 4) - 1;
+[e = _Baud_Rate_Temp - / / -> -> 8000000 `ul `f -> . *U __eusart 0 `f -> -> 4 `i `f -> -> 1 `i `f ]
+"155
+[; ;MCAL_layer/usart/hal_usart.c: 155:             break;
+[e $U 311  ]
+"156
+[; ;MCAL_layer/usart/hal_usart.c: 156:         default : ;
+[e :U 319 ]
+"157
+[; ;MCAL_layer/usart/hal_usart.c: 157:     }
+}
+[e $U 311  ]
+[e :U 312 ]
+[e [\ -> . *U __eusart 1 `ui , $ -> . `E3029 0 `ui 313
+ , $ -> . `E3029 1 `ui 314
+ , $ -> . `E3029 2 `ui 315
+ , $ -> . `E3029 3 `ui 316
+ , $ -> . `E3029 4 `ui 317
+ , $ -> . `E3029 5 `ui 318
+ 319 ]
+[e :U 311 ]
+"158
+[; ;MCAL_layer/usart/hal_usart.c: 158:     SPBRG = (uint8)((uint32)Baud_Rate_Temp);
+[e = _SPBRG -> -> _Baud_Rate_Temp `ul `uc ]
+"159
+[; ;MCAL_layer/usart/hal_usart.c: 159:     SPBRGH = (uint8)(((uint32)Baud_Rate_Temp) >> 8);
+[e = _SPBRGH -> >> -> _Baud_Rate_Temp `ul -> 8 `i `uc ]
+"160
+[; ;MCAL_layer/usart/hal_usart.c: 160: }
+[e :UE 310 ]
+}
+"162
+[; ;MCAL_layer/usart/hal_usart.c: 162: static void EUSART_ASYNC_TX_Init(const usart_t *_eusart){
 [v _EUSART_ASYNC_TX_Init `(v ~T0 @X0 1 sf1`*CS278 ]
 {
 [e :U _EUSART_ASYNC_TX_Init ]
 [v __eusart `*CS278 ~T0 @X0 1 r1 ]
 [f ]
-"151
-[; ;MCAL_layer/usart/hal_usart.c: 151:     if(1 == _eusart->usart_tx_cfg.usart_tx_enable){
-[e $ ! == -> 1 `i -> . . *U __eusart 2 1 `i 315  ]
+"163
+[; ;MCAL_layer/usart/hal_usart.c: 163:     if(1 == _eusart->usart_tx_cfg.usart_tx_enable){
+[e $ ! == -> 1 `i -> . . *U __eusart 2 1 `i 321  ]
 {
-"152
-[; ;MCAL_layer/usart/hal_usart.c: 152:         TXSTAbits.TXEN = 1;
+"164
+[; ;MCAL_layer/usart/hal_usart.c: 164:         TXSTAbits.TXEN = 1;
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-"153
-[; ;MCAL_layer/usart/hal_usart.c: 153:         EUSART_TxInterruptHandler = _eusart->EUSART_TxDefaultInterruptHandler;
+"165
+[; ;MCAL_layer/usart/hal_usart.c: 165:         EUSART_TxInterruptHandler = _eusart->EUSART_TxDefaultInterruptHandler;
 [e = _EUSART_TxInterruptHandler . *U __eusart 5 ]
-"155
-[; ;MCAL_layer/usart/hal_usart.c: 155:         if(1 == _eusart->usart_tx_cfg.usart_tx_interrupt_enable){
-[e $ ! == -> 1 `i -> . . *U __eusart 2 2 `i 316  ]
+"167
+[; ;MCAL_layer/usart/hal_usart.c: 167:         if(1 == _eusart->usart_tx_cfg.usart_tx_interrupt_enable){
+[e $ ! == -> 1 `i -> . . *U __eusart 2 2 `i 322  ]
 {
-"156
-[; ;MCAL_layer/usart/hal_usart.c: 156:             PIE1bits.TXIE = 1;
+"168
+[; ;MCAL_layer/usart/hal_usart.c: 168:             PIE1bits.TXIE = 1;
 [e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
-"159
-[; ;MCAL_layer/usart/hal_usart.c: 159:             (PIE1bits.TXIE = 1);
+"171
+[; ;MCAL_layer/usart/hal_usart.c: 171:             (PIE1bits.TXIE = 1);
 [e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
-"175
-[; ;MCAL_layer/usart/hal_usart.c: 175:             (INTCONbits.GIE = 1);
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"176
-[; ;MCAL_layer/usart/hal_usart.c: 176:             (INTCONbits.PEIE = 1);
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"179
-[; ;MCAL_layer/usart/hal_usart.c: 179:         }
-}
-[e $U 317  ]
-"180
-[; ;MCAL_layer/usart/hal_usart.c: 180:         else if(0 == _eusart->usart_tx_cfg.usart_tx_interrupt_enable){
-[e :U 316 ]
-[e $ ! == -> 0 `i -> . . *U __eusart 2 2 `i 318  ]
-{
-"181
-[; ;MCAL_layer/usart/hal_usart.c: 181:             PIE1bits.TXIE = 0;
-[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-"182
-[; ;MCAL_layer/usart/hal_usart.c: 182:         }
-}
-[e $U 319  ]
-"183
-[; ;MCAL_layer/usart/hal_usart.c: 183:         else{ }
-[e :U 318 ]
-{
-}
-[e :U 319 ]
-[e :U 317 ]
-"186
-[; ;MCAL_layer/usart/hal_usart.c: 186:         if(1 == _eusart->usart_tx_cfg.usart_tx_9bit_enable){
-[e $ ! == -> 1 `i -> . . *U __eusart 2 3 `i 320  ]
-{
 "187
-[; ;MCAL_layer/usart/hal_usart.c: 187:             TXSTAbits.TX9 = 1;
-[e = . . _TXSTAbits 0 6 -> -> 1 `i `uc ]
+[; ;MCAL_layer/usart/hal_usart.c: 187:             (INTCONbits.GIE = 1);
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "188
-[; ;MCAL_layer/usart/hal_usart.c: 188:         }
-}
-[e $U 321  ]
-"189
-[; ;MCAL_layer/usart/hal_usart.c: 189:         else if(0 == _eusart->usart_tx_cfg.usart_tx_9bit_enable){
-[e :U 320 ]
-[e $ ! == -> 0 `i -> . . *U __eusart 2 3 `i 322  ]
-{
-"190
-[; ;MCAL_layer/usart/hal_usart.c: 190:             TXSTAbits.TX9 = 0;
-[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
+[; ;MCAL_layer/usart/hal_usart.c: 188:             (INTCONbits.PEIE = 1);
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
 "191
 [; ;MCAL_layer/usart/hal_usart.c: 191:         }
 }
 [e $U 323  ]
 "192
-[; ;MCAL_layer/usart/hal_usart.c: 192:         else{ }
+[; ;MCAL_layer/usart/hal_usart.c: 192:         else if(0 == _eusart->usart_tx_cfg.usart_tx_interrupt_enable){
 [e :U 322 ]
+[e $ ! == -> 0 `i -> . . *U __eusart 2 2 `i 324  ]
 {
-}
-[e :U 323 ]
-[e :U 321 ]
 "193
-[; ;MCAL_layer/usart/hal_usart.c: 193:     }
-}
-[e $U 324  ]
+[; ;MCAL_layer/usart/hal_usart.c: 193:             PIE1bits.TXIE = 0;
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
 "194
-[; ;MCAL_layer/usart/hal_usart.c: 194:     else { }
-[e :U 315 ]
+[; ;MCAL_layer/usart/hal_usart.c: 194:         }
+}
+[e $U 325  ]
+"195
+[; ;MCAL_layer/usart/hal_usart.c: 195:         else{ }
+[e :U 324 ]
 {
 }
-[e :U 324 ]
-"195
-[; ;MCAL_layer/usart/hal_usart.c: 195: }
-[e :UE 314 ]
+[e :U 325 ]
+[e :U 323 ]
+"198
+[; ;MCAL_layer/usart/hal_usart.c: 198:         if(1 == _eusart->usart_tx_cfg.usart_tx_9bit_enable){
+[e $ ! == -> 1 `i -> . . *U __eusart 2 3 `i 326  ]
+{
+"199
+[; ;MCAL_layer/usart/hal_usart.c: 199:             TXSTAbits.TX9 = 1;
+[e = . . _TXSTAbits 0 6 -> -> 1 `i `uc ]
+"200
+[; ;MCAL_layer/usart/hal_usart.c: 200:         }
 }
-"197
-[; ;MCAL_layer/usart/hal_usart.c: 197: static void EUSART_ASYNC_RX_Init(const usart_t *_eusart){
+[e $U 327  ]
+"201
+[; ;MCAL_layer/usart/hal_usart.c: 201:         else if(0 == _eusart->usart_tx_cfg.usart_tx_9bit_enable){
+[e :U 326 ]
+[e $ ! == -> 0 `i -> . . *U __eusart 2 3 `i 328  ]
+{
+"202
+[; ;MCAL_layer/usart/hal_usart.c: 202:             TXSTAbits.TX9 = 0;
+[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
+"203
+[; ;MCAL_layer/usart/hal_usart.c: 203:         }
+}
+[e $U 329  ]
+"204
+[; ;MCAL_layer/usart/hal_usart.c: 204:         else{ }
+[e :U 328 ]
+{
+}
+[e :U 329 ]
+[e :U 327 ]
+"205
+[; ;MCAL_layer/usart/hal_usart.c: 205:     }
+}
+[e $U 330  ]
+"206
+[; ;MCAL_layer/usart/hal_usart.c: 206:     else { }
+[e :U 321 ]
+{
+}
+[e :U 330 ]
+"207
+[; ;MCAL_layer/usart/hal_usart.c: 207: }
+[e :UE 320 ]
+}
+"209
+[; ;MCAL_layer/usart/hal_usart.c: 209: static void EUSART_ASYNC_RX_Init(const usart_t *_eusart){
 [v _EUSART_ASYNC_RX_Init `(v ~T0 @X0 1 sf1`*CS278 ]
 {
 [e :U _EUSART_ASYNC_RX_Init ]
 [v __eusart `*CS278 ~T0 @X0 1 r1 ]
 [f ]
-"198
-[; ;MCAL_layer/usart/hal_usart.c: 198:     if(1 == _eusart->usart_rx_cfg.usart_rx_enable){
-[e $ ! == -> 1 `i -> . . *U __eusart 3 1 `i 326  ]
+"210
+[; ;MCAL_layer/usart/hal_usart.c: 210:     if(1 == _eusart->usart_rx_cfg.usart_rx_enable){
+[e $ ! == -> 1 `i -> . . *U __eusart 3 1 `i 332  ]
 {
-"199
-[; ;MCAL_layer/usart/hal_usart.c: 199:         RCSTAbits.CREN = 1;
+"211
+[; ;MCAL_layer/usart/hal_usart.c: 211:         RCSTAbits.CREN = 1;
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"200
-[; ;MCAL_layer/usart/hal_usart.c: 200:         EUSART_RxInterruptHandler = _eusart->EUSART_RxDefaultInterruptHandler;
+"212
+[; ;MCAL_layer/usart/hal_usart.c: 212:         EUSART_RxInterruptHandler = _eusart->EUSART_RxDefaultInterruptHandler;
 [e = _EUSART_RxInterruptHandler . *U __eusart 6 ]
-"201
-[; ;MCAL_layer/usart/hal_usart.c: 201:         EUSART_FramingErrorHandler = _eusart->EUSART_FramingErrorHandler;
+"213
+[; ;MCAL_layer/usart/hal_usart.c: 213:         EUSART_FramingErrorHandler = _eusart->EUSART_FramingErrorHandler;
 [e = _EUSART_FramingErrorHandler . *U __eusart 7 ]
-"202
-[; ;MCAL_layer/usart/hal_usart.c: 202:         EUSART_OverrunErrorHandler = _eusart->EUSART_OverrunErrorHandler;
+"214
+[; ;MCAL_layer/usart/hal_usart.c: 214:         EUSART_OverrunErrorHandler = _eusart->EUSART_OverrunErrorHandler;
 [e = _EUSART_OverrunErrorHandler . *U __eusart 8 ]
-"204
-[; ;MCAL_layer/usart/hal_usart.c: 204:         if(1 == _eusart->usart_rx_cfg.usart_rx_interrupt_enable){
-[e $ ! == -> 1 `i -> . . *U __eusart 3 2 `i 327  ]
+"216
+[; ;MCAL_layer/usart/hal_usart.c: 216:         if(1 == _eusart->usart_rx_cfg.usart_rx_interrupt_enable){
+[e $ ! == -> 1 `i -> . . *U __eusart 3 2 `i 333  ]
 {
-"205
-[; ;MCAL_layer/usart/hal_usart.c: 205:             PIE1bits.RCIE = 1;
+"217
+[; ;MCAL_layer/usart/hal_usart.c: 217:             PIE1bits.RCIE = 1;
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"208
-[; ;MCAL_layer/usart/hal_usart.c: 208:             (PIE1bits.RCIE = 1);
+"220
+[; ;MCAL_layer/usart/hal_usart.c: 220:             (PIE1bits.RCIE = 1);
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"224
-[; ;MCAL_layer/usart/hal_usart.c: 224:             (INTCONbits.GIE = 1);
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"225
-[; ;MCAL_layer/usart/hal_usart.c: 225:             (INTCONbits.PEIE = 1);
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"228
-[; ;MCAL_layer/usart/hal_usart.c: 228:         }
-}
-[e $U 328  ]
-"229
-[; ;MCAL_layer/usart/hal_usart.c: 229:         else if(0 == _eusart->usart_rx_cfg.usart_rx_interrupt_enable){
-[e :U 327 ]
-[e $ ! == -> 0 `i -> . . *U __eusart 3 2 `i 329  ]
-{
-"230
-[; ;MCAL_layer/usart/hal_usart.c: 230:             PIE1bits.RCIE = 0;
-[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
-"231
-[; ;MCAL_layer/usart/hal_usart.c: 231:         }
-}
-[e $U 330  ]
-"232
-[; ;MCAL_layer/usart/hal_usart.c: 232:         else{ }
-[e :U 329 ]
-{
-}
-[e :U 330 ]
-[e :U 328 ]
-"235
-[; ;MCAL_layer/usart/hal_usart.c: 235:         if(1 == _eusart->usart_rx_cfg.usart_rx_9bit_enable){
-[e $ ! == -> 1 `i -> . . *U __eusart 3 3 `i 331  ]
-{
 "236
-[; ;MCAL_layer/usart/hal_usart.c: 236:             RCSTAbits.RX9 = 1;
-[e = . . _RCSTAbits 0 6 -> -> 1 `i `uc ]
+[; ;MCAL_layer/usart/hal_usart.c: 236:             (INTCONbits.GIE = 1);
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "237
-[; ;MCAL_layer/usart/hal_usart.c: 237:         }
-}
-[e $U 332  ]
-"238
-[; ;MCAL_layer/usart/hal_usart.c: 238:         else if(0 == _eusart->usart_rx_cfg.usart_rx_9bit_enable){
-[e :U 331 ]
-[e $ ! == -> 0 `i -> . . *U __eusart 3 3 `i 333  ]
-{
-"239
-[; ;MCAL_layer/usart/hal_usart.c: 239:             RCSTAbits.RX9 = 0;
-[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+[; ;MCAL_layer/usart/hal_usart.c: 237:             (INTCONbits.PEIE = 1);
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
 "240
 [; ;MCAL_layer/usart/hal_usart.c: 240:         }
 }
 [e $U 334  ]
 "241
-[; ;MCAL_layer/usart/hal_usart.c: 241:         else{ }
+[; ;MCAL_layer/usart/hal_usart.c: 241:         else if(0 == _eusart->usart_rx_cfg.usart_rx_interrupt_enable){
 [e :U 333 ]
+[e $ ! == -> 0 `i -> . . *U __eusart 3 2 `i 335  ]
 {
-}
-[e :U 334 ]
-[e :U 332 ]
 "242
-[; ;MCAL_layer/usart/hal_usart.c: 242:     }
-}
-[e $U 335  ]
+[; ;MCAL_layer/usart/hal_usart.c: 242:             PIE1bits.RCIE = 0;
+[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
 "243
-[; ;MCAL_layer/usart/hal_usart.c: 243:     else { }
-[e :U 326 ]
+[; ;MCAL_layer/usart/hal_usart.c: 243:         }
+}
+[e $U 336  ]
+"244
+[; ;MCAL_layer/usart/hal_usart.c: 244:         else{ }
+[e :U 335 ]
 {
 }
-[e :U 335 ]
-"244
-[; ;MCAL_layer/usart/hal_usart.c: 244: }
-[e :UE 325 ]
+[e :U 336 ]
+[e :U 334 ]
+"247
+[; ;MCAL_layer/usart/hal_usart.c: 247:         if(1 == _eusart->usart_rx_cfg.usart_rx_9bit_enable){
+[e $ ! == -> 1 `i -> . . *U __eusart 3 3 `i 337  ]
+{
+"248
+[; ;MCAL_layer/usart/hal_usart.c: 248:             RCSTAbits.RX9 = 1;
+[e = . . _RCSTAbits 0 6 -> -> 1 `i `uc ]
+"249
+[; ;MCAL_layer/usart/hal_usart.c: 249:         }
 }
-"246
-[; ;MCAL_layer/usart/hal_usart.c: 246: void EUSART_TX_ISR(void){
+[e $U 338  ]
+"250
+[; ;MCAL_layer/usart/hal_usart.c: 250:         else if(0 == _eusart->usart_rx_cfg.usart_rx_9bit_enable){
+[e :U 337 ]
+[e $ ! == -> 0 `i -> . . *U __eusart 3 3 `i 339  ]
+{
+"251
+[; ;MCAL_layer/usart/hal_usart.c: 251:             RCSTAbits.RX9 = 0;
+[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+"252
+[; ;MCAL_layer/usart/hal_usart.c: 252:         }
+}
+[e $U 340  ]
+"253
+[; ;MCAL_layer/usart/hal_usart.c: 253:         else{ }
+[e :U 339 ]
+{
+}
+[e :U 340 ]
+[e :U 338 ]
+"254
+[; ;MCAL_layer/usart/hal_usart.c: 254:     }
+}
+[e $U 341  ]
+"255
+[; ;MCAL_layer/usart/hal_usart.c: 255:     else { }
+[e :U 332 ]
+{
+}
+[e :U 341 ]
+"256
+[; ;MCAL_layer/usart/hal_usart.c: 256: }
+[e :UE 331 ]
+}
+"258
+[; ;MCAL_layer/usart/hal_usart.c: 258: void EUSART_TX_ISR(void){
 [v _EUSART_TX_ISR `(v ~T0 @X0 1 ef ]
 {
 [e :U _EUSART_TX_ISR ]
 [f ]
-"247
-[; ;MCAL_layer/usart/hal_usart.c: 247:     (PIE1bits.TXIE = 0);
+"259
+[; ;MCAL_layer/usart/hal_usart.c: 259:     (PIE1bits.TXIE = 0);
 [e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-"248
-[; ;MCAL_layer/usart/hal_usart.c: 248:     if(EUSART_TxInterruptHandler){
-[e $ ! != _EUSART_TxInterruptHandler -> -> 0 `i `*F3158 337  ]
+"260
+[; ;MCAL_layer/usart/hal_usart.c: 260:     if(EUSART_TxInterruptHandler){
+[e $ ! != _EUSART_TxInterruptHandler -> -> 0 `i `*F3161 343  ]
 {
-"249
-[; ;MCAL_layer/usart/hal_usart.c: 249:         EUSART_TxInterruptHandler();
+"261
+[; ;MCAL_layer/usart/hal_usart.c: 261:         EUSART_TxInterruptHandler();
 [e ( *U _EUSART_TxInterruptHandler ..  ]
-"250
-[; ;MCAL_layer/usart/hal_usart.c: 250:     }else { }
+"262
+[; ;MCAL_layer/usart/hal_usart.c: 262:     }else { }
 }
-[e $U 338  ]
-[e :U 337 ]
+[e $U 344  ]
+[e :U 343 ]
 {
 }
-[e :U 338 ]
-"251
-[; ;MCAL_layer/usart/hal_usart.c: 251: }
-[e :UE 336 ]
+[e :U 344 ]
+"263
+[; ;MCAL_layer/usart/hal_usart.c: 263: }
+[e :UE 342 ]
 }
-"253
-[; ;MCAL_layer/usart/hal_usart.c: 253: void EUSART_RX_ISR(void){
+"265
+[; ;MCAL_layer/usart/hal_usart.c: 265: void EUSART_RX_ISR(void){
 [v _EUSART_RX_ISR `(v ~T0 @X0 1 ef ]
 {
 [e :U _EUSART_RX_ISR ]
 [f ]
-"254
-[; ;MCAL_layer/usart/hal_usart.c: 254:     if(EUSART_RxInterruptHandler){
-[e $ ! != _EUSART_RxInterruptHandler -> -> 0 `i `*F3160 340  ]
+"266
+[; ;MCAL_layer/usart/hal_usart.c: 266:     if(EUSART_RxInterruptHandler){
+[e $ ! != _EUSART_RxInterruptHandler -> -> 0 `i `*F3163 346  ]
 {
-"255
-[; ;MCAL_layer/usart/hal_usart.c: 255:         EUSART_RxInterruptHandler();
+"267
+[; ;MCAL_layer/usart/hal_usart.c: 267:         EUSART_RxInterruptHandler();
 [e ( *U _EUSART_RxInterruptHandler ..  ]
-"256
-[; ;MCAL_layer/usart/hal_usart.c: 256:     }else { }
+"268
+[; ;MCAL_layer/usart/hal_usart.c: 268:     }else { }
 }
-[e $U 341  ]
-[e :U 340 ]
+[e $U 347  ]
+[e :U 346 ]
 {
 }
-[e :U 341 ]
-"257
-[; ;MCAL_layer/usart/hal_usart.c: 257:     if(EUSART_FramingErrorHandler){
-[e $ ! != _EUSART_FramingErrorHandler -> -> 0 `i `*F3161 342  ]
+[e :U 347 ]
+"269
+[; ;MCAL_layer/usart/hal_usart.c: 269:     if(EUSART_FramingErrorHandler){
+[e $ ! != _EUSART_FramingErrorHandler -> -> 0 `i `*F3164 348  ]
 {
-"258
-[; ;MCAL_layer/usart/hal_usart.c: 258:         EUSART_FramingErrorHandler();
+"270
+[; ;MCAL_layer/usart/hal_usart.c: 270:         EUSART_FramingErrorHandler();
 [e ( *U _EUSART_FramingErrorHandler ..  ]
-"259
-[; ;MCAL_layer/usart/hal_usart.c: 259:     }else { }
+"271
+[; ;MCAL_layer/usart/hal_usart.c: 271:     }else { }
 }
-[e $U 343  ]
-[e :U 342 ]
+[e $U 349  ]
+[e :U 348 ]
 {
 }
-[e :U 343 ]
-"260
-[; ;MCAL_layer/usart/hal_usart.c: 260:     if(EUSART_OverrunErrorHandler){
-[e $ ! != _EUSART_OverrunErrorHandler -> -> 0 `i `*F3162 344  ]
+[e :U 349 ]
+"272
+[; ;MCAL_layer/usart/hal_usart.c: 272:     if(EUSART_OverrunErrorHandler){
+[e $ ! != _EUSART_OverrunErrorHandler -> -> 0 `i `*F3165 350  ]
 {
-"261
-[; ;MCAL_layer/usart/hal_usart.c: 261:         EUSART_OverrunErrorHandler();
+"273
+[; ;MCAL_layer/usart/hal_usart.c: 273:         EUSART_OverrunErrorHandler();
 [e ( *U _EUSART_OverrunErrorHandler ..  ]
-"262
-[; ;MCAL_layer/usart/hal_usart.c: 262:     }else { }
+"274
+[; ;MCAL_layer/usart/hal_usart.c: 274:     }else { }
 }
-[e $U 345  ]
-[e :U 344 ]
+[e $U 351  ]
+[e :U 350 ]
 {
 }
-[e :U 345 ]
-"263
-[; ;MCAL_layer/usart/hal_usart.c: 263: }
-[e :UE 339 ]
+[e :U 351 ]
+"275
+[; ;MCAL_layer/usart/hal_usart.c: 275: }
+[e :UE 345 ]
 }

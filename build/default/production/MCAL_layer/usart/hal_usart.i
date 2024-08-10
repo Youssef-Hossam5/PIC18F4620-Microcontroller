@@ -4928,12 +4928,24 @@ Std_ReturnType EUSART_ASYNC_WriteStringBlocking(uint8 *_data, uint16 str_len){
 }
 
 Std_ReturnType EUSART_ASYNC_WriteByteNonBlocking(uint8 _data){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(1 ==TXSTAbits.TRMT){
+        TXREG = _data;
+    }
+    else{
+        ret = (Std_ReturnType)0x00;
+    }
 
-
+    return ret;
 }
 
 Std_ReturnType EUSART_ASYNC_WriteStringNonBlocking(uint8 *_data, uint16 str_len){
-
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    uint16 char_counter = 0;
+    for(char_counter=0; char_counter < str_len; char_counter++){
+        ret = EUSART_ASYNC_WriteByteNonBlocking(_data[char_counter]);
+    }
+    return ret;
 }
 
 static void EUSART_Baud_Rate_Calculation(const usart_t *_eusart){
@@ -4943,35 +4955,35 @@ static void EUSART_Baud_Rate_Calculation(const usart_t *_eusart){
             TXSTAbits.SYNC = 0;
             TXSTAbits.BRGH = 0;
             BAUDCONbits.BRG16 = 0;
-            Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 64) - 1;
+            Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 64) - 1;
             break;
         case BAUDRATE_ASYN_8BIT_HIGH_SPEED:
             TXSTAbits.SYNC = 0;
             TXSTAbits.BRGH = 1;
             BAUDCONbits.BRG16 = 0;
-            Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 16) - 1;
+            Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 16) - 1;
             break;
         case BAUDRATE_ASYN_16BIT_lOW_SPEED:
             TXSTAbits.SYNC = 0;
             TXSTAbits.BRGH = 0;
             BAUDCONbits.BRG16 = 1;
-            Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 16) - 1;
+            Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 16) - 1;
             break;
         case BAUDRATE_ASYN_16BIT_HIGH_SPEED:
             TXSTAbits.SYNC = 0;
             TXSTAbits.BRGH = 1;
             BAUDCONbits.BRG16 = 1;
-            Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 4) - 1;
+            Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 4) - 1;
             break;
         case BAUDRATE_SYN_8BIT:
             TXSTAbits.SYNC = 1;
             BAUDCONbits.BRG16 = 0;
-            Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 4) - 1;
+            Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 4) - 1;
             break;
         case BAUDRATE_SYN_16BIT:
             TXSTAbits.SYNC = 1;
             BAUDCONbits.BRG16 = 1;
-            Baud_Rate_Temp = ((4000000 / (float)_eusart->baudrate) / 4) - 1;
+            Baud_Rate_Temp = ((8000000UL / (float)_eusart->baudrate) / 4) - 1;
             break;
         default : ;
     }
@@ -4989,7 +5001,7 @@ static void EUSART_ASYNC_TX_Init(const usart_t *_eusart){
 
 
             (PIE1bits.TXIE = 1);
-# 175 "MCAL_layer/usart/hal_usart.c"
+# 187 "MCAL_layer/usart/hal_usart.c"
             (INTCONbits.GIE = 1);
             (INTCONbits.PEIE = 1);
 
@@ -5024,7 +5036,7 @@ static void EUSART_ASYNC_RX_Init(const usart_t *_eusart){
 
 
             (PIE1bits.RCIE = 1);
-# 224 "MCAL_layer/usart/hal_usart.c"
+# 236 "MCAL_layer/usart/hal_usart.c"
             (INTCONbits.GIE = 1);
             (INTCONbits.PEIE = 1);
 
