@@ -139,6 +139,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [; ;MCAL_layer/Interrupt/mcal_interrupt_manager.h: 34: void CCP2_ISR(void);
 [v _CCP2_ISR `(v ~T0 @X0 0 ef ]
+"37
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.h: 37: void MSSP_I2C_ISR(void);
+[v _MSSP_I2C_ISR `(v ~T0 @X0 0 ef ]
+"38
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.h: 38: void MSSP_I2C_BC_ISR(void);
+[v _MSSP_I2C_BC_ISR `(v ~T0 @X0 0 ef ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "192
@@ -818,7 +824,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 }
 [e :U 314 ]
-"141
-[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.c: 141: }
+"143
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.c: 143:     if((1 == PIE1bits.SSPIE) && (1 == PIR1bits.SSPIF)){
+[e $ ! && == -> 1 `i -> . . _PIE1bits 0 3 `i == -> 1 `i -> . . _PIR1bits 0 3 `i 315  ]
+{
+"144
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.c: 144:         MSSP_I2C_ISR();
+[e ( _MSSP_I2C_ISR ..  ]
+"145
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.c: 145:     }
+}
+[e $U 316  ]
+"146
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.c: 146:     else{ }
+[e :U 315 ]
+{
+}
+[e :U 316 ]
+"147
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.c: 147:     if((1 == PIE2bits.BCLIE) && (1 == PIR2bits.BCLIF)){
+[e $ ! && == -> 1 `i -> . . _PIE2bits 0 3 `i == -> 1 `i -> . . _PIR2bits 0 3 `i 317  ]
+{
+"148
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.c: 148:         MSSP_I2C_BC_ISR();
+[e ( _MSSP_I2C_BC_ISR ..  ]
+"149
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.c: 149:     }
+}
+[e $U 318  ]
+"150
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.c: 150:     else{ }
+[e :U 317 ]
+{
+}
+[e :U 318 ]
+"152
+[; ;MCAL_layer/Interrupt/mcal_interrupt_manager.c: 152: }
 [e :UE 274 ]
 }

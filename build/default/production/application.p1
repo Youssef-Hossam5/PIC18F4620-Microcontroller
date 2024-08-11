@@ -1,12 +1,19 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"11 application.c
+[; ;application.c: 11: mssp_i2c_t i2c_obj;
+[c E3179 0 1 .. ]
+[n E3179 . INTERRUPT_LOW_PRIORITY INTERRUPT_HIGH_PRIORITY  ]
 "77 ./MCAL_layer/I2C/hal_i2c.h
 [; ;./MCAL_layer/I2C/hal_i2c.h: 77: typedef struct{
-[s S287 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 ]
-[n S287 . i2c_mode_cfg i2c_slave_address i2c_mode i2c_slew_rate i2c_SMBus_control i2c_general_call i2c_master_rec_mode i2c_reserved ]
+[s S287 `uc 1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 `E3179 1 `E3179 1 ]
+[n S287 . i2c_mode_cfg i2c_slave_address i2c_mode i2c_slew_rate i2c_SMBus_control i2c_general_call i2c_master_rec_mode i2c_reserved mssp_i2c_priority mssp_i2c_bc_priority ]
+[v F3263 `(v ~T0 @X0 0 tf ]
+[v F3265 `(v ~T0 @X0 0 tf ]
+[v F3267 `(v ~T0 @X0 0 tf ]
 "92
 [; ;./MCAL_layer/I2C/hal_i2c.h: 92: typedef struct{
-[s S288 `ul 1 `S287 1 ]
-[n S288 . i2c_clock i2c_cfg ]
+[s S288 `ul 1 `S287 1 `*F3263 1 `*F3265 1 `*F3267 1 ]
+[n S288 . i2c_clock i2c_cfg I2C_Report_Write_Collision I2C_DefaultInterruptHandler I2C_Report_Receive_Overflow ]
 [p mainexit ]
 "103
 [; ;./MCAL_layer/I2C/hal_i2c.h: 103: Std_ReturnType MSSP_I2C_Init(const mssp_i2c_t *i2c_obj);

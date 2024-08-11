@@ -4789,6 +4789,8 @@ void CCP1_ISR(void);
 void CCP2_ISR(void);
 void EUSART_TX_ISR(void);
 void EUSART_RX_ISR(void);
+void MSSP_I2C_ISR(void);
+void MSSP_I2C_BC_ISR(void);
 # 9 "MCAL_layer/Interrupt/mcal_interrupt_manager.c" 2
 
 
@@ -4899,6 +4901,17 @@ void __attribute__((picinterrupt(("")))) InterruptManager(void){
     else{ }
     if((1 == PIE2bits.CCP2IE) && (1 == PIR2bits.CCP2IF)){
         CCP2_ISR();
+    }
+    else{ }
+
+
+
+    if((1 == PIE1bits.SSPIE) && (1 == PIR1bits.SSPIF)){
+        MSSP_I2C_ISR();
+    }
+    else{ }
+    if((1 == PIE2bits.BCLIE) && (1 == PIR2bits.BCLIF)){
+        MSSP_I2C_BC_ISR();
     }
     else{ }
 

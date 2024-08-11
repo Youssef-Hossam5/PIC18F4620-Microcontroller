@@ -5034,8 +5034,8 @@ typedef struct{
  uint8 i2c_master_rec_mode : 1;
  uint8 i2c_reserved : 3;
 
-
-
+    interrupt_priority_cfg mssp_i2c_priority;
+    interrupt_priority_cfg mssp_i2c_bc_priority;
 
 }i2c_configs_t;
 
@@ -5043,9 +5043,9 @@ typedef struct{
  uint32 i2c_clock;
     i2c_configs_t i2c_cfg;
 
-
-
-
+    void (*I2C_Report_Write_Collision)(void);
+    void (*I2C_DefaultInterruptHandler)(void);
+    void (*I2C_Report_Receive_Overflow)(void);
 
 }mssp_i2c_t;
 

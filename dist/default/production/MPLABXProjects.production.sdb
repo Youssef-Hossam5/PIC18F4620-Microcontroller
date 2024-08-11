@@ -237,6 +237,16 @@ BAUDRATE_SYN_16BIT 5
 INTERRUPT_LOW_PRIORITY 0
 INTERRUPT_HIGH_PRIORITY 1
 ]
+"11 C:\Users\lenovo\MPLABXProjects\application.c
+[e E3179 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
+"21 C:\Users\lenovo\MPLABXProjects\MCAL_layer/I2C/hal_i2c.c
+[e E3025 . `uc
+INTERRUPT_LOW_PRIORITY 0
+INTERRUPT_HIGH_PRIORITY 1
+]
 "143 C:\Users\lenovo\MPLABXProjects\MCAL_layer/SPI/hal_spi.c
 [e E2983 . `uc
 PORTA_INDEX 0
@@ -368,12 +378,18 @@ GPIO_HIGH 1
 [v _MSSP_I2C_Master_Send_Start MSSP_I2C_Master_Send_Start `(uc  1 e 1 0 ]
 "142
 [v _MSSP_I2C_Master_Send_Stop MSSP_I2C_Master_Send_Stop `(uc  1 e 1 0 ]
+"242
+[v _MSSP_I2C_ISR MSSP_I2C_ISR `(v  1 e 1 0 ]
+"251
+[v _MSSP_I2C_BC_ISR MSSP_I2C_BC_ISR `(v  1 e 1 0 ]
 "260
 [v _MSSP_I2C_Mode_GPIO_CFG MSSP_I2C_Mode_GPIO_CFG `T(v  1 s 1 MSSP_I2C_Mode_GPIO_CFG ]
 "265
 [v _I2C_Master_Mode_Clock_Configurations I2C_Master_Mode_Clock_Configurations `T(v  1 s 1 I2C_Master_Mode_Clock_Configurations ]
 "271
 [v _I2C_Slave_Mode_Configurations I2C_Slave_Mode_Configurations `T(v  1 s 1 I2C_Slave_Mode_Configurations ]
+"275
+[v _MSSP_I2C_Interrupt_Configurations MSSP_I2C_Interrupt_Configurations `T(v  1 s 1 MSSP_I2C_Interrupt_Configurations ]
 "75 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Interrupt/mcal_external_interrupt.c
 [v _INT0_ISR INT0_ISR `(v  1 e 1 0 ]
 "87
@@ -446,21 +462,21 @@ GPIO_HIGH 1
 [v _EUSART_TX_ISR EUSART_TX_ISR `(v  1 e 1 0 ]
 "265
 [v _EUSART_RX_ISR EUSART_RX_ISR `(v  1 e 1 0 ]
-[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+[s S3612 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
 `uc 1 i2c_slew_rate 1 2 :1:1 
 `uc 1 i2c_SMBus_control 1 2 :1:2 
 `uc 1 i2c_general_call 1 2 :1:3 
 `uc 1 i2c_master_rec_mode 1 2 :1:4 
 `uc 1 i2c_reserved 1 2 :3:5 
-]
+`E3179 1 mssp_i2c_priority 1 3 `E3179 1 mssp_i2c_bc_priority 1 4 ]
 "11 C:\Users\lenovo\MPLABXProjects\application.c
-[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
-[v _i2c_obj i2c_obj `S3610  1 e 7 0 ]
+[s S3626 . 15 `ul 1 i2c_clock 4 0 `S3612 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v _i2c_obj i2c_obj `S3626  1 e 15 0 ]
 "1381 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic/include/proc/pic18f4620.h
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "1603
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-[s S3233 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S3241 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -470,7 +486,7 @@ GPIO_HIGH 1
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1857
-[s S3242 . 1 `uc 1 RC0 1 0 :1:0 
+[s S3250 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -479,8 +495,8 @@ GPIO_HIGH 1
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S3251 . 1 `S3233 1 . 1 0 `S3242 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES3251  1 e 1 @3988 ]
+[u S3259 . 1 `S3241 1 . 1 0 `S3250 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES3259  1 e 1 @3988 ]
 "2269
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
 [s S820 . 1 `uc 1 TMR1IE 1 0 :1:0 
@@ -515,7 +531,7 @@ GPIO_HIGH 1
 ]
 [u S863 . 1 `S850 1 . 1 0 `S859 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES863  1 e 1 @3998 ]
-[s S3179 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S3187 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -525,23 +541,23 @@ GPIO_HIGH 1
 `uc 1 SPEN 1 0 :1:7 
 ]
 "3062
-[s S3188 . 1 `uc 1 . 1 0 :3:0 
+[s S3196 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S3191 . 1 `uc 1 . 1 0 :5:0 
+[s S3199 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[s S3194 . 1 `uc 1 . 1 0 :6:0 
+[s S3202 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S3197 . 1 `uc 1 . 1 0 :6:0 
+[s S3205 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S3200 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S3208 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[u S3202 . 1 `S3179 1 . 1 0 `S3188 1 . 1 0 `S3191 1 . 1 0 `S3194 1 . 1 0 `S3197 1 . 1 0 `S3200 1 . 1 0 ]
-[v _RCSTAbits RCSTAbits `VES3202  1 e 1 @4011 ]
-[s S3306 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S3210 . 1 `S3187 1 . 1 0 `S3196 1 . 1 0 `S3199 1 . 1 0 `S3202 1 . 1 0 `S3205 1 . 1 0 `S3208 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES3210  1 e 1 @4011 ]
+[s S3314 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -551,7 +567,7 @@ GPIO_HIGH 1
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3270
-[s S3315 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S3323 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -560,13 +576,13 @@ GPIO_HIGH 1
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S3324 . 1 `uc 1 . 1 0 :6:0 
+[s S3332 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S3327 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S3335 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S3329 . 1 `S3306 1 . 1 0 `S3315 1 . 1 0 `S3324 1 . 1 0 `S3327 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES3329  1 e 1 @4012 ]
+[u S3337 . 1 `S3314 1 . 1 0 `S3323 1 . 1 0 `S3332 1 . 1 0 `S3335 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES3337  1 e 1 @4012 ]
 "3487
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "3499
@@ -579,7 +595,7 @@ GPIO_HIGH 1
 [v _TMR3L TMR3L `VEuc  1 e 1 @4018 ]
 "3656
 [v _TMR3H TMR3H `VEuc  1 e 1 @4019 ]
-[s S3376 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S3384 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -589,16 +605,16 @@ GPIO_HIGH 1
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4016
-[s S3385 . 1 `uc 1 . 1 0 :4:0 
+[s S3393 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 RXCKP 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S3390 . 1 `uc 1 . 1 0 :1:0 
+[s S3398 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S3393 . 1 `S3376 1 . 1 0 `S3385 1 . 1 0 `S3390 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES3393  1 e 1 @4024 ]
+[u S3401 . 1 `S3384 1 . 1 0 `S3393 1 . 1 0 `S3398 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES3401  1 e 1 @4024 ]
 [s S786 . 1 `uc 1 ADCS 1 0 :3:0 
 `uc 1 ACQT 1 0 :3:3 
 `uc 1 . 1 0 :1:6 
@@ -668,7 +684,7 @@ GPIO_HIGH 1
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "4663
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S3693 . 1 `uc 1 SEN 1 0 :1:0 
+[s S3734 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
 `uc 1 RCEN 1 0 :1:3 
@@ -678,30 +694,30 @@ GPIO_HIGH 1
 `uc 1 GCEN 1 0 :1:7 
 ]
 "4687
-[u S3702 . 1 `S3693 1 . 1 0 ]
-[v _SSPCON2bits SSPCON2bits `VES3702  1 e 1 @4037 ]
-[s S3661 . 1 `uc 1 SSPM 1 0 :4:0 
+[u S3743 . 1 `S3734 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES3743  1 e 1 @4037 ]
+[s S3702 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "4752
-[s S3667 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S3708 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S3672 . 1 `S3661 1 . 1 0 `S3667 1 . 1 0 ]
-[v _SSPCON1bits SSPCON1bits `VES3672  1 e 1 @4038 ]
-[s S3726 . 1 `uc 1 . 1 0 :2:0 
+[u S3713 . 1 `S3702 1 . 1 0 `S3708 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES3713  1 e 1 @4038 ]
+[s S3767 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_NOT_W 1 0 :1:2 
 ]
 "4878
-[s S3729 . 1 `uc 1 . 1 0 :5:0 
+[s S3770 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
-[s S3732 . 1 `uc 1 BF 1 0 :1:0 
+[s S3773 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -710,60 +726,60 @@ GPIO_HIGH 1
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
-[s S3741 . 1 `uc 1 . 1 0 :2:0 
+[s S3782 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S3746 . 1 `uc 1 . 1 0 :2:0 
+[s S3787 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 A 1 0 :1:5 
 ]
-[s S3751 . 1 `uc 1 . 1 0 :2:0 
+[s S3792 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S3756 . 1 `uc 1 . 1 0 :2:0 
+[s S3797 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S3761 . 1 `uc 1 . 1 0 :2:0 
+[s S3802 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
-[s S3764 . 1 `uc 1 . 1 0 :5:0 
+[s S3805 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
-[s S3767 . 1 `uc 1 . 1 0 :2:0 
+[s S3808 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S3772 . 1 `uc 1 . 1 0 :2:0 
+[s S3813 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 RW 1 0 :1:2 
 `uc 1 START 1 0 :1:3 
 `uc 1 STOP 1 0 :1:4 
 `uc 1 DA 1 0 :1:5 
 ]
-[s S3778 . 1 `uc 1 . 1 0 :2:0 
+[s S3819 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 NOT_A 1 0 :1:5 
 ]
-[u S3783 . 1 `S3726 1 . 1 0 `S3729 1 . 1 0 `S3732 1 . 1 0 `S3741 1 . 1 0 `S3746 1 . 1 0 `S3751 1 . 1 0 `S3756 1 . 1 0 `S3761 1 . 1 0 `S3764 1 . 1 0 `S3767 1 . 1 0 `S3772 1 . 1 0 `S3778 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES3783  1 e 1 @4039 ]
+[u S3824 . 1 `S3767 1 . 1 0 `S3770 1 . 1 0 `S3773 1 . 1 0 `S3782 1 . 1 0 `S3787 1 . 1 0 `S3792 1 . 1 0 `S3797 1 . 1 0 `S3802 1 . 1 0 `S3805 1 . 1 0 `S3808 1 . 1 0 `S3813 1 . 1 0 `S3819 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES3824  1 e 1 @4039 ]
 "5023
 [v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
 "5030
 [v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
-[s S2852 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S2860 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "5058
-[s S2856 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S2864 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -771,15 +787,15 @@ GPIO_HIGH 1
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S2864 . 1 `S2852 1 . 1 0 `S2856 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES2864  1 e 1 @4042 ]
+[u S2872 . 1 `S2860 1 . 1 0 `S2864 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES2872  1 e 1 @4042 ]
 "5218
 [v _TMR2 TMR2 `VEuc  1 e 1 @4044 ]
-[s S2666 . 1 `uc 1 . 1 0 :2:0 
+[s S2674 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "5258
-[s S2669 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S2677 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -787,24 +803,24 @@ GPIO_HIGH 1
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S2677 . 1 `uc 1 . 1 0 :2:0 
+[s S2685 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S2683 . 1 `uc 1 . 1 0 :3:0 
+[s S2691 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S2688 . 1 `S2666 1 . 1 0 `S2669 1 . 1 0 `S2677 1 . 1 0 `S2683 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES2688  1 e 1 @4045 ]
+[u S2696 . 1 `S2674 1 . 1 0 `S2677 1 . 1 0 `S2685 1 . 1 0 `S2691 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES2696  1 e 1 @4045 ]
 "5335
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "5342
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S2501 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S2509 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -812,14 +828,14 @@ GPIO_HIGH 1
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "5879
-[s S2508 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S2516 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 T016BIT 1 0 :1:6 
 ]
-[u S2514 . 1 `S2501 1 . 1 0 `S2508 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES2514  1 e 1 @4053 ]
+[u S2522 . 1 `S2509 1 . 1 0 `S2516 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES2522  1 e 1 @4053 ]
 "5941
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "5948
@@ -1083,6 +1099,12 @@ GPIO_HIGH 1
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "15
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
+"16 C:\Users\lenovo\MPLABXProjects\MCAL_layer/I2C/hal_i2c.c
+[v _I2C_Report_Write_Collision_InterruptHandler I2C_Report_Write_Collision_InterruptHandler `*.37(v  1 s 2 I2C_Report_Write_Collision_InterruptHandler ]
+"17
+[v _I2C_DefaultInterruptHandle I2C_DefaultInterruptHandle `*.37(v  1 s 2 I2C_DefaultInterruptHandle ]
+"18
+[v _I2C_Report_Receive_Overflow_InterruptHandle I2C_Report_Receive_Overflow_InterruptHandle `*.37(v  1 s 2 I2C_Report_Receive_Overflow_InterruptHandle ]
 "11 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Interrupt/mcal_external_interrupt.c
 [v _INT0_InterruptHandler INT0_InterruptHandler `*.37(v  1 s 2 INT0_InterruptHandler ]
 "12
@@ -1144,16 +1166,16 @@ GPIO_HIGH 1
 {
 "143
 [v MSSP_I2C_Master_Send_Stop@ret ret `uc  1 a 1 3 ]
-[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+[s S3612 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
 `uc 1 i2c_slew_rate 1 2 :1:1 
 `uc 1 i2c_SMBus_control 1 2 :1:2 
 `uc 1 i2c_general_call 1 2 :1:3 
 `uc 1 i2c_master_rec_mode 1 2 :1:4 
 `uc 1 i2c_reserved 1 2 :3:5 
-]
+`E3179 1 mssp_i2c_priority 1 3 `E3179 1 mssp_i2c_bc_priority 1 4 ]
 "142
-[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
-[v MSSP_I2C_Master_Send_Stop@i2c_obj i2c_obj `*.39CS3610  1 p 2 1 ]
+[s S3626 . 15 `ul 1 i2c_clock 4 0 `S3612 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v MSSP_I2C_Master_Send_Stop@i2c_obj i2c_obj `*.39CS3626  1 p 2 1 ]
 "163
 } 0
 "102
@@ -1161,33 +1183,33 @@ GPIO_HIGH 1
 {
 "103
 [v MSSP_I2C_Master_Send_Start@ret ret `uc  1 a 1 3 ]
-[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+[s S3612 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
 `uc 1 i2c_slew_rate 1 2 :1:1 
 `uc 1 i2c_SMBus_control 1 2 :1:2 
 `uc 1 i2c_general_call 1 2 :1:3 
 `uc 1 i2c_master_rec_mode 1 2 :1:4 
 `uc 1 i2c_reserved 1 2 :3:5 
-]
+`E3179 1 mssp_i2c_priority 1 3 `E3179 1 mssp_i2c_bc_priority 1 4 ]
 "102
-[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
-[v MSSP_I2C_Master_Send_Start@i2c_obj i2c_obj `*.39CS3610  1 p 2 1 ]
+[s S3626 . 15 `ul 1 i2c_clock 4 0 `S3612 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v MSSP_I2C_Master_Send_Start@i2c_obj i2c_obj `*.39CS3626  1 p 2 1 ]
 "123
 } 0
 "21
 [v _MSSP_I2C_Init MSSP_I2C_Init `(uc  1 e 1 0 ]
 {
 "22
-[v MSSP_I2C_Init@ret ret `uc  1 a 1 0 ]
-[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+[v MSSP_I2C_Init@ret ret `uc  1 a 1 71 ]
+[s S3612 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
 `uc 1 i2c_slew_rate 1 2 :1:1 
 `uc 1 i2c_SMBus_control 1 2 :1:2 
 `uc 1 i2c_general_call 1 2 :1:3 
 `uc 1 i2c_master_rec_mode 1 2 :1:4 
 `uc 1 i2c_reserved 1 2 :3:5 
-]
+`E3179 1 mssp_i2c_priority 1 3 `E3179 1 mssp_i2c_bc_priority 1 4 ]
 "21
-[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
-[v MSSP_I2C_Init@i2c_obj i2c_obj `*.39CS3610  1 p 2 69 ]
+[s S3626 . 15 `ul 1 i2c_clock 4 0 `S3612 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v MSSP_I2C_Init@i2c_obj i2c_obj `*.39CS3626  1 p 2 69 ]
 "82
 } 0
 "260
@@ -1195,32 +1217,46 @@ GPIO_HIGH 1
 {
 "263
 } 0
-"271
-[v _I2C_Slave_Mode_Configurations I2C_Slave_Mode_Configurations `T(v  1 s 1 I2C_Slave_Mode_Configurations ]
+"275
+[v _MSSP_I2C_Interrupt_Configurations MSSP_I2C_Interrupt_Configurations `T(v  1 s 1 MSSP_I2C_Interrupt_Configurations ]
 {
-[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+[s S3612 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
 `uc 1 i2c_slew_rate 1 2 :1:1 
 `uc 1 i2c_SMBus_control 1 2 :1:2 
 `uc 1 i2c_general_call 1 2 :1:3 
 `uc 1 i2c_master_rec_mode 1 2 :1:4 
 `uc 1 i2c_reserved 1 2 :3:5 
-]
-[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
-[v I2C_Slave_Mode_Configurations@i2c_obj i2c_obj `*.39CS3610  1 p 2 1 ]
+`E3179 1 mssp_i2c_priority 1 3 `E3179 1 mssp_i2c_bc_priority 1 4 ]
+[s S3626 . 15 `ul 1 i2c_clock 4 0 `S3612 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v MSSP_I2C_Interrupt_Configurations@i2c_obj i2c_obj `*.39CS3626  1 p 2 1 ]
+"316
+} 0
+"271
+[v _I2C_Slave_Mode_Configurations I2C_Slave_Mode_Configurations `T(v  1 s 1 I2C_Slave_Mode_Configurations ]
+{
+[s S3612 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+`uc 1 i2c_slew_rate 1 2 :1:1 
+`uc 1 i2c_SMBus_control 1 2 :1:2 
+`uc 1 i2c_general_call 1 2 :1:3 
+`uc 1 i2c_master_rec_mode 1 2 :1:4 
+`uc 1 i2c_reserved 1 2 :3:5 
+`E3179 1 mssp_i2c_priority 1 3 `E3179 1 mssp_i2c_bc_priority 1 4 ]
+[s S3626 . 15 `ul 1 i2c_clock 4 0 `S3612 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v I2C_Slave_Mode_Configurations@i2c_obj i2c_obj `*.39CS3626  1 p 2 1 ]
 "273
 } 0
 "265
 [v _I2C_Master_Mode_Clock_Configurations I2C_Master_Mode_Clock_Configurations `T(v  1 s 1 I2C_Master_Mode_Clock_Configurations ]
 {
-[s S3601 . 3 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
+[s S3612 . 5 `uc 1 i2c_mode_cfg 1 0 `uc 1 i2c_slave_address 1 1 `uc 1 i2c_mode 1 2 :1:0 
 `uc 1 i2c_slew_rate 1 2 :1:1 
 `uc 1 i2c_SMBus_control 1 2 :1:2 
 `uc 1 i2c_general_call 1 2 :1:3 
 `uc 1 i2c_master_rec_mode 1 2 :1:4 
 `uc 1 i2c_reserved 1 2 :3:5 
-]
-[s S3610 . 7 `ul 1 i2c_clock 4 0 `S3601 1 i2c_cfg 3 4 ]
-[v I2C_Master_Mode_Clock_Configurations@i2c_obj i2c_obj `*.39CS3610  1 p 2 66 ]
+`E3179 1 mssp_i2c_priority 1 3 `E3179 1 mssp_i2c_bc_priority 1 4 ]
+[s S3626 . 15 `ul 1 i2c_clock 4 0 `S3612 1 i2c_cfg 5 4 `*.37(v 1 I2C_Report_Write_Collision 2 9 `*.37(v 1 I2C_DefaultInterruptHandler 2 11 `*.37(v 1 I2C_Report_Receive_Overflow 2 13 ]
+[v I2C_Master_Mode_Clock_Configurations@i2c_obj i2c_obj `*.39CS3626  1 p 2 66 ]
 "269
 } 0
 "10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\xxtofl.c
@@ -1287,7 +1323,7 @@ GPIO_HIGH 1
 "33 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Interrupt/mcal_interrupt_manager.c
 [v _InterruptManager InterruptManager `IIH(v  1 e 1 0 ]
 {
-"141
+"152
 } 0
 "101 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Timer3/hal_timer3.c
 [v _TMR3_ISR TMR3_ISR `(v  1 e 1 0 ]
@@ -1345,7 +1381,17 @@ GPIO_HIGH 1
 [v RB4_ISR@RB4_Source RB4_Source `uc  1 a 1 0 ]
 "122
 } 0
-"96
+"242 C:\Users\lenovo\MPLABXProjects\MCAL_layer/I2C/hal_i2c.c
+[v _MSSP_I2C_ISR MSSP_I2C_ISR `(v  1 e 1 0 ]
+{
+"249
+} 0
+"251
+[v _MSSP_I2C_BC_ISR MSSP_I2C_BC_ISR `(v  1 e 1 0 ]
+{
+"258
+} 0
+"96 C:\Users\lenovo\MPLABXProjects\MCAL_layer/Interrupt/mcal_external_interrupt.c
 [v _INT2_ISR INT2_ISR `(v  1 e 1 0 ]
 {
 "103

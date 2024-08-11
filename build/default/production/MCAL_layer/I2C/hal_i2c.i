@@ -4785,8 +4785,8 @@ typedef struct{
  uint8 i2c_master_rec_mode : 1;
  uint8 i2c_reserved : 3;
 
-
-
+    interrupt_priority_cfg mssp_i2c_priority;
+    interrupt_priority_cfg mssp_i2c_bc_priority;
 
 }i2c_configs_t;
 
@@ -4794,9 +4794,9 @@ typedef struct{
  uint32 i2c_clock;
     i2c_configs_t i2c_cfg;
 
-
-
-
+    void (*I2C_Report_Write_Collision)(void);
+    void (*I2C_DefaultInterruptHandler)(void);
+    void (*I2C_Report_Receive_Overflow)(void);
 
 }mssp_i2c_t;
 
@@ -4822,9 +4822,9 @@ static __attribute__((inline)) void I2C_Slave_Mode_Configurations(const mssp_i2c
 static __attribute__((inline)) void MSSP_I2C_Interrupt_Configurations(const mssp_i2c_t *i2c_obj);
 
 
-
-
-
+static void (*I2C_Report_Write_Collision_InterruptHandler)(void) = ((void*)0);
+static void (*I2C_DefaultInterruptHandle)(void) = ((void*)0);
+static void (*I2C_Report_Receive_Overflow_InterruptHandle)(void) = ((void*)0);
 
 
 Std_ReturnType MSSP_I2C_Init(const mssp_i2c_t *i2c_obj){
@@ -4881,7 +4881,7 @@ Std_ReturnType MSSP_I2C_Init(const mssp_i2c_t *i2c_obj){
         else { }
 
 
-
+      MSSP_I2C_Interrupt_Configurations(i2c_obj);
 
 
         (SSPCON1bits.SSPEN = 1);
@@ -4900,8 +4900,8 @@ Std_ReturnType MSSP_I2C_DeInit(const mssp_i2c_t *i2c_obj){
         (SSPCON1bits.SSPEN = 0);
 
 
-
-
+        (PIE1bits.SSPIE = 0);
+        (PIE2bits.BCLIE = 0);
 
         ret = (Std_ReturnType)0x01;
     }
@@ -5050,19 +5050,19 @@ Std_ReturnType MSSP_I2C_Master_Read_NBlocking(const mssp_i2c_t *i2c_obj, uint8 a
 
 void MSSP_I2C_ISR(void){
 
-
-
-
-
+    (PIR1bits.SSPIF = 0);
+    if(I2C_DefaultInterruptHandle){
+        I2C_DefaultInterruptHandle();
+    }
 
 }
 
 void MSSP_I2C_BC_ISR(void){
 
-
-
-
-
+    (PIR2bits.BCLIF = 0);
+    if(I2C_Report_Write_Collision_InterruptHandler){
+        I2C_Report_Write_Collision_InterruptHandler();
+    }
 
 }
 
@@ -5082,5 +5082,18 @@ static __attribute__((inline)) void I2C_Slave_Mode_Configurations(const mssp_i2c
 }
 
 static __attribute__((inline)) void MSSP_I2C_Interrupt_Configurations(const mssp_i2c_t *i2c_obj){
-# 316 "MCAL_layer/I2C/hal_i2c.c"
+
+        (PIE1bits.SSPIE = 1);
+        (PIE2bits.BCLIE = 1);
+        (PIR1bits.SSPIF = 0);
+        (PIR2bits.BCLIF = 0);
+        I2C_Report_Write_Collision_InterruptHandler = i2c_obj->I2C_Report_Write_Collision;
+        I2C_DefaultInterruptHandle = i2c_obj->I2C_DefaultInterruptHandler;
+        I2C_Report_Receive_Overflow_InterruptHandle = i2c_obj->I2C_Report_Receive_Overflow;
+# 311 "MCAL_layer/I2C/hal_i2c.c"
+        (INTCONbits.GIE = 1);
+        (INTCONbits.PEIE = 1);
+
+
+
 }

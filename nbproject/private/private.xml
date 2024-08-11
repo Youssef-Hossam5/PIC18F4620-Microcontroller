@@ -5,9 +5,10 @@
         <group>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/device_config.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/usart/hal_usart.c</file>
-            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/Ultrasonic/Ultrasonic_Cfg.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/usart/hal_usart.h</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/ECU_layer/Ultrasonic/Ultrasonic_Cfg.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/application.c</file>
+            <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/mcal_std_types.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/I2C/hal_i2c.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_interrupt_config.h</file>
             <file>file:/C:/Users/lenovo/MPLABXProjects/MCAL_layer/Interrupt/mcal_internal_interrupt.h</file>
