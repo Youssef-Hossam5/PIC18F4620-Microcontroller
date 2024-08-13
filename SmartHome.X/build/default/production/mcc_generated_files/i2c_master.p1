@@ -811,8 +811,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _I2C_Initialize ]
 [f ]
 "169
-[; ;mcc_generated_files/i2c_master.c: 169:     SSPSTAT = 0x00;
-[e = _SSPSTAT -> -> 0 `i `uc ]
+[; ;mcc_generated_files/i2c_master.c: 169:     SSPSTAT = 0x80;
+[e = _SSPSTAT -> -> 128 `i `uc ]
 "170
 [; ;mcc_generated_files/i2c_master.c: 170:     SSPCON1 = 0x08;
 [e = _SSPCON1 -> -> 8 `i `uc ]
@@ -1422,7 +1422,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/i2c_master.c: 351:     I2C_Status.addressNackCheck = 1;
 [e = . _I2C_Status 9 -> -> 1 `i `uc ]
 "352
-[; ;mcc_generated_files/i2c_master.c: 352:     I2C_MasterSendTxData((uint8_t) (I2C_Status.address ));
+[; ;mcc_generated_files/i2c_master.c: 352:     I2C_MasterSendTxData((uint8_t) (I2C_Status.address));
 [e ( _I2C_MasterSendTxData (1 . _I2C_Status 4 ]
 "353
 [; ;mcc_generated_files/i2c_master.c: 353:     return I2C_TX;
@@ -2092,8 +2092,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/i2c_master.c: 547:     {
 {
 "548
-[; ;mcc_generated_files/i2c_master.c: 548:         SSPSTAT = 0x00;
-[e = _SSPSTAT -> -> 0 `i `uc ]
+[; ;mcc_generated_files/i2c_master.c: 548:         SSPSTAT = 0x80;
+[e = _SSPSTAT -> -> 128 `i `uc ]
 "549
 [; ;mcc_generated_files/i2c_master.c: 549:         SSPCON1 = 0x08;
 [e = _SSPCON1 -> -> 8 `i `uc ]

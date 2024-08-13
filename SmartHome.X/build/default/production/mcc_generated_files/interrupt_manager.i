@@ -9,7 +9,7 @@
 # 1 "mcc_generated_files/interrupt_manager.c" 2
 # 49 "mcc_generated_files/interrupt_manager.c"
 # 1 "mcc_generated_files/interrupt_manager.h" 1
-# 110 "mcc_generated_files/interrupt_manager.h"
+# 132 "mcc_generated_files/interrupt_manager.h"
 void INTERRUPT_Initialize (void);
 # 49 "mcc_generated_files/interrupt_manager.c" 2
 
@@ -4938,9 +4938,9 @@ unsigned char __t3rd16on(void);
 # 50 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 110 "mcc_generated_files/pin_manager.h"
+# 121 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 122 "mcc_generated_files/pin_manager.h"
+# 133 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "mcc_generated_files/mcc.h" 2
 
@@ -5234,26 +5234,29 @@ void OSCILLATOR_Initialize(void);
 void INTERRUPT_Initialize (void)
 {
 
-    RCONbits.IPEN = 0;
+    RCONbits.IPEN = 1;
+
+
+
+
+    IPR2bits.BCLIP = 1;
+
+
+    IPR1bits.SSPIP = 1;
+
+
 }
 
-void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
+void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManagerHigh (void)
 {
 
-    if(INTCONbits.PEIE == 1)
+    if(PIE2bits.BCLIE == 1 && PIR2bits.BCLIF == 1)
     {
-        if(PIE2bits.BCLIE == 1 && PIR2bits.BCLIF == 1)
-        {
-            MSSP_InterruptHandler();
-        }
-        else if(PIE1bits.SSPIE == 1 && PIR1bits.SSPIF == 1)
-        {
-            MSSP_InterruptHandler();
-        }
-        else
-        {
-
-        }
+        MSSP_InterruptHandler();
+    }
+    else if(PIE1bits.SSPIE == 1 && PIR1bits.SSPIF == 1)
+    {
+        MSSP_InterruptHandler();
     }
     else
     {

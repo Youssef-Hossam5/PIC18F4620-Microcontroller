@@ -1,7 +1,7 @@
 /* 
  * File:   TemSensor_TC74.c
- * Author: Ahmed Abd El-Ghafar
- * Created on February 19, 2023, 5:33 PM
+ * Author: lenovo
+ * Created on August 12, 2024, 10:34 PM
  */
 
 #include "TemSensor_TC74.h"

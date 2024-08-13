@@ -13,6 +13,7 @@
                 <sourceRootElem>Modules/RealTimeClockDS1307</sourceRootElem>
                 <sourceRootElem>Modules/UART_LoggingDebugData</sourceRootElem>
                 <sourceRootElem>Modules/EEPROM_24C02C</sourceRootElem>
+                <sourceRootElem>Modules/TemSensor_TC74</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

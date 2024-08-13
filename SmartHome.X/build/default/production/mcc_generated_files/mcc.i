@@ -7,7 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "mcc_generated_files/mcc.c" 2
-# 47 "mcc_generated_files/mcc.c"
+
 # 1 "mcc_generated_files/mcc.h" 1
 # 49 "mcc_generated_files/mcc.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\\pic\\include\\xc.h" 1 3
@@ -4933,9 +4933,9 @@ unsigned char __t3rd16on(void);
 # 50 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 110 "mcc_generated_files/pin_manager.h"
+# 121 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 122 "mcc_generated_files/pin_manager.h"
+# 133 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "mcc_generated_files/mcc.h" 2
 
@@ -5098,7 +5098,7 @@ char *tempnam(const char *, const char *);
 # 54 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/interrupt_manager.h" 1
-# 110 "mcc_generated_files/interrupt_manager.h"
+# 132 "mcc_generated_files/interrupt_manager.h"
 void INTERRUPT_Initialize (void);
 # 55 "mcc_generated_files/mcc.h" 2
 
@@ -5227,17 +5227,15 @@ void EUSART_SetErrorHandler(void (* interruptHandler)(void));
 void SYSTEM_Initialize(void);
 # 86 "mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 47 "mcc_generated_files/mcc.c" 2
-
+# 2 "mcc_generated_files/mcc.c" 2
 
 
 void SYSTEM_Initialize(void)
 {
-
-    INTERRUPT_Initialize();
-    I2C_Initialize();
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
+    INTERRUPT_Initialize();
+    I2C_Initialize();
     EUSART_Initialize();
 }
 

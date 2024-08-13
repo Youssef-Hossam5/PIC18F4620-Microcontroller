@@ -1,36 +1,41 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3116 `(v ~T0 @X0 0 tf ]
+[v F428 `(v ~T0 @X0 0 tf ]
 "16 ./Modules/RealTimeClockDS1307/RealTimeClockDS1307.h
 [; ;./Modules/RealTimeClockDS1307/RealTimeClockDS1307.h: 16: typedef struct{
 [s S307 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S307 . _Hours _Minutes _Seconds _Year _Month _Day ]
 [p mainexit ]
-"73 ./Modules/RealTimeClockDS1307/../../mcc_generated_files/mcc.h
+"73 ./Modules/TemSensor_TC74/../../mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "7049 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7049:     struct {
-[s S297 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S297 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+[s S299 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S299 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
 "7059
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7059:     struct {
-[s S298 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S298 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+[s S300 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S300 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
 "7069
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7069:     struct {
-[s S299 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S299 . . GIEL GIEH ]
+[s S301 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S301 . . GIEL GIEH ]
 "7048
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7048: typedef union {
-[u S296 `S297 1 `S298 1 `S299 1 ]
-[n S296 . . . . ]
+[u S298 `S299 1 `S300 1 `S301 1 ]
+[n S298 . . . . ]
 "7075
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7075: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS296 ~T0 @X0 0 e@4082 ]
+[v _INTCONbits `VS298 ~T0 @X0 0 e@4082 ]
+"12 ./Modules/RealTimeClockDS1307/../UART_LoggingDebugData/UART_LoggingDebugData.h
+[; ;./Modules/RealTimeClockDS1307/../UART_LoggingDebugData/UART_LoggingDebugData.h: 12: void UART_LoggingDebugData_Send_String(uint8_t *String, uint16_t String_Length);
+[v _UART_LoggingDebugData_Send_String `(v ~T0 @X0 0 ef2`*uc`us ]
 "13 ./Modules/EEPROM_24C02C/EEPROM_24C02C.h
 [; ;./Modules/EEPROM_24C02C/EEPROM_24C02C.h: 13: void EEPROM_24C02C_Write_Byte(i2c_address_t EEPROM_Address, i2c_address_t Byte_Address, uint8_t Data);
 [v _EEPROM_24C02C_Write_Byte `(v ~T0 @X0 0 ef3`uc`uc`uc ]
-"12 ./Modules/UART_LoggingDebugData/UART_LoggingDebugData.h
-[v _UART_LoggingDebugData_Send_String `(v ~T0 @X0 0 ef2`*uc`us ]
+[v F615 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h
+[v __delay `JF615 ~T0 @X0 0 e ]
+[p i __delay ]
 "14 ./Modules/EEPROM_24C02C/EEPROM_24C02C.h
 [; ;./Modules/EEPROM_24C02C/EEPROM_24C02C.h: 14: uint8_t EEPROM_24C02C_Read_Byte(i2c_address_t EEPROM_Address, i2c_address_t Byte_Address);
 [v _EEPROM_24C02C_Read_Byte `(uc ~T0 @X0 0 ef2`uc`uc ]
@@ -40,6 +45,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27
 [; ;./Modules/RealTimeClockDS1307/RealTimeClockDS1307.h: 27: void Print_RealTimeClockDS1307(void);
 [v _Print_RealTimeClockDS1307 `(v ~T0 @X0 0 ef ]
+"13 ./Modules/TemSensor_TC74/TemSensor_TC74.h
+[; ;./Modules/TemSensor_TC74/TemSensor_TC74.h: 13: uint8_t TempSensor_TC74_Read_Temp(i2c_address_t TC74_Address);
+[v _TempSensor_TC74_Read_Temp `(uc ~T0 @X0 0 ef1`uc ]
+"56 ./Modules/TemSensor_TC74/../../mcc_generated_files/examples/i2c_master_example.h
+[v _I2C_Write1ByteRegister `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"213 ./Modules/RealTimeClockDS1307/../../mcc_generated_files/i2c_master.h
+[v _MSSP_InterruptHandler `*F428 ~T0 @X0 1 e ]
 "54 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -481,68 +493,90 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7352
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7352: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"213 ./Modules/RealTimeClockDS1307/../../mcc_generated_files/examples/../i2c_master.h
-[v _MSSP_InterruptHandler `*F3116 ~T0 @X0 1 e ]
-"48 main.c
-[; ;main.c: 48: RealTimeClockDS1307_T RealTimeClockDS1307;
+"9 main.c
+[; ;main.c: 9: RealTimeClockDS1307_T RealTimeClockDS1307;
 [v _RealTimeClockDS1307 `S307 ~T0 @X0 1 e ]
-"53
-[; ;main.c: 53:    uint8_t U4RecValue,U5RecValue;
+"10
+[; ;main.c: 10: uint8_t U4RecValue, U5RecValue;
 [v _U4RecValue `uc ~T0 @X0 1 e ]
 [v _U5RecValue `uc ~T0 @X0 1 e ]
+"11
+[; ;main.c: 11: uint8_t TC74_A7_TempValue = 0;
+[v _TC74_A7_TempValue `uc ~T0 @X0 1 e ]
+[i _TC74_A7_TempValue
+-> -> 0 `i `uc
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"54
-[; ;main.c: 54: void main(void)
+"13
+[; ;main.c: 13: void main(void)
 [v _main `(v ~T0 @X0 1 ef ]
-"55
-[; ;main.c: 55: {
+"14
+[; ;main.c: 14: {
 {
 [e :U _main ]
 [f ]
-"57
-[; ;main.c: 57:     SYSTEM_Initialize();
+"16
+[; ;main.c: 16:     SYSTEM_Initialize();
 [e ( _SYSTEM_Initialize ..  ]
-"64
-[; ;main.c: 64:     (INTCONbits.GIE = 1);
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"70
-[; ;main.c: 70:     (INTCONbits.PEIE = 1);
+"18
+[; ;main.c: 18:     (INTCONbits.GIEH = 1);
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
+"20
+[; ;main.c: 20:     (INTCONbits.GIEL = 1);
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"22
+[; ;main.c: 22:     (INTCONbits.PEIE = 1);
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"75
-[; ;main.c: 75:     EEPROM_24C02C_Write_Byte(0xA2,0x08,5);
+"24
+[; ;main.c: 24:     UART_LoggingDebugData_Send_String("System Started\r", 15);
+[e ( _UART_LoggingDebugData_Send_String (2 , :s 1C -> -> 15 `i `us ]
+"26
+[; ;main.c: 26:     EEPROM_24C02C_Write_Byte(0xA2, 0x08, 5);
 [e ( _EEPROM_24C02C_Write_Byte (3 , , -> -> 162 `i `uc -> -> 8 `i `uc -> -> 5 `i `uc ]
-"76
-[; ;main.c: 76:     EEPROM_24C02C_Write_Byte(0xA6,0x08,6);
+"27
+[; ;main.c: 27:     _delay((unsigned long)((100)*(16000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+"28
+[; ;main.c: 28:     EEPROM_24C02C_Write_Byte(0xA6, 0x08, 6);
 [e ( _EEPROM_24C02C_Write_Byte (3 , , -> -> 166 `i `uc -> -> 8 `i `uc -> -> 6 `i `uc ]
-"77
-[; ;main.c: 77:     UART_LoggingDebugData_Send_String("System Started",14);
-[e ( _UART_LoggingDebugData_Send_String (2 , :s 1C -> -> 14 `i `us ]
-"78
-[; ;main.c: 78:     U4RecValue=EEPROM_24C02C_Read_Byte(0xA2,0x08);
+"29
+[; ;main.c: 29:     _delay((unsigned long)((100)*(16000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 16000000 `l `d .4000000.0 `ul ]
+"30
+[; ;main.c: 30:     U4RecValue = EEPROM_24C02C_Read_Byte(0xA2, 0x08);
 [e = _U4RecValue ( _EEPROM_24C02C_Read_Byte (2 , -> -> 162 `i `uc -> -> 8 `i `uc ]
-"79
-[; ;main.c: 79:     U5RecValue=EEPROM_24C02C_Read_Byte(0xA6,0x08);
+"31
+[; ;main.c: 31:     U5RecValue = EEPROM_24C02C_Read_Byte(0xA6, 0x08);
 [e = _U5RecValue ( _EEPROM_24C02C_Read_Byte (2 , -> -> 166 `i `uc -> -> 8 `i `uc ]
-"80
-[; ;main.c: 80:     while (1)
+"33
+[; ;main.c: 33:     while (1)
 [e :U 310 ]
-"81
-[; ;main.c: 81:     {
+"34
+[; ;main.c: 34:     {
 {
-"82
-[; ;main.c: 82:          RealTimeClockDS1307=RealTimeClockDS1307_Get_Date_Time();
+"35
+[; ;main.c: 35:         RealTimeClockDS1307 = RealTimeClockDS1307_Get_Date_Time();
 [e = _RealTimeClockDS1307 ( _RealTimeClockDS1307_Get_Date_Time ..  ]
-"83
-[; ;main.c: 83:          Print_RealTimeClockDS1307();
+"36
+[; ;main.c: 36:         Print_RealTimeClockDS1307();
 [e ( _Print_RealTimeClockDS1307 ..  ]
-"84
-[; ;main.c: 84:     }
+"38
+[; ;main.c: 38:         TC74_A7_TempValue = TempSensor_TC74_Read_Temp(0x9E);
+[e = _TC74_A7_TempValue ( _TempSensor_TC74_Read_Temp (1 -> -> 158 `i `uc ]
+"39
+[; ;main.c: 39:         I2C_Write1ByteRegister(0x70, 0x00, TC74_A7_TempValue);
+[e ( _I2C_Write1ByteRegister (3 , , -> -> 112 `i `uc -> -> 0 `i `uc _TC74_A7_TempValue ]
+"41
+[; ;main.c: 41:         _delay((unsigned long)((500)*(16000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"42
+[; ;main.c: 42:     }
 }
 [e :U 309 ]
 [e $U 310  ]
 [e :U 311 ]
-"85
-[; ;main.c: 85: }
+"43
+[; ;main.c: 43: }
 [e :UE 308 ]
 }
-[a 1C 83 121 115 116 101 109 32 83 116 97 114 116 101 100 0 ]
+[a 1C 83 121 115 116 101 109 32 83 116 97 114 116 101 100 13 0 ]

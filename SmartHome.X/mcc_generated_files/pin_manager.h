@@ -97,6 +97,17 @@
 #define RC7_SetDigitalInput()    do { TRISCbits.TRISC7 = 1; } while(0)
 #define RC7_SetDigitalOutput()   do { TRISCbits.TRISC7 = 0; } while(0)
 
+// get/set LED0 aliases
+#define LED0_TRIS                 TRISDbits.TRISD0
+#define LED0_LAT                  LATDbits.LATD0
+#define LED0_PORT                 PORTDbits.RD0
+#define LED0_SetHigh()            do { LATDbits.LATD0 = 1; } while(0)
+#define LED0_SetLow()             do { LATDbits.LATD0 = 0; } while(0)
+#define LED0_Toggle()             do { LATDbits.LATD0 = ~LATDbits.LATD0; } while(0)
+#define LED0_GetValue()           PORTDbits.RD0
+#define LED0_SetDigitalInput()    do { TRISDbits.TRISD0 = 1; } while(0)
+#define LED0_SetDigitalOutput()   do { TRISDbits.TRISD0 = 0; } while(0)
+
 /**
    @Param
     none

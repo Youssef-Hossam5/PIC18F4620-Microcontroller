@@ -82,7 +82,7 @@ I2C_NULL 5
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"54 C:\Users\lenovo\MPLABXProjects\SmartHome.X\main.c
+"13 C:\Users\lenovo\MPLABXProjects\SmartHome.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "66 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/eusart.c
 [v _EUSART_Initialize EUSART_Initialize `(v  1 e 1 0 ]
@@ -216,11 +216,11 @@ I2C_NULL 5
 [v _I2C_MasterSetIrq I2C_MasterSetIrq `T(v  1 s 1 I2C_MasterSetIrq ]
 "52 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
-"58
-[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
-"50 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/mcc.c
+"68
+[v _INTERRUPT_InterruptManagerHigh INTERRUPT_InterruptManagerHigh `IIH(v  1 e 1 0 ]
+"4 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
-"60
+"13
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 "59 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/memory.c
 [v _FLASH_ReadByte FLASH_ReadByte `(uc  1 e 1 0 ]
@@ -235,15 +235,15 @@ I2C_NULL 5
 "15
 [v _EEPROM_24C02C_Read_Byte EEPROM_24C02C_Read_Byte `(uc  1 e 1 0 ]
 "16 C:\Users\lenovo\MPLABXProjects\SmartHome.X\Modules/RealTimeClockDS1307/RealTimeClockDS1307.h
-[s S1638 . 6 `uc 1 _Hours 1 0 `uc 1 _Minutes 1 1 `uc 1 _Seconds 1 2 `uc 1 _Year 1 3 `uc 1 _Month 1 4 `uc 1 _Day 1 5 ]
+[s S1692 . 6 `uc 1 _Hours 1 0 `uc 1 _Minutes 1 1 `uc 1 _Seconds 1 2 `uc 1 _Year 1 3 `uc 1 _Month 1 4 `uc 1 _Day 1 5 ]
 "16 C:\Users\lenovo\MPLABXProjects\SmartHome.X\Modules/RealTimeClockDS1307/RealTimeClockDS1307.c
-[v _RealTimeClockDS1307_Get_Date_Time RealTimeClockDS1307_Get_Date_Time `(S1638  1 e 6 0 ]
+[v _RealTimeClockDS1307_Get_Date_Time RealTimeClockDS1307_Get_Date_Time `(S1692  1 e 6 0 ]
 "29
 [v _Print_RealTimeClockDS1307 Print_RealTimeClockDS1307 `(v  1 e 1 0 ]
+"9 C:\Users\lenovo\MPLABXProjects\SmartHome.X\Modules/TemSensor_TC74/TemSensor_TC74.c
+[v _TempSensor_TC74_Read_Temp TempSensor_TC74_Read_Temp `(uc  1 e 1 0 ]
 "9 C:\Users\lenovo\MPLABXProjects\SmartHome.X\Modules/UART_LoggingDebugData/UART_LoggingDebugData.c
 [v _UART_LoggingDebugData_Send_String UART_LoggingDebugData_Send_String `(v  1 e 1 0 ]
-"213 C:\Users\lenovo\MPLABXProjects\SmartHome.X/mcc_generated_files/i2c_master.h
-[v _MSSP_InterruptHandler MSSP_InterruptHandler `*.37(v  1 e 2 0 ]
 "345 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h
 [v _WPUB WPUB `VEuc  1 e 1 @3964 ]
 "446
@@ -304,7 +304,23 @@ I2C_NULL 5
 ]
 [u S548 . 1 `S535 1 . 1 0 `S544 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES548  1 e 1 @3998 ]
-[s S1524 . 1 `uc 1 CCP2IE 1 0 :1:0 
+[s S1532 . 1 `uc 1 TMR1IP 1 0 :1:0 
+`uc 1 TMR2IP 1 0 :1:1 
+`uc 1 CCP1IP 1 0 :1:2 
+`uc 1 SSPIP 1 0 :1:3 
+`uc 1 TXIP 1 0 :1:4 
+`uc 1 RCIP 1 0 :1:5 
+`uc 1 ADIP 1 0 :1:6 
+`uc 1 PSPIP 1 0 :1:7 
+]
+"3318
+[s S1541 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IP 1 0 :1:4 
+`uc 1 RC1IP 1 0 :1:5 
+]
+[u S1545 . 1 `S1532 1 . 1 0 `S1541 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES1545  1 e 1 @3999 ]
+[s S1562 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
@@ -314,14 +330,14 @@ I2C_NULL 5
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "3398
-[s S1533 . 1 `uc 1 . 1 0 :2:0 
+[s S1571 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 ]
-[s S1536 . 1 `uc 1 . 1 0 :6:0 
+[s S1574 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CMIE 1 0 :1:6 
 ]
-[u S1539 . 1 `S1524 1 . 1 0 `S1533 1 . 1 0 `S1536 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES1539  1 e 1 @4000 ]
+[u S1577 . 1 `S1562 1 . 1 0 `S1571 1 . 1 0 `S1574 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES1577  1 e 1 @4000 ]
 [s S399 . 1 `uc 1 CCP2IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
@@ -340,6 +356,24 @@ I2C_NULL 5
 ]
 [u S414 . 1 `S399 1 . 1 0 `S408 1 . 1 0 `S411 1 . 1 0 ]
 [v _PIR2bits PIR2bits `VES414  1 e 1 @4001 ]
+[s S1497 . 1 `uc 1 CCP2IP 1 0 :1:0 
+`uc 1 TMR3IP 1 0 :1:1 
+`uc 1 HLVDIP 1 0 :1:2 
+`uc 1 BCLIP 1 0 :1:3 
+`uc 1 EEIP 1 0 :1:4 
+`uc 1 C2IP 1 0 :1:5 
+`uc 1 C1IP 1 0 :1:6 
+`uc 1 OSCFIP 1 0 :1:7 
+]
+"3558
+[s S1506 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LVDIP 1 0 :1:2 
+]
+[s S1509 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 CMIP 1 0 :1:6 
+]
+[u S1512 . 1 `S1497 1 . 1 0 `S1506 1 . 1 0 `S1509 1 . 1 0 ]
+[v _IPR2bits IPR2bits `VES1512  1 e 1 @4002 ]
 [s S363 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
@@ -613,12 +647,14 @@ I2C_NULL 5
 [v _TBLPTRH TBLPTRH `VEuc  1 e 1 @4087 ]
 "7211
 [v _TBLPTRU TBLPTRU `VEuc  1 e 1 @4088 ]
-[s S1638 . 6 `uc 1 _Hours 1 0 `uc 1 _Minutes 1 1 `uc 1 _Seconds 1 2 `uc 1 _Year 1 3 `uc 1 _Month 1 4 `uc 1 _Day 1 5 ]
-"48 C:\Users\lenovo\MPLABXProjects\SmartHome.X\main.c
-[v _RealTimeClockDS1307 RealTimeClockDS1307 `S1638  1 e 6 0 ]
-"53
+[s S1692 . 6 `uc 1 _Hours 1 0 `uc 1 _Minutes 1 1 `uc 1 _Seconds 1 2 `uc 1 _Year 1 3 `uc 1 _Month 1 4 `uc 1 _Day 1 5 ]
+"9 C:\Users\lenovo\MPLABXProjects\SmartHome.X\main.c
+[v _RealTimeClockDS1307 RealTimeClockDS1307 `S1692  1 e 6 0 ]
+"10
 [v _U4RecValue U4RecValue `uc  1 e 1 0 ]
 [v _U5RecValue U5RecValue `uc  1 e 1 0 ]
+"11
+[v _TC74_A7_TempValue TC74_A7_TempValue `uc  1 e 1 0 ]
 [s S489 . 1 `uc 1 perr 1 0 :1:0 
 `uc 1 ferr 1 0 :1:1 
 `uc 1 oerr 1 0 :1:2 
@@ -643,33 +679,46 @@ I2C_NULL 5
 "165
 [v _I2C_Status I2C_Status `S820  1 e 36 0 ]
 "10 C:\Users\lenovo\MPLABXProjects\SmartHome.X\Modules/RealTimeClockDS1307/RealTimeClockDS1307.c
-[v _RealTimeClockDS1307@RealTimeClockDS1307$F1653 RealTimeClockDS1307 `S1638  1 s 6 RealTimeClockDS1307 ]
+[v _RealTimeClockDS1307@RealTimeClockDS1307$F1707 RealTimeClockDS1307 `S1692  1 s 6 RealTimeClockDS1307 ]
 "13
 [v _RealTimeClockDS1307_Pack RealTimeClockDS1307_Pack `[18]uc  1 s 18 RealTimeClockDS1307_Pack ]
-"54 C:\Users\lenovo\MPLABXProjects\SmartHome.X\main.c
+"213 C:\Users\lenovo\MPLABXProjects\SmartHome.X/mcc_generated_files/i2c_master.h
+[v _MSSP_InterruptHandler MSSP_InterruptHandler `*.37(v  1 e 2 0 ]
+"13 C:\Users\lenovo\MPLABXProjects\SmartHome.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"85
+"43
 } 0
-"50 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/mcc.c
+"9 C:\Users\lenovo\MPLABXProjects\SmartHome.X\Modules/TemSensor_TC74/TemSensor_TC74.c
+[v _TempSensor_TC74_Read_Temp TempSensor_TC74_Read_Temp `(uc  1 e 1 0 ]
+{
+[v TempSensor_TC74_Read_Temp@TC74_Address TC74_Address `uc  1 a 1 wreg ]
+"10
+[v TempSensor_TC74_Read_Temp@TC74_TempValue TC74_TempValue `uc  1 a 1 13 ]
+"9
+[v TempSensor_TC74_Read_Temp@TC74_Address TC74_Address `uc  1 a 1 wreg ]
+[v TempSensor_TC74_Read_Temp@TC74_Address TC74_Address `uc  1 a 1 12 ]
+"14
+} 0
+"4 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
 {
-"58
+"11
 } 0
 "55 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
 {
 "94
 } 0
-"60 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/mcc.c
+"13 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
 {
-"66
+"19
 } 0
 "52 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
 {
-"56
+"66
 } 0
 "167 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/i2c_master.c
 [v _I2C_Initialize I2C_Initialize `(v  1 e 1 0 ]
@@ -700,9 +749,9 @@ I2C_NULL 5
 "167
 } 0
 "16 C:\Users\lenovo\MPLABXProjects\SmartHome.X\Modules/RealTimeClockDS1307/RealTimeClockDS1307.h
-[s S1638 . 6 `uc 1 _Hours 1 0 `uc 1 _Minutes 1 1 `uc 1 _Seconds 1 2 `uc 1 _Year 1 3 `uc 1 _Month 1 4 `uc 1 _Day 1 5 ]
+[s S1692 . 6 `uc 1 _Hours 1 0 `uc 1 _Minutes 1 1 `uc 1 _Seconds 1 2 `uc 1 _Year 1 3 `uc 1 _Month 1 4 `uc 1 _Day 1 5 ]
 "16 C:\Users\lenovo\MPLABXProjects\SmartHome.X\Modules/RealTimeClockDS1307/RealTimeClockDS1307.c
-[v _RealTimeClockDS1307_Get_Date_Time RealTimeClockDS1307_Get_Date_Time `(S1638  1 e 6 0 ]
+[v _RealTimeClockDS1307_Get_Date_Time RealTimeClockDS1307_Get_Date_Time `(S1692  1 e 6 0 ]
 {
 "25
 } 0
@@ -878,10 +927,10 @@ I2C_NULL 5
 {
 "645
 } 0
-"58 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/interrupt_manager.c
-[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `IIH(v  1 e 1 0 ]
+"68 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/interrupt_manager.c
+[v _INTERRUPT_InterruptManagerHigh INTERRUPT_InterruptManagerHigh `IIH(v  1 e 1 0 ]
 {
-"80
+"83
 } 0
 "318 C:\Users\lenovo\MPLABXProjects\SmartHome.X\mcc_generated_files/i2c_master.c
 [v _I2C_MasterIsr I2C_MasterIsr `(v  1 s 1 I2C_MasterIsr ]

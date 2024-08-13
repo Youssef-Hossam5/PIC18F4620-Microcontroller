@@ -1,4 +1,4 @@
-    /**
+/**
   I2C Generated Example Driver File
 
   @Company

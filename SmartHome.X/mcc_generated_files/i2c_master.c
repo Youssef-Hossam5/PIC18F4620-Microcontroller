@@ -166,7 +166,7 @@ i2c_status_t I2C_Status = {0};
 
 void I2C_Initialize()
 {
-    SSPSTAT = 0x00;
+    SSPSTAT = 0x80;
     SSPCON1 = 0x08;
     SSPCON2 = 0x00;
     SSPADD  = 0x27;
@@ -349,7 +349,7 @@ static i2c_fsm_states_t I2C_DO_SEND_ADR_READ(void)
 static i2c_fsm_states_t I2C_DO_SEND_ADR_WRITE(void)
 {
     I2C_Status.addressNackCheck = 1;
-    I2C_MasterSendTxData((uint8_t) (I2C_Status.address ));
+    I2C_MasterSendTxData((uint8_t) (I2C_Status.address));
     return I2C_TX;
 }
 
@@ -545,7 +545,7 @@ static inline bool I2C_MasterOpen(void)
 {
     if(!SSPCON1bits.SSPEN)
     {
-        SSPSTAT = 0x00;
+        SSPSTAT = 0x80;
         SSPCON1 = 0x08;
         SSPCON2 = 0x00;
         SSPADD = 0x27;

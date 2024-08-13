@@ -28,6 +28,11 @@
                      projectFiles="true">
         <itemPath>Modules/RealTimeClockDS1307/RealTimeClockDS1307.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="TemSensor_TC74"
+                     displayName="TemSensor_TC74"
+                     projectFiles="true">
+        <itemPath>Modules/TemSensor_TC74/TemSensor_TC74.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="UART_LoggingDebugData"
                      displayName="UART_LoggingDebugData"
                      projectFiles="true">
@@ -65,6 +70,11 @@
                      projectFiles="true">
         <itemPath>Modules/RealTimeClockDS1307/RealTimeClockDS1307.c</itemPath>
       </logicalFolder>
+      <logicalFolder name="TemSensor_TC74"
+                     displayName="TemSensor_TC74"
+                     projectFiles="true">
+        <itemPath>Modules/TemSensor_TC74/TemSensor_TC74.c</itemPath>
+      </logicalFolder>
       <logicalFolder name="UART_LoggingDebugData"
                      displayName="UART_LoggingDebugData"
                      projectFiles="true">
@@ -84,6 +94,7 @@
     <Elem>Modules/RealTimeClockDS1307</Elem>
     <Elem>Modules/UART_LoggingDebugData</Elem>
     <Elem>Modules/EEPROM_24C02C</Elem>
+    <Elem>Modules/TemSensor_TC74</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

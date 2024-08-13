@@ -35,27 +35,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6067
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 6067: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
 [v _RCONbits `VS259 ~T0 @X0 0 e@4048 ]
+"3539
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 3539:     struct {
+[s S134 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S134 . CCP2IP TMR3IP HLVDIP BCLIP EEIP C2IP C1IP OSCFIP ]
+"3549
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 3549:     struct {
+[s S135 :2 `uc 1 :1 `uc 1 ]
+[n S135 . . LVDIP ]
+"3553
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 3553:     struct {
+[s S136 :6 `uc 1 :1 `uc 1 ]
+[n S136 . . CMIP ]
+"3538
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 3538: typedef union {
+[u S133 `S134 1 `S135 1 `S136 1 ]
+[n S133 . . . . ]
+"3558
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 3558: extern volatile IPR2bits_t IPR2bits __attribute__((address(0xFA2)));
+[v _IPR2bits `VS133 ~T0 @X0 0 e@4002 ]
+"3302
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 3302:     struct {
+[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S123 . TMR1IP TMR2IP CCP1IP SSPIP TXIP RCIP ADIP PSPIP ]
+"3312
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 3312:     struct {
+[s S124 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S124 . . TX1IP RC1IP ]
+"3301
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 3301: typedef union {
+[u S122 `S123 1 `S124 1 ]
+[n S122 . . . ]
+"3318
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 3318: extern volatile IPR1bits_t IPR1bits __attribute__((address(0xF9F)));
+[v _IPR1bits `VS122 ~T0 @X0 0 e@3999 ]
 [t ~ __interrupt . k ]
 [t T40 __interrupt ]
-"7049
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7049:     struct {
-[s S297 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S297 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"7059
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7059:     struct {
-[s S298 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S298 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"7069
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7069:     struct {
-[s S299 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S299 . . GIEL GIEH ]
-"7048
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7048: typedef union {
-[u S296 `S297 1 `S298 1 `S299 1 ]
-[n S296 . . . . ]
-"7075
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 7075: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS296 ~T0 @X0 0 e@4082 ]
 "3379
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k20.h: 3379:     struct {
 [s S126 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -577,80 +592,66 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _INTERRUPT_Initialize ]
 [f ]
 "55
-[; ;mcc_generated_files/interrupt_manager.c: 55:     RCONbits.IPEN = 0;
-[e = . . _RCONbits 5 7 -> -> 0 `i `uc ]
-"56
-[; ;mcc_generated_files/interrupt_manager.c: 56: }
+[; ;mcc_generated_files/interrupt_manager.c: 55:     RCONbits.IPEN = 1;
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
+"60
+[; ;mcc_generated_files/interrupt_manager.c: 60:     IPR2bits.BCLIP = 1;
+[e = . . _IPR2bits 0 3 -> -> 1 `i `uc ]
+"63
+[; ;mcc_generated_files/interrupt_manager.c: 63:     IPR1bits.SSPIP = 1;
+[e = . . _IPR1bits 0 3 -> -> 1 `i `uc ]
+"66
+[; ;mcc_generated_files/interrupt_manager.c: 66: }
 [e :UE 307 ]
 }
-[v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
-"58
-[; ;mcc_generated_files/interrupt_manager.c: 58: void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
-[v _INTERRUPT_InterruptManager `(v ~T40 @X0 1 ef ]
-"59
-[; ;mcc_generated_files/interrupt_manager.c: 59: {
-{
-[e :U _INTERRUPT_InterruptManager ]
-[f ]
-"61
-[; ;mcc_generated_files/interrupt_manager.c: 61:     if(INTCONbits.PEIE == 1)
-[e $ ! == -> . . _INTCONbits 1 6 `i -> 1 `i 309  ]
-"62
-[; ;mcc_generated_files/interrupt_manager.c: 62:     {
-{
-"63
-[; ;mcc_generated_files/interrupt_manager.c: 63:         if(PIE2bits.BCLIE == 1 && PIR2bits.BCLIF == 1)
-[e $ ! && == -> . . _PIE2bits 0 3 `i -> 1 `i == -> . . _PIR2bits 0 3 `i -> 1 `i 310  ]
-"64
-[; ;mcc_generated_files/interrupt_manager.c: 64:         {
-{
-"65
-[; ;mcc_generated_files/interrupt_manager.c: 65:             MSSP_InterruptHandler();
-[e ( *U _MSSP_InterruptHandler ..  ]
-"66
-[; ;mcc_generated_files/interrupt_manager.c: 66:         }
-}
-[e $U 311  ]
-"67
-[; ;mcc_generated_files/interrupt_manager.c: 67:         else if(PIE1bits.SSPIE == 1 && PIR1bits.SSPIF == 1)
-[e :U 310 ]
-[e $ ! && == -> . . _PIE1bits 0 3 `i -> 1 `i == -> . . _PIR1bits 0 3 `i -> 1 `i 312  ]
+[v $root$_INTERRUPT_InterruptManagerHigh `(v ~T0 @X0 0 e ]
 "68
-[; ;mcc_generated_files/interrupt_manager.c: 68:         {
-{
+[; ;mcc_generated_files/interrupt_manager.c: 68: void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManagerHigh (void)
+[v _INTERRUPT_InterruptManagerHigh `(v ~T40 @X0 1 ef ]
 "69
-[; ;mcc_generated_files/interrupt_manager.c: 69:             MSSP_InterruptHandler();
-[e ( *U _MSSP_InterruptHandler ..  ]
-"70
-[; ;mcc_generated_files/interrupt_manager.c: 70:         }
-}
-[e $U 313  ]
+[; ;mcc_generated_files/interrupt_manager.c: 69: {
+{
+[e :U _INTERRUPT_InterruptManagerHigh ]
+[f ]
 "71
-[; ;mcc_generated_files/interrupt_manager.c: 71:         else
-[e :U 312 ]
+[; ;mcc_generated_files/interrupt_manager.c: 71:     if(PIE2bits.BCLIE == 1 && PIR2bits.BCLIF == 1)
+[e $ ! && == -> . . _PIE2bits 0 3 `i -> 1 `i == -> . . _PIR2bits 0 3 `i -> 1 `i 309  ]
 "72
-[; ;mcc_generated_files/interrupt_manager.c: 72:         {
+[; ;mcc_generated_files/interrupt_manager.c: 72:     {
 {
+"73
+[; ;mcc_generated_files/interrupt_manager.c: 73:         MSSP_InterruptHandler();
+[e ( *U _MSSP_InterruptHandler ..  ]
 "74
-[; ;mcc_generated_files/interrupt_manager.c: 74:         }
+[; ;mcc_generated_files/interrupt_manager.c: 74:     }
 }
-[e :U 313 ]
-[e :U 311 ]
+[e $U 310  ]
 "75
-[; ;mcc_generated_files/interrupt_manager.c: 75:     }
-}
-[e $U 314  ]
-"76
-[; ;mcc_generated_files/interrupt_manager.c: 76:     else
+[; ;mcc_generated_files/interrupt_manager.c: 75:     else if(PIE1bits.SSPIE == 1 && PIR1bits.SSPIF == 1)
 [e :U 309 ]
-"77
-[; ;mcc_generated_files/interrupt_manager.c: 77:     {
+[e $ ! && == -> . . _PIE1bits 0 3 `i -> 1 `i == -> . . _PIR1bits 0 3 `i -> 1 `i 311  ]
+"76
+[; ;mcc_generated_files/interrupt_manager.c: 76:     {
 {
-"79
-[; ;mcc_generated_files/interrupt_manager.c: 79:     }
+"77
+[; ;mcc_generated_files/interrupt_manager.c: 77:         MSSP_InterruptHandler();
+[e ( *U _MSSP_InterruptHandler ..  ]
+"78
+[; ;mcc_generated_files/interrupt_manager.c: 78:     }
 }
-[e :U 314 ]
+[e $U 312  ]
+"79
+[; ;mcc_generated_files/interrupt_manager.c: 79:     else
+[e :U 311 ]
 "80
-[; ;mcc_generated_files/interrupt_manager.c: 80: }
+[; ;mcc_generated_files/interrupt_manager.c: 80:     {
+{
+"82
+[; ;mcc_generated_files/interrupt_manager.c: 82:     }
+}
+[e :U 312 ]
+[e :U 310 ]
+"83
+[; ;mcc_generated_files/interrupt_manager.c: 83: }
 [e :UE 308 ]
 }

@@ -1,11 +1,11 @@
 /**
-  Generated Interrupt Manager Source File
+  Generated Interrupt Manager Header File
 
   @Company:
     Microchip Technology Inc.
 
   @File Name:
-    interrupt_manager.c
+    interrupt_manager.h
 
   @Summary:
     This is the Interrupt Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
@@ -17,7 +17,7 @@
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.8
         Device            :  PIC18F46K20
-        Driver Version    :  2.04
+        Driver Version    :  2.12
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.36 and above or later
         MPLAB 	          :  MPLAB X 6.00
@@ -51,33 +51,37 @@
 
 void  INTERRUPT_Initialize (void)
 {
-    // Disable Interrupt Priority Vectors (16CXXX Compatibility Mode)
-    RCONbits.IPEN = 0;
+    // Enable Interrupt Priority Vectors
+    RCONbits.IPEN = 1;
+
+    // Assign peripheral interrupt priority vectors
+
+    // BCLI - high priority
+    IPR2bits.BCLIP = 1;
+
+    // SSPI - high priority
+    IPR1bits.SSPIP = 1;
+
+
 }
 
-void __interrupt() INTERRUPT_InterruptManager (void)
+void __interrupt() INTERRUPT_InterruptManagerHigh (void)
 {
-    // interrupt handler
-    if(INTCONbits.PEIE == 1)
+   // interrupt handler
+    if(PIE2bits.BCLIE == 1 && PIR2bits.BCLIF == 1)
     {
-        if(PIE2bits.BCLIE == 1 && PIR2bits.BCLIF == 1)
-        {
-            MSSP_InterruptHandler();
-        } 
-        else if(PIE1bits.SSPIE == 1 && PIR1bits.SSPIF == 1)
-        {
-            MSSP_InterruptHandler();
-        } 
-        else
-        {
-            //Unhandled Interrupt
-        }
-    }      
+        MSSP_InterruptHandler();
+    }
+    else if(PIE1bits.SSPIE == 1 && PIR1bits.SSPIF == 1)
+    {
+        MSSP_InterruptHandler();
+    }
     else
     {
         //Unhandled Interrupt
     }
 }
+
 /**
  End of File
 */

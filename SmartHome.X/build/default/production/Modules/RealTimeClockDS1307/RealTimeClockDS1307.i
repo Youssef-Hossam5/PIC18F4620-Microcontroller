@@ -4941,9 +4941,9 @@ unsigned char __t3rd16on(void);
 # 50 "Modules/RealTimeClockDS1307/../../mcc_generated_files/mcc.h" 2
 
 # 1 "Modules/RealTimeClockDS1307/../../mcc_generated_files/pin_manager.h" 1
-# 110 "Modules/RealTimeClockDS1307/../../mcc_generated_files/pin_manager.h"
+# 121 "Modules/RealTimeClockDS1307/../../mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 122 "Modules/RealTimeClockDS1307/../../mcc_generated_files/pin_manager.h"
+# 133 "Modules/RealTimeClockDS1307/../../mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "Modules/RealTimeClockDS1307/../../mcc_generated_files/mcc.h" 2
 
@@ -5106,7 +5106,7 @@ char *tempnam(const char *, const char *);
 # 54 "Modules/RealTimeClockDS1307/../../mcc_generated_files/mcc.h" 2
 
 # 1 "Modules/RealTimeClockDS1307/../../mcc_generated_files/interrupt_manager.h" 1
-# 110 "Modules/RealTimeClockDS1307/../../mcc_generated_files/interrupt_manager.h"
+# 132 "Modules/RealTimeClockDS1307/../../mcc_generated_files/interrupt_manager.h"
 void INTERRUPT_Initialize (void);
 # 55 "Modules/RealTimeClockDS1307/../../mcc_generated_files/mcc.h" 2
 
